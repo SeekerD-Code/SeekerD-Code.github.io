@@ -34,9 +34,39 @@ header {
     filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.2));
 }
 
+/* STRUTTURA AFFIANCATA (BANNER + CONTENUTO) */
+.main-layout {
+    max-width: 1200px;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    padding: 0 20px;
+}
+
+/* BANNER LATERALE (STILE SKYSCRAPER) */
+.ads-sidebar {
+    width: 160px; /* Larghezza standard dei banner verticali */
+    min-width: 160px;
+    background-color: #e0e4e8;
+    border: 1px dashed #999;
+    color: #666;
+    text-align: center;
+    padding: 20px 10px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    min-height: 600px; /* Altezza tipica dei banner verticali */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* BANNER IN FONDO */
 .ads-banner {
     max-width: 728px;
-    margin: 20px auto;
+    margin: 40px auto;
     background-color: #e0e4e8;
     border: 1px dashed #999;
     color: #666;
@@ -53,19 +83,17 @@ header {
 }
 
 .container {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 10px 20px;
+    flex-grow: 1; /* Fa occupare al contenuto tutto lo spazio rimasto */
+    padding: 0;
 }
 
 .mission {
-    max-width: 800px;
-    margin: 20px auto 40px auto;
     padding: 20px;
     background: white;
     border-left: 5px solid var(--accent);
     border-radius: 4px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    margin-bottom: 30px;
 }
 
 .category-title {
@@ -120,4 +148,16 @@ footer {
     margin-top: 40px;
     font-size: 0.9rem;
     color: #777;
+}
+
+/* ADATTAMENTO PER SMARTPHONE (RESPONSIVE) */
+@media (max-width: 768px) {
+    .main-layout {
+        flex-direction: column; /* Incolonna il banner sopra il contenuto */
+    }
+    .ads-sidebar {
+        width: 100%;
+        min-height: 60px; /* Diventa un banner orizzontale sottile sui telefoni */
+        box-sizing: border-box;
+    }
 }
