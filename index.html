@@ -5,60 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Seeker D. Code | Vetrina App</title>
     
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
-    <!-- Collegamento al CSS separato -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header>
-        <!-- Carica l'immagine logo.png dal tuo repository -->
         <img src="logo.png" alt="Seeker d. Code Logo" class="brand-logo">
     </header>
 
-    <!-- BANNER PUBBLICITARIO SUPERIORE -->
-    <div class="ads-banner" id="ad-top"></div>
+    <div class="main-layout">
+        
+        <aside class="ads-sidebar" id="ad-top">
+            </aside>
 
-    <div class="container">
-        <!-- La tua Mission -->
-        <div class="mission">
-            <h2 id="mission-title">La nostra filosofia</h2>
-            <p id="mission-text">Sviluppiamo applicazioni web e mobile mettendo al centro l'esperienza dell'utente. Crediamo in un web pulito ed efficiente: i nostri progetti sono ottimizzati per consumare pochissimi dati e sono studiati per integrare inserzioni discrete, <strong>rifiutando totalmente pubblicità invasive, pop-up o interruzioni fastidiose</strong> che rovinano l'esperienza d'uso.</p>
-        </div>
-
-        <!-- Categoria Utility -->
-        <h2 class="category-title" id="cat-utility">Utility & Produttività</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>Live Speech Text</h3>
-                <p id="app1-text">Strumento immediato e leggero per la trascrizione vocale dal vivo. Parla e guarda il testo generarsi in tempo reale, pronto per essere copiato o condiviso.</p>
-                <a href="https://seekerdcode.it/livespeechtext/" class="btn" id="app1-btn">Apri l'App</a>
+        <main class="container">
+            <div class="mission">
+                <h2 id="mission-title">La nostra filosofia</h2>
+                <p id="mission-text">Sviluppiamo applicazioni web e mobile mettendo al centro l'esperienza dell'utente. Crediamo in un web pulito ed efficiente: i nostri progetti sono ottimizzati per consumare pochissimi dati e sono studiati per integrare inserzioni discrete, <strong>rifiutando totalmente pubblicità invasive, pop-up o interruzioni fastidiose</strong> che rovinano l'esperienza d'uso.</p>
             </div>
-        </div>
 
-        <!-- Categoria Intrattenimento -->
-        <h2 class="category-title" id="cat-entertainment">Intrattenimento & Eventi</h2>
-        <div class="grid">
-            <div class="card" style="opacity: 0.7;">
-                <h3>EpicPose</h3>
-                <p id="app2-text">La guida definitiva per consultare eventi, fiere del fumetto e gaming in tutta Italia. Resta sempre aggiornato sulle date e i programmi. (In Sviluppo)</p>
-                <span id="app2-status" style="font-size: 0.9rem; color: #777; font-style: italic;">Prossimamente</span>
+            <h2 class="category-title" id="cat-utility">Utility & Produttività</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Live Speech Text</h3>
+                    <p id="app1-text">Strumento immediato e leggero per la trascrizione vocale dal vivo. Parla e guarda il testo generarsi in tempo reale, pronto per essere copiato o condiviso.</p>
+                    <a href="https://seekerdcode.it/livespeechtext/" class="btn" id="app1-btn">Apri l'App</a>
+                </div>
             </div>
-        </div>
+
+            <h2 class="category-title" id="cat-entertainment">Intrattenimento & Eventi</h2>
+            <div class="grid">
+                <div class="card" style="opacity: 0.7;">
+                    <h3>EpicPose</h3>
+                    <p id="app2-text">La guida definitiva per consultare eventi, fiere del fumetto e gaming in tutta Italia. Resta sempre aggiornato sulle date e i programmi. (In Sviluppo)</p>
+                    <span id="app2-status" style="font-size: 0.9rem; color: #777; font-style: italic;">Prossimamente</span>
+                </div>
+            </div>
+        </main>
+
     </div>
 
-    <!-- BANNER PUBBLICITARIO INFERIORE -->
-    <div class="ads-banner" id="ad-bottom" style="margin-top: 40px;"></div>
+    <div class="ads-banner" id="ad-bottom"></div>
 
     <footer>
         &copy; 2026 Seeker d. Code. <span id="footer-rights">Tutti i diritti riservati.</span>
     </footer>
 
-    <!-- Collegamento al JavaScript separato -->
     <script src="script.js"></script>
 </body>
 </html>
