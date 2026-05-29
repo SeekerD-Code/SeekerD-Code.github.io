@@ -5,44 +5,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Seeker D. Code | Vetrina App</title>
     
+    <!-- Google Fonts: Fredericka the Great & Poppins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
+    <!-- Collegamento al file CSS esterno -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header>
-        <img src="logo.png" alt="Seeker d. Code Logo" class="brand-logo">
+        <div style="display: flex; justify-content: center; align-items: center;">
+            <img src="SD.C - logo orizzontale.png" alt="Seeker D. Code" 
+			style="width: 400px; height: auto; object-fit: contain;
+			filter: drop-shadow(15px 15px 0px #fff) 
+					drop-shadow(-15px -15px 0px #fff) 
+					drop-shadow(15px -15px 0px #fff) 
+					drop-shadow(-15px 15px 0px #fff) 
+					drop-shadow(0px 0px 10px rgba(255,255,255,1));">
+
+        </div>
     </header>
 
     <div class="main-layout">
         
-        <aside class="ads-sidebar" id="ad-top">
-            </aside>
+        <aside class="ads-sidebar" id="ad-top"></aside>
 
         <main class="container">
             <div class="mission">
-                <h2 id="mission-title">La nostra filosofia</h2>
-                <p id="mission-text">Sviluppiamo applicazioni web e mobile mettendo al centro l'esperienza dell'utente. Crediamo in un web pulito ed efficiente: i nostri progetti sono ottimizzati per consumare pochissimi dati e sono studiati per integrare inserzioni discrete, <strong>rifiutando totalmente pubblicità invasive, pop-up o interruzioni fastidiose</strong> che rovinano l'esperienza d'uso.</p>
+                <h2 id="mission-title">La filosofia di Seeker D. Code☁️</h2>
+                <p id="mission-text">Sviluppo applicazioni web e mobile mettendo al centro l'esperienza dell'utente. Credo in un web pulito ed efficiente: i miei progetti sono ottimizzati per consumare pochissimi dati e sono studiati per integrare inserzioni discrete, <strong>rifiutando totalmente pubblicità invasive, pop-up o interruzioni fastidiose</strong> che rovinano l'esperienza d'uso.</p>
             </div>
 
             <h2 class="category-title" id="cat-utility">Utility & Produttività</h2>
             <div class="grid">
+                
+                <!-- SCHEDA LIVE SPEECH TEXT CON LOGO E FONT PERSONALIZZATO -->
                 <div class="card">
-                    <h3>Live Speech Text</h3>
+                    <div class="app-logo-container">
+                        <!-- Puntamento diretto alla cartella del tuo progetto Flutter -->
+                        <img src="icon-512.png" alt="Live Speech Text Logo" class="app-icon-img" style="width: 50px; height: 50px; object-fit: contain;">
+                        <h3 class="font-speech-spec">Live Speech Text</h3>
+                    </div>
                     <p id="app1-text">Strumento immediato e leggero per la trascrizione vocale dal vivo. Parla e guarda il testo generarsi in tempo reale, pronto per essere copiato o condiviso.</p>
                     <a href="https://seekerdcode.it/livespeechtext/" class="btn" id="app1-btn">Apri l'App</a>
                 </div>
+                
             </div>
 
-            <h2 class="category-title" id="cat-entertainment">Intrattenimento & Eventi</h2>
+            <h2 class="category-title" id="cat-upcoming">Disponibile a breve</h2>
             <div class="grid">
-                <div class="card" style="opacity: 0.7;">
+                <div class="card" style="opacity: 0.75;">
                     <h3>EpicPose</h3>
-                    <p id="app2-text">La guida definitiva per consultare eventi, fiere del fumetto e gaming in tutta Italia. Resta sempre aggiornato sulle date e i programmi. (In Sviluppo)</p>
-                    <span id="app2-status" style="font-size: 0.9rem; color: #777; font-style: italic;">Prossimamente</span>
+                    <p id="app2-text">La guida definitiva per consultare eventi, fiere del fumetto e gaming in tutta Italia. L'applicazione perfetta per non perdere nessuna data, scoprire i programmi completi e pianificare le tue tappe nel mondo dei comics e dell'intrattenimento.</p>
+                    <span id="app2-status" style="font-size: 0.85rem; color: var(--accent-sky); font-style: italic; font-weight: 600;">Prossimamente</span>
                 </div>
             </div>
         </main>
@@ -52,9 +69,25 @@
     <div class="ads-banner" id="ad-bottom"></div>
 
     <footer>
-        &copy; 2026 Seeker d. Code. <span id="footer-rights">Tutti i diritti riservati.</span>
-    </footer>
+        &copy; 2026 Seeker d. Code. &bull; <span id="footer-rights">Tutti i diritti riservati.</span>
+		
+	<div id="google_translate_element"></div>
 
-    <script src="script.js"></script>
+		<script type="text/javascript">
+			function googleTranslateElementInit() {
+			new google.translate.TranslateElement({
+			pageLanguage: 'it', // La lingua di partenza del tuo sito
+			includedLanguages: 'en,es,fr,zh-CN,de,ja,ru', // Le lingue che vuoi rendere disponibili (es. inglese, spagnolo, francese, cinese, tedesco, giapponese, russo)
+			layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+				}, 'google_translate_element');
+			}
+		</script>
+	<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>	
+    
+	</footer>
+
+    <!-- Collegamento al file JavaScript esterno -->
+    /*<script src="script.js"></script>*/
+	<script src="banners.js"></script>
 </body>
 </html>

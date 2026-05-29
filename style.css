@@ -1,24 +1,27 @@
 :root {
-    --primary: #2a2d34;
-    --accent: #00adb5;
-    --bg: #f4f6f9;
-    --text: #333;
-    --font-family: 'Poppins', 'Segoe UI', sans-serif;
+    --bg-sunny: #fdfbf7;      
+    --bg-card: #ffffff;       
+    --accent-sun: #ffb703;    
+    --accent-sky: #219ebc;    
+    --text-dark: #2b2d42;     
+    --text-muted: #6c757d;    
+    --font-family: 'Poppins', sans-serif;
+    /* Font specifico dell'app Live Speech Text */
+    --font-speech-app: 'Fredericka the Great', serif;
 }
 
 body {
     font-family: var(--font-family);
     margin: 0;
     padding: 0;
-    background-color: var(--bg);
-    color: var(--text);
+    background-color: var(--bg-sunny);
+    color: var(--text-dark);
     line-height: 1.6;
+    background-image: radial-gradient(circle at 50% -10%, rgba(255, 183, 3, 0.15), transparent 60%);
 }
 
 header {
-    background-color: var(--primary);
-    color: white;
-    padding: 40px 20px;
+    padding: 60px 20px;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -26,56 +29,45 @@ header {
     justify-content: center;
 }
 
-.brand-logo {
-    max-width: 180px; 
-    height: auto;
-    display: block;
-    margin: 0 auto;
-    filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.2));
-}
-
-/* STRUTTURA AFFIANCATA (BANNER + CONTENUTO) */
 .main-layout {
-    max-width: 1200px;
-    margin: 20px auto;
+    max-width: 1500px;
+    margin: 0 auto 40px auto;
     display: flex;
     flex-direction: row;
-    gap: 20px;
+    gap: 30px;
     padding: 0 20px;
 }
 
-/* BANNER LATERALE (STILE SKYSCRAPER) */
 .ads-sidebar {
-    width: 160px; /* Larghezza standard dei banner verticali */
+    width: 160px;
     min-width: 160px;
-    background-color: #e0e4e8;
-    border: 1px dashed #999;
-    color: #666;
+    background: rgba(255, 183, 3, 0.03);
+    border: 1px dashed rgba(255, 183, 3, 0.4);
+    color: var(--text-muted);
     text-align: center;
     padding: 20px 10px;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 1px;
-    border-radius: 4px;
-    min-height: 600px; /* Altezza tipica dei banner verticali */
+    border-radius: 16px;
+    min-height: 600px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-/* BANNER IN FONDO */
 .ads-banner {
     max-width: 728px;
     margin: 40px auto;
-    background-color: #e0e4e8;
-    border: 1px dashed #999;
-    color: #666;
+    background: rgba(255, 183, 3, 0.03);
+    border: 1px dashed rgba(255, 183, 3, 0.4);
+    color: var(--text-muted);
     text-align: center;
     padding: 15px;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 1px;
-    border-radius: 4px;
+    border-radius: 16px;
     min-height: 40px;
     display: flex;
     align-items: center;
@@ -83,81 +75,196 @@ header {
 }
 
 .container {
-    flex-grow: 1; /* Fa occupare al contenuto tutto lo spazio rimasto */
+    flex-grow: 1;
     padding: 0;
 }
 
+/* ☁️ FILOSOFIA: NUVOLA ASIMMETRICA "GEAR 5" ☁️ */
 .mission {
-    padding: 20px;
-    background: white;
-    border-left: 5px solid var(--accent);
-    border-radius: 4px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    margin-bottom: 30px;
+    padding: 50px;
+    background: #ffffff;
+    border-radius: 60% 40% 70% 30% / 50% 60% 40% 50%;
+    /*border: 4px solid rgba(255, 255, 255, 0.95);*/
+    /*outline: 1px solid rgba(33, 158, 188, 0.1);*/
+    box-shadow: 
+        0 0 30px 10px rgba(255, 255, 255, 1),   /* Bagliore bianco interno e compatto */
+        0 0 40px 20px rgba(255, 255, 255, 0.9),  /* Alone bianco intermedio */
+        0 25px 50px rgba(33, 158, 188, 0.04),    /* L'ombra strutturale azzurrina originale tenuta leggerissima */
+        0 0 20px rgba(255, 255, 255, 0.9) inset; /* Morbidezza interna alla nuvola */
+    margin-bottom: 50px;
+    text-align: center;
+    position: relative;
+    animation: floatCloudOrganic 12s ease-in-out infinite;
+}
+
+.mission::before, .mission::after {
+    content: '';
+    position: absolute;
+    background: #ffffff;
+    border-radius: 50%;
+    z-index: -1;
+}
+.mission::before {
+    width: 110px; height: 110px;
+    top: -40px; left: 8%;
+    box-shadow: 0 0 25px 10px rgba(255, 255, 255, 1),
+        0 0 20px 20px rgba(255, 255, 255, 0.9),
+        -10px 10px 30px rgba(33, 158, 188, 0.02); /* Mantengo l'ombra originale ma quasi invisibile */
+}
+.mission::after {
+    width: 130px; height: 130px;
+    bottom: -50px; right: 5%;
+    box-shadow: 0 0 25px 10px rgba(255, 255, 255, 1),
+        0 0 20px 20px rgba(255, 255, 255, 0.9),
+        10px 10px 30px rgba(33, 158, 188, 0.02); /* Mantengo l'ombra originale ma quasi invisibile */
+}
+
+@keyframes floatCloudOrganic {
+    0% { 
+        transform: translateY(0px) rotate(0deg); 
+        border-radius: 60% 40% 70% 30% / 50% 60% 40% 50%;
+    }
+    50% { 
+        transform: translateY(-6px) rotate(0.5deg); 
+        border-radius: 55% 45% 65% 35% / 45% 65% 35% 55%;
+    }
+    100% { 
+        transform: translateY(0px) rotate(0deg); 
+        border-radius: 60% 40% 70% 30% / 50% 60% 40% 50%;
+    }
 }
 
 .category-title {
-    color: var(--primary);
-    border-bottom: 2px solid var(--primary);
-    padding-bottom: 5px;
+    color: var(--text-dark);
+    font-size: 1.5rem;
+    font-weight: 700;
     margin-top: 40px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.category-title::after {
+    content: '';
+    flex-grow: 1;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent-sun), transparent);
 }
 
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-    margin-top: 20px;
+    gap: 25px;
+    margin-top: 25px;
 }
 
 .card {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-    transition: transform 0.2s;
+    background: var(--bg-card);
+    padding: 30px;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 20px; width: 40px; height: 4px;
+    background: var(--accent-sun);
+    border-radius: 0 0 4px 4px;
 }
 
 .card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-6px);
+    box-shadow: 0 15px 35px rgba(33, 158, 188, 0.12);
+    border-color: rgba(33, 158, 188, 0.2);
+}
+
+/* 🎤 STILIZZAZIONE LOGO E TITOLO LIVE SPEECH TEXT */
+.app-logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.app-icon {
+    width: 42px;
+    height: 42px;
+    background: linear-gradient(135deg, rgba(33, 158, 188, 0.1), rgba(255, 183, 3, 0.15));
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-sky);
 }
 
 .card h3 {
-    margin-top: 0;
-    color: var(--primary);
+    margin: 0;
+    color: var(--text-dark);
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+/* Classe specifica per il font dell'app */
+.font-speech-spec {
+    font-family: var(--font-speech-app);
+    font-size: 1.7rem !important; /* Leggermente più grande per esaltare i dettagli */
+    font-weight: 400 !important;  /* Forza il font a NON essere in grassetto */
+    letter-spacing: 0.5px;
+}
+
+.card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-top: 15px;
 }
 
 .btn {
     display: inline-block;
-    background-color: var(--accent);
+    background: linear-gradient(135deg, var(--accent-sun), #f5a600);
     color: white;
-    padding: 10px 15px;
+    padding: 12px 26px;
     text-decoration: none;
-    border-radius: 4px;
-    font-weight: bold;
-    margin-top: 10px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-top: 15px;
+    box-shadow: 0 6px 18px rgba(255, 183, 3, 0.3);
+    transition: all 0.2s;
 }
 
 .btn:hover {
-    opacity: 0.9;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(255, 183, 3, 0.4);
+    background: linear-gradient(135deg, #f5a600, var(--accent-sun));
 }
 
 footer {
     text-align: center;
     padding: 40px 20px;
-    margin-top: 40px;
-    font-size: 0.9rem;
-    color: #777;
+    margin-top: 60px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-/* ADATTAMENTO PER SMARTPHONE (RESPONSIVE) */
 @media (max-width: 768px) {
     .main-layout {
-        flex-direction: column; /* Incolonna il banner sopra il contenuto */
+        flex-direction: column;
     }
     .ads-sidebar {
         width: 100%;
-        min-height: 60px; /* Diventa un banner orizzontale sottile sui telefoni */
+        min-height: 60px;
         box-sizing: border-box;
+    }
+    .mission {
+        padding: 40px 20px;
+        border-radius: 30px !important; 
+    }
+    .mission::before, .mission::after {
+        display: none; 
     }
 }
