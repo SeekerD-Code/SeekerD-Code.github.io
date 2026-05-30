@@ -1,13 +1,15 @@
+/* ==========================================================================
+   1. CONFIGURAZIONE GENERALE & VARIABILI (Il cuore del sito)
+   ========================================================================== */
 :root {
     --bg-sunny: #fdfbf7;      
     --bg-card: #ffffff;       
     --accent-sun: #ffb703;    
-    --accent-sky: #219ebc;    
+    --accent-sky: #0047ff;    /* ⚡ Blu elettrico */
     --text-dark: #2b2d42;     
     --text-muted: #6c757d;    
     --font-family: 'Poppins', sans-serif;
-    /* Font specifico dell'app Live Speech Text */
-    --font-speech-app: 'Fredericka the Great', serif;
+    --font-speech-app: 'Fredericka the Great', serif; /* Font Live Speech Text */
 }
 
 body {
@@ -20,6 +22,19 @@ body {
     background-image: radial-gradient(circle at 50% -10%, rgba(255, 183, 3, 0.15), transparent 60%);
 }
 
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 60px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+
+/* ==========================================================================
+   2. STRUTTURA & LAYOUT (I contenitori principali su Desktop)
+   ========================================================================== */
 header {
     padding: 60px 20px;
     text-align: center;
@@ -38,6 +53,12 @@ header {
     padding: 0 20px;
 }
 
+.container {
+    flex-grow: 1;
+    padding: 0;
+}
+
+/* Blocchi sponsor / pubblicità */
 .ads-sidebar {
     width: 160px;
     min-width: 160px;
@@ -74,29 +95,26 @@ header {
     justify-content: center;
 }
 
-.container {
-    flex-grow: 1;
-    padding: 0;
-}
 
-/* ☁️ FILOSOFIA: NUVOLA ASIMMETRICA "GEAR 5" ☁️ */
+/* ==========================================================================
+   3. SEZIONE ALTA: NUVOLA DI IMPATTO ("GEAR 5")
+   ========================================================================== */
 .mission {
     padding: 50px;
     background: #ffffff;
     border-radius: 60% 40% 70% 30% / 50% 60% 40% 50%;
-    /*border: 4px solid rgba(255, 255, 255, 0.95);*/
-    /*outline: 1px solid rgba(33, 158, 188, 0.1);*/
     box-shadow: 
-        0 0 30px 10px rgba(255, 255, 255, 1),   /* Bagliore bianco interno e compatto */
-        0 0 40px 20px rgba(255, 255, 255, 0.9),  /* Alone bianco intermedio */
-        0 25px 50px rgba(33, 158, 188, 0.04),    /* L'ombra strutturale azzurrina originale tenuta leggerissima */
-        0 0 20px rgba(255, 255, 255, 0.9) inset; /* Morbidezza interna alla nuvola */
+        0 0 30px 10px rgba(255, 255, 255, 1),   
+        0 0 40px 20px rgba(255, 255, 255, 0.9),  
+        0 25px 50px rgba(0, 71, 255, 0.03),    
+        0 0 20px rgba(255, 255, 255, 0.9) inset; 
     margin-bottom: 50px;
     text-align: center;
     position: relative;
     animation: floatCloudOrganic 12s ease-in-out infinite;
 }
 
+/* Effetti di fumo della nuvola */
 .mission::before, .mission::after {
     content: '';
     position: absolute;
@@ -109,14 +127,14 @@ header {
     top: -40px; left: 8%;
     box-shadow: 0 0 25px 10px rgba(255, 255, 255, 1),
         0 0 20px 20px rgba(255, 255, 255, 0.9),
-        -10px 10px 30px rgba(33, 158, 188, 0.02); /* Mantengo l'ombra originale ma quasi invisibile */
+        -10px 10px 30px rgba(0, 71, 255, 0.02); 
 }
 .mission::after {
     width: 130px; height: 130px;
     bottom: -50px; right: 5%;
     box-shadow: 0 0 25px 10px rgba(255, 255, 255, 1),
         0 0 20px 20px rgba(255, 255, 255, 0.9),
-        10px 10px 30px rgba(33, 158, 188, 0.02); /* Mantengo l'ombra originale ma quasi invisibile */
+        10px 10px 30px rgba(0, 71, 255, 0.02);  
 }
 
 @keyframes floatCloudOrganic {
@@ -134,6 +152,11 @@ header {
     }
 }
 
+
+/* ==========================================================================
+   4. SEZIONE CENTRALE: GRIGLIA DELLE APPLICAZIONI (Stile Sindre Sorhus)
+   ========================================================================== */
+/* Titoli delle categorie */
 .category-title {
     color: var(--text-dark);
     font-size: 1.5rem;
@@ -143,7 +166,6 @@ header {
     align-items: center;
     gap: 15px;
 }
-
 .category-title::after {
     content: '';
     flex-grow: 1;
@@ -151,77 +173,120 @@ header {
     background: linear-gradient(90deg, var(--accent-sun), transparent);
 }
 
+/* Griglia e Link */
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); 
+    gap: 30px;
     margin-top: 25px;
 }
+.card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
 
+/* Struttura della singola Card */
 .card {
     background: var(--bg-card);
-    padding: 30px;
-    border-radius: 20px;
-    border: 1px solid rgba(0, 0, 0, 0.03);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    position: relative;
+    padding: 24px;
+    border-radius: 16px;
+    border: 1px solid rgba(0, 0, 0, 0.02);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    display: flex;
+    flex-direction: row; 
+    align-items: flex-start;
+    gap: 20px;
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    height: 100%; 
+    box-sizing: border-box;
 }
-
-.card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 20px; width: 40px; height: 4px;
-    background: var(--accent-sun);
-    border-radius: 0 0 4px 4px;
-}
-
 .card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 15px 35px rgba(33, 158, 188, 0.12);
-    border-color: rgba(33, 158, 188, 0.2);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0, 71, 255, 0.06); 
+    border-color: rgba(0, 71, 255, 0.15);         
+}
+.card-disabled {
+    opacity: 0.75;
 }
 
-/* 🎤 STILIZZAZIONE LOGO E TITOLO LIVE SPEECH TEXT */
+/* Testi interni alla Card */
+.card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: left; 
+}
+.card h3 {
+    margin: 0;
+    color: var(--text-dark);
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+.card p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* Font speciale per Live Speech Text */
+.font-speech-spec {
+    font-family: var(--font-speech-app);
+    font-size: 1.7rem !important; 
+    font-weight: 400 !important;  
+    letter-spacing: 0.5px;
+}
+
+/* Icone delle App */
 .app-logo-container {
     display: flex;
     align-items: center;
     gap: 12px;
     margin-bottom: 10px;
 }
-
-.app-icon {
-    width: 42px;
-    height: 42px;
-    background: linear-gradient(135deg, rgba(33, 158, 188, 0.1), rgba(255, 183, 3, 0.15));
-    border-radius: 12px;
+.app-icon-img, .app-icon-placeholder {
+    width: 64px;
+    height: 64px;
+    border-radius: 14px; 
+    object-fit: contain;
+    flex-shrink: 0; 
+}
+.app-icon-placeholder {
+    background: linear-gradient(135deg, rgba(0, 71, 255, 0.06), rgba(255, 183, 3, 0.1)); 
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 1.8rem;
+}
+
+/* Badge (Gratuito, Prossimamente, ecc.) */
+.badge-container {
+    display: flex;
+    gap: 8px;
+    margin-top: 4px;
+}
+.badge {
+    font-size: 0.72rem;
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-weight: 600;
+}
+.badge-free {
+    background-color: rgba(43, 45, 66, 0.05);
+    color: var(--text-dark);
+}
+.badge-platform {
+    background-color: rgba(0, 71, 255, 0.06); 
     color: var(--accent-sky);
 }
-
-.card h3 {
-    margin: 0;
-    color: var(--text-dark);
-    font-size: 1.3rem;
-    font-weight: 700;
+.badge-upcoming {
+    background-color: rgba(255, 183, 3, 0.12);
+    color: #d48800;
 }
 
-/* Classe specifica per il font dell'app */
-.font-speech-spec {
-    font-family: var(--font-speech-app);
-    font-size: 1.7rem !important; /* Leggermente più grande per esaltare i dettagli */
-    font-weight: 400 !important;  /* Forza il font a NON essere in grassetto */
-    letter-spacing: 0.5px;
-}
-
-.card p {
-    color: var(--text-muted);
-    font-size: 0.95rem;
-    margin-top: 15px;
-}
-
+/* Vecchio Bottone (Tenuto per sicurezza se usato altrove) */
 .btn {
     display: inline-block;
     background: linear-gradient(135deg, var(--accent-sun), #f5a600);
@@ -235,23 +300,38 @@ header {
     box-shadow: 0 6px 18px rgba(255, 183, 3, 0.3);
     transition: all 0.2s;
 }
-
 .btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 22px rgba(255, 183, 3, 0.4);
     background: linear-gradient(135deg, #f5a600, var(--accent-sun));
 }
 
-footer {
-    text-align: center;
-    padding: 40px 20px;
-    margin-top: 60px;
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    border-top: 1px solid rgba(0, 0, 0, 0.05);
+
+/* ==========================================================================
+   5. SEZIONE BASSA: IL RACCONTO / STORIA (Manifesto "COS'È SEEKER D. CODE")
+   ========================================================================== */
+.mission-story {
+    max-width: 1000px;      
+    margin: 0 auto 50px auto; 
+    text-align: left;      
+    padding: 0 20px;       
+    position: relative;    
+    z-index: 2;            
 }
 
+.mission-story p {
+    margin-bottom: 25px;   
+    color: var(--text-dark);
+    font-size: 1.05rem;    
+}
+
+
+/* ==========================================================================
+   6. RESPONSIVENESS & MOBILE (Tutte le modifiche per smartphone e tablet)
+   ========================================================================== */
+/* 📱 SMARTPHONE E TABLET (Sotto i 768px) */
 @media (max-width: 768px) {
+    /* Modifiche Struttura generale */
     .main-layout {
         flex-direction: column;
     }
@@ -260,11 +340,41 @@ footer {
         min-height: 60px;
         box-sizing: border-box;
     }
+
+    /* Modifiche Nuvolone */
     .mission {
         padding: 40px 20px;
         border-radius: 30px !important; 
     }
     .mission::before, .mission::after {
-        display: none; 
+        display: none; /* Rimuove i cerchi esterni per non stringere il testo su mobile */
+    }
+
+    /* Modifiche Griglia e Card */
+    .grid {
+        grid-template-columns: 1fr; 
+        gap: 20px;
+    }
+    .card {
+        flex-direction: row; 
+        padding: 16px;
+        gap: 15px;
+    }
+    .app-icon-img, .app-icon-placeholder {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+/* 📱 SMARTPHONE MOLTO STRETTI (Sotto i 400px) */
+@media (max-width: 400px) {
+    .card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .card-content {
+        text-align: center;
+        align-items: center;
     }
 }
