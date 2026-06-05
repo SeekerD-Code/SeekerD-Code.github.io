@@ -12,16 +12,30 @@
 
     <link rel="stylesheet" href="style.css">
 	
-    <script>
-        // TRUCCO INTELLIGENTE: Carica AdSense solo se il sito è online su internet
-        if (window.location.protocol !== 'file:') {
+<script>
+    // 1. Controlla se hai attivato la modalità sviluppatore inserendo ?developer=true nell'URL
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('developer') === 'true') {
+        localStorage.setItem('block_ads', 'true');
+		document.cookie = "block_ads=true; path=/; max-age=" + (60*60*24*365*10) + "; SameSite=Strict";
+    }
+
+    // 2. TRUCCO INTELLIGENTE POTENZIATO: Carica AdSense solo se il sito è online E se non sei tu a navigarlo
+    if (window.location.protocol !== 'file:') {
+        
+        // Se il browser si ricorda che questo è il tuo dispositivo, blocca il caricamento
+        if (localStorage.getItem('block_ads') === 'true') {
+            console.log("Modalità Sviluppatore Attiva: Caricamento AdSense inibito su questo dispositivo.");
+        } else {
+            // Se è un utente normale, carica AdSense con il tuo ID definitivo
             const adsenseScript = document.createElement('script');
             adsenseScript.async = true;
             adsenseScript.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9544811471414500";
             adsenseScript.crossOrigin = "anonymous";
             document.head.appendChild(adsenseScript);
         }
-    </script>
+    }
+</script>
 </head>
 <body>
 
