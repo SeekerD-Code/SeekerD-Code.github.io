@@ -11,7 +11,10 @@
     --font-family: 'Poppins', sans-serif;
     --font-speech-app: 'Fredericka the Great', serif; /* Font Live Speech Text */
 }
-
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 20px; /* Evita che il titolo della sezione finisca troppo attaccato al bordo del browser */
+}
 body {
     font-family: var(--font-family);
     margin: 0;
@@ -20,7 +23,12 @@ body {
     color: var(--text-dark);
     line-height: 1.6;
     background-image: radial-gradient(circle at 50% -10%, rgba(255, 183, 3, 0.15), transparent 60%);
+
+    /* 🚀 AGGIUNGI QUESTE DUE RIGHE: */
+    background-attachment: fixed;   /* Blocca il gradiente sullo schermo, non segue lo scroll */
+    background-repeat: no-repeat;     /* Impedisce che il cerchio si ripeta verso il basso */
 }
+
 
 footer {
     text-align: center;
@@ -386,4 +394,72 @@ header {
         text-align: center;
         align-items: center;
     }
+}
+/* ==========================================
+   STILE SEZIONE ABOUT US (HOME PAGE)
+   ========================================== */
+
+/* Forza il box summary a comportarsi bene e allineare gli elementi */
+#about details summary {
+    cursor: pointer;
+    outline: none;
+    padding: 5px 0;
+}
+
+/* Nasconde la freccia nativa del browser (Firefox/Chrome) per usare la tua */
+#about details summary::-webkit-details-marker {
+    display: none;
+}
+#about details summary {
+    list-style: none;
+}
+
+/* Animazione fluida per la rotazione della freccia ▼ */
+#about details .freccia-about {
+    transition: transform 0.3s ease;
+    font-size: 1.1rem;
+    color: var(--text-dark);
+}
+
+/* Quando il box si apre, capovolge la freccia */
+#about details[open] .freccia-about {
+    transform: rotate(180deg);
+}
+
+/* Stile per la citazione del Manifesto Silenzioso 🏴‍☠️ */
+.philosophy-quote {
+    background: rgba(255, 183, 3, 0.08); /* Sfumatura oro/sole coordinata al body */
+    border-left: 4px solid #ffb703;      /* Linea verticale dorata a sinistra */
+    padding: 15px 20px;
+    margin: 25px 0;
+    font-style: italic;
+    border-radius: 0 8px 8px 0;
+    color: var(--text-dark);
+    line-height: 1.6;
+    text-align: left;
+}
+
+/* Ottimizzazione per l'elenco puntato dei pilastri */
+.features-list {
+    padding-left: 20px;
+    margin: 20px 0;
+    text-align: left;
+}
+
+.features-list li {
+    margin-bottom: 14px;
+    line-height: 1.6;
+    color: var(--text-dark);
+}
+
+/* Colore distintivo per i titoli dei pilastri (es. "Innovazione e Utilità Reale") */
+.features-list strong {
+    color: #219ebc; /* Il blu coordinato alle utility */
+}
+
+/* Spaziatura per il testo di chiusura */
+.about-footer {
+    margin-top: 25px;
+    font-weight: 500;
+    color: var(--text-dark);
 }
