@@ -114,6 +114,13 @@ header {
     animation: floatCloudOrganic 12s ease-in-out infinite;
 }
 
+/* Modifica la grandezza del testo dentro il nuvolone */
+#mission-text {
+    font-size: 1.3rem; /* 👈 Aumenta la grandezza (il default del sito è circa 1rem) */
+    font-weight: 400;  /* Mantiene il testo leggero, bilanciando il grassetto del tag strong */
+    margin: 0;
+}
+
 /* Effetti di fumo della nuvola */
 .mission::before, .mission::after {
     content: '';
@@ -345,6 +352,9 @@ header {
     .mission {
         padding: 40px 20px;
         border-radius: 30px !important; 
+    }
+   #mission-text {
+        font-size: 1.1rem; /* Riduce leggermente la dimensione solo sugli schermi piccoli */
     }
     .mission::before, .mission::after {
         display: none; /* Rimuove i cerchi esterni per non stringere il testo su mobile */
