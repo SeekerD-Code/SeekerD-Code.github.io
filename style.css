@@ -15,6 +15,12 @@ html {
     scroll-behavior: smooth;
     scroll-padding-top: 20px; /* Evita che il titolo della sezione finisca troppo attaccato al bordo del browser */
 }
+
+.logo-img {
+    width: 400px; /* La tua misura originale per PC */
+    max-width: 100%;
+}
+
 body {
     font-family: var(--font-family);
     margin: 0;
@@ -378,13 +384,18 @@ header {
         display: flex;
         flex-direction: column;
     }
-    .ads-sidebar {
-        width: 100%;
-        min-width: 100%;       /* Sovrascrive il min-width del desktop */
 
-        min-height: 50px;       /* Annulla i 600px del desktop */
+    /* 🌟 RIDUZIONE LOGO MOBILE */
+    .logo-img {
+        width: 300px; /* Rimpicciolisce il logo su smartphone */
+        margin: -25px 0 -70px 0;
+    }
+    
+    .ads-sidebar {
+        width: 300px;
+        min-width: 100%;
+
         max-height: 50px;      /* Altezza ottimale per banner orizzontali mobile (es. 320x50 o 320x100) */
-        height: auto;
 
         padding:0;
         box-sizing: border-box;
@@ -408,15 +419,106 @@ header {
 
     /* Modifiche Nuvolone */
     .mission {
-        padding: 40px 20px;
+        padding:0;
         border-radius: 30px !important; 
     }
-    #mission-text {
-        font-size: 1.1rem; /* Riduce leggermente la dimensione solo sugli schermi piccoli */
+        #mission-title {
+        font-size: 1.1rem !important;  /* Forza la riduzione del titolo su mobile */
+        margin-bottom: 5px !important; /* Riduce anche lo spazio sotto il titolo per compattare il "nuvolone" */
     }
+
+    #mission-text {
+        font-size: 0.8rem; /* Riduce leggermente la dimensione solo sugli schermi piccoli */
+    }
+
+    /* Riduce lo spazio iniziale sopra tutta la storia su mobile */
+    .mission-story {
+        margin-top: 20px !important; 
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 !important; /* Elimina lo spazio vuoto ai lati della storia */
+    }
+
+    /* Riduce la dimensione di tutti i paragrafi di testo dentro la storia */
+    .mission-story p {
+        font-size: 0.8rem !important;
+        line-height: 1.5 !important; /* Mantiene l'interlinea leggermente ariosa e leggibile */
+        margin-bottom: 5px !important; /* Rende armonioso lo spazio tra un paragrafo e l'altro */
+        
+            /* 🌟 FORZATURA LARGHEZZA TOTALE */
+        width: 100% !important;
+        max-width: 100% !important; /* Annulla eventuali limiti (es. max-width: 700px) del desktop */
+        padding-left: 0 !important;  /* Elimina cuscinetti a sinistra */
+        padding-right: 0 !important; /* Elimina cuscinetti a destra */
+       /* text-align: justify;         /* Opzionale: rende i bordi del testo omogenei sui lati */
+    }
+
+    /* Riduce il titolo H3 ("Il significato dietro il nome...") */
+    .mission-story h3 {
+        font-size: 1.1rem !important;
+        margin-top: 25px !important; /* Riduce lo stacco sopra l'h3 rispetto ai 40px del PC */
+        margin-bottom: 10px !important;
+    }
+
     .mission::before, .mission::after {
         display: none; /* Rimuove i cerchi esterni per non stringere il testo su mobile */
     }
+    
+
+    /* 🏴‍☠️ COMPATTAZIONE BACHECA DELLE TAGLIE MOBILE */
+    .app-requests {
+        margin-top: 5px !important;    /* Riduce lo stacco sopra il blocco */
+        margin-bottom: 5px !important; /* Riduce lo stacco sotto */
+        padding: 2px !important;       /* Riduce lo spazio interno (da 30px a 15px) */
+        border-radius: 12px !important; 
+    }
+
+    /* Titolo principale della bacheca */
+    .app-requests h2 {
+        font-size: 1.1rem !important;   /* Riduce il titolo principale */
+        margin-bottom: 5px !important;
+    }
+
+    /* Sottotitolo descrittivo ("La rotta di questo progetto...") */
+    .app-requests > p {
+        font-size: 0.8rem !important;  /* Testo più piccolino */
+        margin-bottom: 5px !important; /* Accorcia la distanza dalle scatole */
+        line-height: 1.4 !important;
+    }
+
+    /* Riduce lo spazio (gap) verticale tra le due scatole su smartphone */
+    .app-requests div[style*="display: flex"] {
+        gap: 6px !important; /* Passa da 25px a 12px per compattarle */
+    }
+
+    /* Le due scatole interne (Metti una taglia / Proponi un'idea) */
+    .app-requests div > div {
+        padding: 2px !important;       /* Riduce il padding interno alle due scatole */
+    }
+
+    /* I titoli delle due scatole (H3) */
+    .app-requests h3 {
+        font-size: 1.0rem !important;  /* Compone meglio i titoli interni con le emoji */
+        margin-top: -5px !important;
+        margin-bottom: 2px !important;
+    }
+
+    /* Il testo dentro le due scatole */
+    .app-requests div > div p {
+        font-size: 0.7rem !important;  /* Testo più compatto per non allungare la pagina */
+        line-height: 1.4 !important;
+    }
+
+    /* La zona finale con l'indirizzo email */
+    .app-requests div:last-child {
+        margin-top: 5px !important;    /* Riduce il distacco della riga finale */
+        padding-top: 5px !important;
+    }
+
+    .app-requests div:last-child p {
+        font-size: 0.7rem !important;  /* Rimpicciolisce la scritta dell'email */
+    }
+
 
     /* Modifiche Griglia e Card */
     .grid {
@@ -434,14 +536,14 @@ header {
     }
     .main-nav {
         text-align: center;      /* Centra il menu su mobile */
-        margin: 15px auto;       /* Rimuove il 10% di spazio vuoto a sinistra */
-        padding: 0 10px;
-        line-height: 1.8;        /* Aumenta lo spazio verticale tra le righe se va a capo */
+        margin: 0;       /* Rimuove il 10% di spazio vuoto a sinistra */
+        padding: 0 0 25px;
+        line-height: 1.5;        /* Aumenta lo spazio verticale tra le righe se va a capo */
     }
 
     .main-nav a {
         margin: 0 5px;           /* Compatta leggermente lo spazio tra i link */
-        font-size: 0.9rem;       /* Rimpicciolisce leggermente il testo per farlo stare su meno righe */
+        font-size: 0.8rem;       /* Rimpicciolisce leggermente il testo per farlo stare su meno righe */
     }
 }
 
