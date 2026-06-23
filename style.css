@@ -361,11 +361,26 @@ header {
 @media (max-width: 768px) {
     /* Modifiche Struttura generale */
     .main-layout {
+        display: flex;
         flex-direction: column;
     }
     .ads-sidebar {
         width: 100%;
-        min-height: 60px;
+        min-width: 100%;       /* Sovrascrive il min-width del desktop */
+        max-height: 50px;      /* Altezza ottimale per banner orizzontali mobile (es. 320x50 o 320x100) */
+        padding:0 10px;
+        box-sizing: border-box;
+        order: -1;             /* MAGIA: Sposta fisicamente il blocco in cima alla pagina su mobile */
+        margin-bottom: 20px;   /* Spazio prima che inizi il testo della Mission */
+    }
+
+    /* Il banner in fondo alla pagina si adatta allo schermo dello smartphone */
+    .ads-banner {
+        width: 100%;
+        max-width: 100%;       /* Impedisce al banner di sforare la larghezza dello schermo */
+        max-height: 50px;      /* Lo rende simmetrico e dell'altezza giusta per AdSense mobile */
+        margin: 30px auto;
+        padding: 0 10px;
         box-sizing: border-box;
     }
 
