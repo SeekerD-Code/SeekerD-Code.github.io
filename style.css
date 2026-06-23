@@ -43,7 +43,7 @@ footer {
 .main-nav {
     text-align: left;
     margin: 20px 0 20px 20%; /* Il tuo allineamento originale per PC */
-    font-size: 1rem;
+    font-size: 1.1rem;
 }
 
 .main-nav a {
@@ -67,7 +67,10 @@ header {
 }
 
 .main-layout {
+    max-width: flex;
     max-width: 1500px;
+    flex-direction: row;       /* Affianca Sidebar e Main su PC */
+    justify-content: center;   /* Centra l'intero blocco nella pagina */
     margin: 0 auto 40px auto;
     display: flex;
     flex-direction: row;
@@ -137,7 +140,7 @@ header {
 }
 
 #mission-text {
-    font-size: 1.3rem; /* 👈 Aumenta la grandezza (il default del sito è circa 1rem) */
+    font-size: 1.1rem; /* 👈 Aumenta la grandezza (il default del sito è circa 1rem) */
     font-weight: 400;  /* Mantiene il testo leggero, bilanciando il grassetto del tag strong */
     margin: 0;
 }
@@ -187,7 +190,7 @@ header {
 /* Titoli delle categorie */
 .category-title {
     color: var(--text-dark);
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 700;
     margin-top: 40px;
     display: flex;
@@ -368,6 +371,7 @@ header {
         width: 100%;
         min-width: 100%;       /* Sovrascrive il min-width del desktop */
         max-height: 50px;      /* Altezza ottimale per banner orizzontali mobile (es. 320x50 o 320x100) */
+        min-height: auto;       /* Annulla i 600px del desktop */
         padding:0 10px;
         box-sizing: border-box;
         order: -1;             /* MAGIA: Sposta fisicamente il blocco in cima alla pagina su mobile */
