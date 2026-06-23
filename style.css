@@ -39,6 +39,20 @@ footer {
     border-top: 1px solid rgba(0, 0, 0, 0.05);
 }
 
+/* --- STILE NAVIGAZIONE DESKTOP --- */
+.main-nav {
+    text-align: left;
+    margin: 20px 0 20px 20%; /* Il tuo allineamento originale per PC */
+    font-size: 1rem;
+}
+
+.main-nav a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: bold;
+    display: inline-block;
+}
 
 /* ==========================================================================
    2. STRUTTURA & LAYOUT (I contenitori principali su Desktop)
@@ -380,6 +394,17 @@ header {
     .app-icon-img, .app-icon-placeholder {
         width: 50px;
         height: 50px;
+    }
+    .main-nav {
+        text-align: center;      /* Centra il menu su mobile */
+        margin: 15px auto;       /* Rimuove il 10% di spazio vuoto a sinistra */
+        padding: 0 10px;
+        line-height: 1.8;        /* Aumenta lo spazio verticale tra le righe se va a capo */
+    }
+
+    .main-nav a {
+        margin: 0 5px;           /* Compatta leggermente lo spazio tra i link */
+        font-size: 0.9rem;       /* Rimpicciolisce leggermente il testo per farlo stare su meno righe */
     }
 }
 
