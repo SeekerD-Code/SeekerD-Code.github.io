@@ -86,35 +86,46 @@ header {
 /* Blocchi sponsor / pubblicità */
 .ads-sidebar {
     width: 160px;
-    min-width: 160px;
-    background: rgba(255, 183, 3, 0.03);
+    max-width: 200px;
+
+    min-height: 600px;
+    max-height: 1200px;
+
+    /* LA CHIAVE: dice al browser di calcolare l'altezza in base al banner reale caricato */
+    height: auto;
+    overflow: hidden; /* Impedisce a qualsiasi elemento interno di strabordare */
+
+    /*background: rgba(255, 183, 3, 0.03);
     border: 1px dashed rgba(255, 183, 3, 0.4);
     color: var(--text-muted);
     text-align: center;
-    padding: 20px 10px;
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    border-radius: 16px;
-    min-height: 600px;
+    box-sizing: border-box;*/
+
+    padding: 0;
     display: flex;
+    flex-direction: column; /* Cambiato da row/center a column per assecondare la crescita verticale */
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start; /* Spinge il contenuto dall'alto verso il basso */
 }
 
 .ads-banner {
     max-width: 728px;
+    width: 100%;
+    
+    min-height: 50px;
+    max-height: 90px;        /* Forza l'altezza standard dei leaderboard desktop (90px) */
+    height: auto;
+
+    overflow: hidden;        /* TAGLIA categoricamente qualsiasi elemento provi a uscire */
     margin: 40px auto;
-    background: rgba(255, 183, 3, 0.03);
+    
+    /*background: rgba(255, 183, 3, 0.03);
     border: 1px dashed rgba(255, 183, 3, 0.4);
     color: var(--text-muted);
-    text-align: center;
-    padding: 15px;
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    border-radius: 16px;
-    min-height: 40px;
+    text-align: center;*/
+
+    padding: 0;
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -370,22 +381,29 @@ header {
     .ads-sidebar {
         width: 100%;
         min-width: 100%;       /* Sovrascrive il min-width del desktop */
+
+        min-height: 50px;       /* Annulla i 600px del desktop */
         max-height: 50px;      /* Altezza ottimale per banner orizzontali mobile (es. 320x50 o 320x100) */
-        min-height: auto;       /* Annulla i 600px del desktop */
-        padding:0 10px;
+        height: auto;
+
+        padding:0;
         box-sizing: border-box;
         order: -1;             /* MAGIA: Sposta fisicamente il blocco in cima alla pagina su mobile */
         margin-bottom: 20px;   /* Spazio prima che inizi il testo della Mission */
+        overflow: hidden; /* Nasconde categoricamente ogni rimasuglio verticale */
     }
 
     /* Il banner in fondo alla pagina si adatta allo schermo dello smartphone */
     .ads-banner {
         width: 100%;
         max-width: 100%;       /* Impedisce al banner di sforare la larghezza dello schermo */
+        height: auto;
         max-height: 50px;      /* Lo rende simmetrico e dell'altezza giusta per AdSense mobile */
+
         margin: 30px auto;
-        padding: 0 10px;
+        padding: 0;
         box-sizing: border-box;
+        overflow: hidden;    /* Sicurezza totale anche su mobile */
     }
 
     /* Modifiche Nuvolone */
