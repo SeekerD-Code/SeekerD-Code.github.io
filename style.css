@@ -388,16 +388,22 @@ header {
     /* 🌟 CONTROLLO RESPONSIVE BANNER IBRIDO SIDEBAR/TOP */
     .ads-ibrida {
         width: 100% !important;
-        height: auto !important;
-        max-height: 50px !important; /* 🌟 Forza AdSense a scegliere un formato orizzontale basso su mobile */
+        height: 50px !important; 
+        max-height: 50px !important;
+        min-height: 50px !important;
     }
 
     /* Protegge il contenitore per evitare lo spazio fantasma al refresh */
     #ad-top {
-        height: auto !important;
+        display: block !important;
+        width: 100% !important;
+        height: 50px !important;
         max-height: 50px !important;
+        min-height: 50px !important;
         overflow: hidden !important; 
+        margin-top: 10px !important;
         margin-bottom: 15px !important;
+        padding: 0 !important;
     }
 
     /* 🌟 RIDUZIONE LOGO MOBILE */
@@ -407,37 +413,50 @@ header {
     }
     
     .ads-sidebar {
-        width: 300px;
-        min-width: 100%;
-
-        max-height: 50px;      /* Altezza ottimale per banner orizzontali mobile (es. 320x50 o 320x100) */
-
-        padding:0;
-        box-sizing: border-box;
+        width: 100% !important;
+        min-width: 100% !important;
+        height: 50px !important;
+        max-height: 50px !important;
+        min-height: 50px !important;
+        padding: 0 !important;
+        box-sizing: border-box !important;
         order: -1;             /* MAGIA: Sposta fisicamente il blocco in cima alla pagina su mobile */
-        margin-bottom: 20px;   /* Spazio prima che inizi il testo della Mission */
-        overflow: hidden; /* Nasconde categoricamente ogni rimasuglio verticale */
+        margin-bottom: 20px !important;   /* Spazio prima che inizi il testo della Mission */
+        overflow: hidden !important; /* Nasconde ogni rimasuglio verticale */
     }
 
     /* Il banner in fondo alla pagina si adatta allo schermo dello smartphone */
-    .ads-banner {
-        width: 100%;
-        max-width: 100%;       /* Impedisce al banner di sforare la larghezza dello schermo */
-        height: auto;
-        max-height: 50px;      /* Lo rende simmetrico e dell'altezza giusta per AdSense mobile */
+    .ads-banner, #ad-bottom {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;       
+        height: 50px !important;
+        max-height: 50px !important;      
+        min-height: 50px !important;      
+        margin: 20px auto !important;
+        padding: 0 !important;
+        box-sizing: border-box !important;
+        overflow: hidden !important;    
+    }
 
-        margin: 30px auto;
-        padding: 0;
-        box-sizing: border-box;
-        overflow: hidden;    /* Sicurezza totale anche su mobile */
+    /* Tag nativi di Google AdSense forzati a 50px su mobile */
+    ins.adsbygoogle, 
+    ins.adsbygoogle iframe,
+    iframe[id*="aswift"],
+    iframe[name*="aswift"] {
+        display: block !important;
+        width: 100% !important;
+        height: 50px !important;       
+        max-height: 50px !important;
+        min-height: 50px !important;
     }
 
     /* Modifiche Nuvolone */
     .mission {
-        padding:0;
+        padding: 0;
         border-radius: 30px !important; 
     }
-        #mission-title {
+    #mission-title {
         font-size: 1.1rem !important;  /* Forza la riduzione del titolo su mobile */
         margin-bottom: 5px !important; /* Riduce anche lo spazio sotto il titolo per compattare il "nuvolone" */
     }
@@ -459,13 +478,10 @@ header {
         font-size: 0.8rem !important;
         line-height: 1.5 !important; /* Mantiene l'interlinea leggermente ariosa e leggibile */
         margin-bottom: 5px !important; /* Rende armonioso lo spazio tra un paragrafo e l'altro */
-        
-            /* 🌟 FORZATURA LARGHEZZA TOTALE */
         width: 100% !important;
         max-width: 100% !important; /* Annulla eventuali limiti (es. max-width: 700px) del desktop */
         padding-left: 0 !important;  /* Elimina cuscinetti a sinistra */
         padding-right: 0 !important; /* Elimina cuscinetti a destra */
-       /* text-align: justify;         /* Opzionale: rende i bordi del testo omogenei sui lati */
     }
 
     /* Riduce il titolo H3 ("Il significato dietro il nome...") */
@@ -479,7 +495,6 @@ header {
         display: none; /* Rimuove i cerchi esterni per non stringere il testo su mobile */
     }
     
-
     /* 🏴‍☠️ COMPATTAZIONE BACHECA DELLE TAGLIE MOBILE */
     .app-requests {
         margin-top: 5px !important;    /* Riduce lo stacco sopra il blocco */
@@ -540,8 +555,6 @@ header {
         flex-direction: column !important; 
         align-items: flex-start !important;
         gap: 2px !important;
-        
-        /* 🌟 ALTEZZA FISSA TITOLI: azzera il dislivello superiore causato dall'andata a capo del testo */
         min-height: 40px !important;
     }
 
@@ -550,8 +563,6 @@ header {
         font-size: 0.7rem !important;  
         line-height: 1.3 !important;
         margin: 0 !important;
-        
-        /* 🌟 Riempie lo spazio verticale spingendo le due scatole alla stessa identica altezza */
         flex-grow: 1 !important;
     }
 
@@ -565,65 +576,56 @@ header {
         font-size: 0.7rem !important;  
     }
 
-/*///////////////////////////////////////////////////////////////////////////////////////////
     /* Modifiche Griglia e Card */
     .grid {
         display: grid !important;
         grid-template-columns: 1fr !important; 
         gap: 15px !important;
-        
-        /* 🌟 ALLINEAMENTO ALLA LARGHEZZA PAGINA */
-        width: 100% !important;        /* Costringe la griglia a usare tutto lo spazio */
-        max-width: 100% !important;    /* Rimuove eventuali blocchi restrittivi */
-        margin-left: 0 !important;     /* Resetta stacchi o centraggi anomali */
+        width: 100% !important;        
+        max-width: 100% !important;    
+        margin-left: 0 !important;     
         margin-right: 0 !important;
         padding: 0 !important;
-
-        /* Forzature di sicurezza anti-collasso */
         height: auto !important;
         min-height: auto !important;
     }
     .card {
-        display: flex !important;       /* Forza il layout Flexbox */
-        flex-direction: row !important;  /* Icona a sinistra, testo a destra */
-        align-items: flex-start !important; /* Allinea l'icona in alto rispetto al testo */
-        padding: 12px !important;        /* Più compatto rispetto a 16px */
-        gap: 12px !important;            /* Spazio tra icona e testi */
-        
-        /* 🌟 Assicura che la card occupi l'intera larghezza della griglia espansa */
+        display: flex !important;       
+        flex-direction: row !important;  
+        align-items: flex-start !important; 
+        padding: 12px !important;        
+        gap: 12px !important;            
         width: 100% !important;
         box-sizing: border-box !important; 
     }
 
     .app-icon-img, .app-icon-placeholder {
-        width: 60px !important;        /* 🌟 Ridimensiona l'icona a sinistra */
-        height: 60px !important;       /* Mantiene le proporzioni quadrate */
-        flex-shrink: 0 !important;     /* Impedisce al browser di schiacciare l'icona se il testo è lungo */
+        width: 60px !important;        
+        height: 60px !important;       
+        flex-shrink: 0 !important;     
     }
 
-    /* Gestione dei testi dentro la card */
     .card-content {
         display: flex !important;
         flex-direction: column !important;
-        gap: 4px !important;           /* Spazio compatto tra titolo, descrizione e badge */
+        gap: 4px !important;           
     }
 
-    /* I titoli delle app (standard e speciale) */
     .card-content h3 {
-        font-size: 1.05rem !important;  /* Dimensione standard per FestMap */
+        font-size: 1.05rem !important;  
         margin: 0 !important;
         line-height: 1.2 !important;
     }
     .main-nav {
-        text-align: center;      /* Centra il menu su mobile */
-        margin: 0;       /* Rimuove il 10% di spazio vuoto a sinistra */
+        text-align: center;      
+        margin: 0;       
         padding: 0 0 25px;
-        line-height: 1.5;        /* Aumenta lo spazio verticale tra le righe se va a capo */
+        line-height: 1.5;        
     }
 
     .main-nav a {
-        margin: 0 5px;           /* Compatta leggermente lo spazio tra i link */
-        font-size: 0.8rem;       /* Rimpicciolisce leggermente il testo per farlo stare su meno righe */
+        margin: 0 5px;           
+        font-size: 0.8rem;       
     }
     .category-title {
         color: var(--text-dark);
@@ -634,7 +636,6 @@ header {
         align-items: center;
         gap: 10px;
     }
-        /* Font speciale per Live Speech Text */
     .font-speech-spec {
         font-family: var(--font-speech-app);
         font-size: 1.2rem !important; 
@@ -642,12 +643,11 @@ header {
         letter-spacing: 0.5px;
     }
 
-    /* 🌟 IL TESTO DELLA DESCRIZIONE: Più piccolo rispetto ai titoli */
     .card-content p {
-        font-size: 0.72rem !important;  /* Testo ultra-compatto e leggibile */
+        font-size: 0.72rem !important;  
         line-height: 1.35 !important;
-        color: #555555 !important;      /* Un grigio leggermente più morbido per creare gerarchia */
-        margin: 0 0 2px 0 !important;   /* Pulisce i margini di default */
+        color: #555555 !important;      
+        margin: 0 0 2px 0 !important;   
     }
 
     .card-link {
@@ -655,115 +655,60 @@ header {
         color: inherit;
         display: block;
     }
-/*//////////////////////////////////////////////////////////////*/
-
-/* 🏴‍☠️ RESET ANTIVUOTO SPONSOR E FOOTER IN BASSO */
-    
-    /* Forza il contenitore dello sponsor a non generare altezze anomale */
-    #apps + div, 
-    .app-requests + div,
-    ins.adsbygoogle {
-        margin-bottom: 0 !important;
-        padding-bottom: 0 !important;
-        height: auto !important;
-        max-height: 120px !important; /* Limita l'altezza massima del banner per evitare vuoti */
-    }
 
     /* Ripristina la stabilità del footer in fondo alla pagina */
     footer, .footer {
-        margin-top: 15px !important;  /* Distacco controllato dallo sponsor */
+        margin-top: 15px !important;  
         padding-top: 10px !important;
         padding-bottom: 10px !important;
-        clear: both !important;        /* Rompe qualsiasi float rimasto appeso */
     }
 
     footer p, .footer p {
         margin: 5px 0 !important;
         line-height: 1.4 !important;
     }
-
-/* 🏴‍☠️ RESET CHIRURGICO ANTI-VUOTO ADSENSE MOBILE */
-    
-    /* 1. Forza il tag nativo di Google e il suo Iframe a non allungarsi oltre la misura del banner */
-    ins.adsbygoogle, 
-    ins.adsbygoogle iframe,
-    iframe[id*="aswift"],
-    iframe[name*="aswift"] {
-        height: auto !important;
-        max-height: 90px !important;    /* Altezza massima fissa per i banner mobili (tipo 320x50 o 320x100) */
-        min-height: 50px !important;
-    }
-
-    /* 2. Colpisce i DIV che contengono AdSense e blocca il loro collasso visivo */
-    div:has(> ins.adsbygoogle),
-    .app-requests + div,
-    #apps + div {
-        height: auto !important;
-        max-height: 100px !important;
-        overflow: hidden !important;     /* 🌟 FONDAMENTALE: Taglia visivamente qualsiasi pixel vuoto spinto da Google */
-        margin-top: 10px !important;
-        margin-bottom: 10px !important;
-        padding: 0 !important;
-    }
-
-    /* 3. Ripristina il Footer e i suoi testi in cima alla pila di rendering senza strani spazi ereditati */
-    footer, .footer {
-        margin-top: 15px !important;
-        padding-top: 15px !important;
-        padding-bottom: 15px !important;
-        clear: both !important;          /* Pulisce i float residui */
-        display: block !important;
-    }
-
 }
 
 /* 📱 SMARTPHONE MOLTO STRETTI (Sotto i 400px) */
 @media (max-width: 400px) {
     .card {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
     }
     .card-content {
-        text-align: center;
-        align-items: center;
+        text-align: center !important;
+        align-items: center !important;
     }
 }
-/* ==========================================
-   STILE SEZIONE ABOUT US (HOME PAGE)
-   ========================================== */
 
-/* Forza il box summary a comportarsi bene e allineare gli elementi */
+/* ==========================================
+   STILE SEZIONE ABOUT US (HOME PAGE) - STRUTTURA GENERALE
+   ========================================== */
 #about details summary {
     cursor: pointer;
     outline: none;
     padding: 5px 0;
-}
-
-/* Nasconde la freccia nativa del browser (Firefox/Chrome) per usare la tua */
-#about details summary::-webkit-details-marker {
-    display: none;
-}
-#about details summary {
     list-style: none;
 }
 
-/* Animazione fluida per la rotazione della freccia ▼ */
+#about details summary::-webkit-details-marker {
+    display: none;
+}
+
 #about details .freccia-about {
     transition: transform 0.3s ease;
     font-size: 1.1rem;
     color: var(--text-dark);
 }
 
-/* Quando il box si apre, capovolge la freccia */
 #about details[open] .freccia-about {
     transform: rotate(180deg);
 }
 
-/* Stile per la citazione del Manifesto Silenzioso 🏴‍☠️ */
 .philosophy-quote {
-    background: rgba(255, 183, 3, 0.08); /* Sfumatura oro/sole coordinata al body */
-    border-left: 4px solid #ffb703;      /* Linea verticale dorata a sinistra */
+    background: rgba(255, 183, 3, 0.08); 
+    border-left: 4px solid #ffb703;      
     padding: 15px 20px;
     margin: 25px 0;
     font-style: italic;
@@ -773,7 +718,6 @@ header {
     text-align: left;
 }
 
-/* Ottimizzazione per l'elenco puntato dei pilastri */
 .features-list {
     padding-left: 20px;
     margin: 20px 0;
@@ -786,14 +730,48 @@ header {
     color: var(--text-dark);
 }
 
-/* Colore distintivo per i titoli dei pilastri (es. "Innovazione e Utilità Reale") */
 .features-list strong {
-    color: #219ebc; /* Il blu coordinato alle utility */
+    color: #219ebc; 
 }
 
-/* Spaziatura per il testo di chiusura */
 .about-footer {
     margin-top: 25px;
     font-weight: 500;
     color: var(--text-dark);
+}
+
+/* ==========================================================================
+   BUTTON BACK TO TOP (FLUTTUANTE)
+   ========================================================================== */
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    background-color: #219ebc; /* Il blu coordinato alle tue utility */
+    color: #ffffff;
+    border: none;
+    border-radius: 50%; /* Lo rende perfettamente circolare */
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 9999; /* Lo tiene sopra a qualsiasi banner o card */
+    
+    /* Gestione transizione visiva */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.2s ease;
+}
+
+/* Effetto al passaggio del mouse (su PC) */
+.back-to-top:hover {
+    background-color: #ffb703; /* Cambia in oro in pieno stile One Piece */
+    transform: scale(1.1); /* Si ingrandisce leggermente */
+}
+
+/* Classe dinamica che verrà attivata dal JavaScript */
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
 }
