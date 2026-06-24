@@ -486,7 +486,7 @@ header {
 
     /* Riduce il titolo H3 ("Il significato dietro il nome...") */
     .mission-story h3 {
-        font-size: 1.1rem !important;
+        font-size: 1rem !important;
         margin-top: 25px !important; /* Riduce lo stacco sopra l'h3 rispetto ai 40px del PC */
         margin-bottom: 10px !important;
     }
@@ -505,7 +505,7 @@ header {
 
     /* Titolo principale della bacheca */
     .app-requests h2 {
-        font-size: 1.1rem !important;   
+        font-size: 1rem !important;   
         margin-bottom: 5px !important;
     }
 
@@ -602,12 +602,15 @@ header {
     .app-icon-img, .app-icon-placeholder {
         width: 60px !important;        
         height: 60px !important;       
-        flex-shrink: 0 !important;     
+        flex-shrink: 0 !important;
+        border-radius: 10px !important;     /* Mantiene i bordi arrotondati puliti */
     }
 
     .card-content {
         display: flex !important;
         flex-direction: column !important;
+        align-items: flex-start !important; /* 🌟 Forza i testi interni ad allinearsi a sinistra */
+        text-align: left !important;
         gap: 4px !important;           
     }
 
@@ -672,13 +675,25 @@ header {
 /* 📱 SMARTPHONE MOLTO STRETTI (Sotto i 400px) */
 @media (max-width: 400px) {
     .card {
-        flex-direction: column !important;
-        align-items: center !important;
-        text-align: center !important;
+        flex-direction: row !important;      /* 🌟 FORZA l'affiancamento anche sui telefoni mini */
+        align-items: flex-start !important;
+        text-align: left !important;
+        padding: 8px !important;             /* Compatta lo spazio interno */
+        gap: 10px !important;                /* Avvicina leggermente l'icona al testo */
     }
+    
     .card-content {
-        text-align: center !important;
-        align-items: center !important;
+        text-align: left !important;
+        align-items: flex-start !important;
+    }
+
+    .app-icon-img, .app-icon-placeholder {
+        width: 55px !important;              /* Rimpicciolisce un filo l'icona per dare spazio al testo */
+        height: 55px !important;
+    }
+
+    .card-content h3 {
+        font-size: 0.95rem !important;       /* Rimpicciolisce leggermente il titolo */
     }
 }
 
