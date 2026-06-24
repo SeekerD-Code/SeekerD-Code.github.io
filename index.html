@@ -304,5 +304,28 @@
                 });
             })();
         </script>
+
+        <button id="backToTop" class="back-to-top" title="Torna su">▲</button>
+        <script>
+    const backToTopBtn = document.getElementById("backToTop");
+
+    // Ascolta lo scroll della finestra
+    window.addEventListener("scroll", () => {
+        // Se si scorre verso il basso per più di 400 pixel, mostra il tasto
+        if (window.scrollY > 400) {
+            backToTopBtn.classList.add("show");
+        } else {
+            backToTopBtn.classList.remove("show");
+        }
+    });
+
+    // Torna su fluidamente quando viene cliccato
+    backToTopBtn.addEventListener("click", () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth" // Rende la salita morbida ed elegante
+        });
+    });
+</script>
 </body>
 </html>
