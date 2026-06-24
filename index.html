@@ -15,27 +15,25 @@
     <link rel="stylesheet" href="style.css">
 	
 <script>
-    // 1. Controlla se hai attivato la modalità sviluppatore inserendo ?developer=true nell'URL
+    // 1. Controlla se il parametro è presente nell'URL attuale
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.get('developer') === 'true') {
-        localStorage.setItem('block_ads', 'true');
-		document.cookie = "block_ads=true; path=/; max-age=" + (60*60*24*365*10) + "; SameSite=Strict";
+        // Se c'è, memorizzalo nella sessione della scheda attuale
+        sessionStorage.setItem('devMode', 'true');
     }
 
-    // 2. TRUCCO INTELLIGENTE POTENZIATO: Carica AdSense solo se il sito è online E se non sei tu a navigarlo
-    if (window.location.protocol !== 'file:') {
-        
-        // Se il browser si ricorda che questo è il tuo dispositivo, blocca il caricamento
-        if (localStorage.getItem('block_ads') === 'true') {
-            console.log("Modalità Sviluppatore Attiva: Caricamento AdSense inibito su questo dispositivo.");
-        } else {
-            // Se è un utente normale, carica AdSense con il tuo ID definitivo
-            const adsenseScript = document.createElement('script');
-            adsenseScript.async = true;
-            adsenseScript.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9544811471414500";
-            adsenseScript.crossOrigin = "anonymous";
-            document.head.appendChild(adsenseScript);
-        }
+    // 2. Controlla se la modalità sviluppatore è attiva (o dall'URL o dalla memoria della sessione)
+    const isDeveloper = sessionStorage.getItem('devMode') === 'true';
+
+    // 3. Carica AdSense solo se non sei in modalità sviluppatore e non sei su file locale
+    if (window.location.protocol !== 'file:' && !isDeveloper) {
+        const adsenseScript = document.createElement('script');
+        adsenseScript.async = true;
+        adsenseScript.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9544811471414500";
+        adsenseScript.crossOrigin = "anonymous";
+        document.head.appendChild(adsenseScript);
+    } else {
+        console.log("🛠️ Modalità Sviluppatore attiva: AdSense bloccato in questa scheda.");
     }
 </script>
 </head>
@@ -63,12 +61,12 @@
     <div class="main-layout">
         
         <aside class="ads-sidebar" id="ad-top">
-            <ins class="adsbygoogle"
-                style="display:block; width:100%; height:100%;"
+            <ins class="adsbygoogle ads-ibrida"
+                style="display:block;"
                 data-ad-client="ca-pub-9544811471414500"
                 data-ad-slot="7833202644"
                 data-ad-format="auto"
-                data-full-width-responsive="true">
+                data-full-width-responsive="false">
             </ins>
             <script>
                 (adsbygoogle = window.adsbygoogle || []).push({});
@@ -216,7 +214,7 @@
                 
                 <details style="margin-bottom: 12px; padding: 15px; background: rgba(255,255,255,0.6); border-radius: 8px; border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
                     <summary style="font-weight: 600; cursor: pointer; color: var(--text-dark);">Che cos'è una PWA (Progressive Web App)?</summary>
-                    <p style="margin-top: 10px; font-size: 0.95rem; opacity: 0.9;">Una Progressive Web App è un'applicazione web che offre un'esperienza simile a quella di un'app nativa. Puoi utilizzarla direttamente online oppure installarla sul display del tuo smartphone Android o iOS selezionando la voce "Aggiungi a schermata Home" dal menu del tuo browser, salvando spazio sul dispositivo e senza dover passare dagli store digitali ufficiali.</p>
+                    <p style="margin-top: 10px; font-size: 0.95rem; opacity: 0.9;">Una Progressive Web App(PWA) è un'applicazione web che offre un'esperienza simile a quella di un'app nativa. Puoi utilizzarla direttamente online oppure installarla sul display del tuo smartphone Android o iOS o PC selezionando la voce "Aggiungi a schermata Home" dal menu del tuo browser, oppure nel nostro caso, cliccando il pulsante "Aggiungi alla Home" per mobile, o "Installa l'App su PC" presente vicino ai menù. Una vera esperienza pulita rifiuta anche il "peso" delle app tradizionali. Le nostre PWA si aggiungono alla tua schermata home in un secondo e sono talmente ottimizzate che occupano meno memoria di una fotografia, salvaguardando lo spazio sul tuo dispositivo. Zero installazioni pesanti, massime prestazioni di utilizzo.</p>
                 </details>
 
                 <details style="margin-bottom: 12px; padding: 15px; background: rgba(255,255,255,0.6); border-radius: 8px; border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
@@ -241,11 +239,11 @@
 
     <div class="ads-banner" id="ad-bottom">
         <ins class="adsbygoogle"
-            style="display:block; width:100%; height:100%;"
+            style="display:block;"
             data-ad-client="ca-pub-9544811471414500"
             data-ad-slot="1393962976"
-            data-ad-format="auto"
-            data-full-width-responsive="true">
+            data-ad-format="horizontal"
+            data-full-width-responsive="false">
         </ins> 
         <script>
             (adsbygoogle = window.adsbygoogle || []).push({});
