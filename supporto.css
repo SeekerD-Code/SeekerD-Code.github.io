@@ -96,3 +96,24 @@
 .requirements-list li:last-child {
     margin-bottom: 0; /* Toglie il margine all'ultimo elemento */
 }
+
+
+
+/* 📱 ADATTAMENTO MOBILE (Schermi fino a 768px) */
+@media (max-width: 768px) {
+    .support-box {
+        padding: 20px 15px !important; /* Meno spazio interno su mobile */
+        margin: 25px auto !important;   /* Riduce lo stacco verticale */
+    }
+
+    .support-box h2 {
+        font-size: 1.15rem !important;  /* Titolo leggermente più piccolo */
+        margin-bottom: 15px !important;
+    }
+
+    .support-box p {
+        font-size: 0.9rem !important;   /* Testo più leggibile e proporzionato */
+        line-height: 1.5 !important;
+        text-align: justify !important; /* Opzionale: giustificato su mobile riempie meglio */
+    }
+}

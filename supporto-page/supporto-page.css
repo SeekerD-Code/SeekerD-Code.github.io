@@ -181,16 +181,69 @@ body {
     opacity: 0.8;
 }
 
-/* RESPONSIVE PER SCHERMI PIÙ GRANDI (PC ed iPad in Orizzontale) */
+/* ==========================================================================
+   ADATTAMENTO RESPONSIVE PER LA PAGINA DI SUPPORTO INTERNA
+   ========================================================================== */
+
+/* 📱 REGOLE PER MOBILE (Schermi fino a 768px) */
+@media (max-width: 768px) {
+    .support-page-container {
+        padding: 20px 15px; /* Riduce il vuoto ai lati dello schermo dello smartphone */
+    }
+
+    .support-header {
+        margin-bottom: 30px;
+    }
+
+    .support-header h1 {
+        font-size: 1.7rem; /* Ridimensiona il titolo principale */
+    }
+
+    .support-header .subtitle {
+        font-size: 0.95rem;
+    }
+
+    .support-card {
+        padding: 25px 20px; /* Compone le card interne in modo più stretto */
+    }
+
+    .support-card h2 {
+        font-size: 1.3rem;
+    }
+
+    /* Ottimizzazione degli elenchi con le bandierine piratesche su mobile */
+    .reasons-list {
+        padding-left: 18px; /* Evita che le emoji escano fuori dal bordo sinistro */
+    }
+
+    .reasons-list li {
+        font-size: 0.9rem;
+        margin-bottom: 15px; /* Più spazio verticale tra i blocchi di testo su mobile */
+    }
+
+    .requirements-list li {
+        font-size: 0.9rem;
+    }
+
+    .support-footer {
+        margin-top: 40px;
+        padding-top: 20px;
+    }
+
+    .email-link {
+        font-size: 1.1rem; /* Riduce la dimensione della mail per non farla andare a capo bruscamente */
+    }
+}
+
+/* 💻 REGOLE PER PC E TABLET ORIZZONTALI (Schermi da 900px in su) */
 @media (min-width: 900px) {
     .support-grid {
         display: grid;
-        grid-template-columns: 1fr 1fr; /* Disposizione a griglia bilanciata */
+        grid-template-columns: 1fr 1fr; 
         gap: 30px;
     }
     
-    /* Facciamo in modo che la card della collaborazione occupi l'intera riga inferiore su PC per stabilità */
     .crew-card {
-        grid-column: span 2;
+        grid-column: span 2; /* Rimane distesa su due colonne solo su schermi grandi */
     }
 }
