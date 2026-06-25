@@ -1,0 +1,196 @@
+/* ==========================================================================
+   STILI PAGINA SUPPORTO (SEEKER D. CODE)
+   ========================================================================== */
+
+:root {
+    --bg-creme: #fdfbf7;      /* Sfondo morbido e rilassante */
+    --text-dark: #1d3557;     /* Il blu scuro del tuo brand */
+    --text-muted: #4a5568;
+    --gold: #ffb703;          /* Oro per la card dell'autofinanziamento */
+    --sky: #219ebc;           /* Azzurro per le taglie */
+    --crew-blue: #0047ff;     /* Blu per la collaborazione */
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: var(--bg-creme);
+    color: var(--text-dark);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+.support-page-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    box-sizing: border-box;
+}
+
+/* HEADER STYLE */
+.support-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.back-link-container {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.back-link {
+    color: var(--sky);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+}
+
+.back-link:hover {
+    color: var(--text-dark);
+}
+
+.support-header h1 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+    letter-spacing: -0.5px;
+}
+
+.support-header .subtitle {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.05rem;
+    color: var(--text-muted);
+}
+
+/* GRID LAYOUT (1 colonna su mobile, cambia dinamicamente) */
+.support-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+/* CARD GENERALI */
+.support-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 35px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    box-sizing: border-box;
+    transition: transform 0.3s ease;
+}
+
+.support-card:hover {
+    transform: translateY(-2px);
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.support-card h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.support-card p {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-bottom: 15px;
+}
+
+.support-card p:last-child {
+    margin-bottom: 0;
+}
+
+/* CARDS SPECIFICHE (Bordi personalizzati coerenti con la home) */
+.gold-card {
+    border-left: 5px solid var(--gold);
+    background: linear-gradient(to right, rgba(255, 183, 3, 0.01), #ffffff);
+}
+.gold-card h2 { color: #cc9200; }
+
+.sky-card {
+    border-left: 5px solid var(--sky);
+    background: linear-gradient(to right, rgba(33, 158, 188, 0.01), #ffffff);
+}
+.sky-card h2 { color: var(--sky); }
+
+.crew-card {
+    border-left: 5px solid var(--crew-blue);
+    background: linear-gradient(to right, rgba(0, 71, 255, 0.01), #ffffff);
+}
+.crew-card h2 { color: var(--crew-blue); }
+
+/* BOX INTERNO RECRUITMENT */
+.recruitment-box {
+    margin-top: 25px;
+    padding: 20px;
+    background: rgba(0, 71, 255, 0.02);
+    border: 1px dashed rgba(0, 71, 255, 0.15);
+    border-radius: 12px;
+}
+
+.recruitment-box h3 {
+    margin-top: 0;
+    font-size: 1.1rem;
+    color: var(--text-dark);
+}
+
+.recruitment-box ul {
+    margin: 10px 0 0 0;
+    padding-left: 20px;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+}
+
+.recruitment-box li {
+    margin-bottom: 8px;
+}
+
+/* FOOTER SEZIONE */
+.support-footer {
+    text-align: center;
+    margin-top: 60px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.support-footer p {
+    font-size: 1.05rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.email-link {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--sky);
+    text-decoration: none;
+    transition: opacity 0.2s;
+}
+
+.email-link:hover {
+    opacity: 0.8;
+}
+
+/* RESPONSIVE PER SCHERMI PIÙ GRANDI (PC ed iPad in Orizzontale) */
+@media (min-width: 900px) {
+    .support-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Disposizione a griglia bilanciata */
+        gap: 30px;
+    }
+    
+    /* Facciamo in modo che la card della collaborazione occupi l'intera riga inferiore su PC per stabilità */
+    .crew-card {
+        grid-column: span 2;
+    }
+}

@@ -1,6 +1,10 @@
+   @import url('supporto.css');
+
+
 /* ==========================================================================
    1. CONFIGURAZIONE GENERALE & VARIABILI (Il cuore del sito)
    ========================================================================== */
+
 :root {
     --bg-sunny: #fdfbf7;      
     --bg-card: #ffffff;       
@@ -274,7 +278,7 @@ header {
 }
 .card p {
     color: var(--text-muted);
-    font-size: 0.9rem;
+    font-size: 1.1rem;
     margin: 0;
     line-height: 1.4;
 }
@@ -404,7 +408,7 @@ header {
 
         margin-top: 25px !important;
         margin-bottom: 15px !important;
-        padding: 0 !important; 
+        padding: 0 !important;
     }
 
     /* 🌟 RIDUZIONE LOGO MOBILE */
@@ -633,7 +637,7 @@ header {
     }
     .category-title {
         color: var(--text-dark);
-        font-size: 0.95rem;
+        font-size: 1.05rem;
         font-weight: 700;
         margin-top: 25px;
         display: flex;
@@ -694,7 +698,7 @@ header {
     }
 
     .card-content h3 {
-        font-size: 0.95rem !important;       /* Rimpicciolisce leggermente il titolo */
+        font-size: 1.05rem !important;       /* Rimpicciolisce leggermente il titolo */
     }
 }
 

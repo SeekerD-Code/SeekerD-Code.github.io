@@ -1,0 +1,98 @@
+/* ==========================================================================
+   SEZIONE SUPPORTO - COORDINATA CON LO STILE DEL SITO
+   ========================================================================== */
+
+.support-box {
+    background: #ffffff !important; /* Fondo bianco pulito come le tue card */
+    border-radius: 16px !important;
+    padding: 30px 20px !important;
+    margin: 40px auto !important;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03); /* Un'ombra leggerissima per staccare dal fondo beige */
+    box-sizing: border-box !important;
+}
+
+.support-box h2 {
+    font-size: 1.4rem !important;
+    color: #1d3557 !important;     /* Colore scuro dei tuoi titoli */
+    text-align: center !important;  /* Centrato come "Cos'è Seeker D. Code" */
+    margin-bottom: 20px !important;
+    font-weight: bold !important;
+    text-transform: uppercase;
+}
+
+.support-box p {
+    font-size: 1.1rem !important;  /* Dimensione leggibile coordinata */
+    line-height: 1.6 !important;
+    color: #333333 !important;
+    text-align: left !important;    /* Il testo lungo giustificato/a sinistra si legge meglio */
+    margin-bottom: 25px !important;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Contenitore per centrare il bottone */
+.support-btn-container {
+    text-align: center !important;
+    width: 100%;
+}
+
+.btn-read-more {
+    display: inline-block !important;
+    background-color: #ffb703 !important; /* Il tuo bellissimo color oro */
+    color: #000000 !important;
+    padding: 10px 24px !important;
+    border-radius: 25px !important;
+    text-decoration: none !important;
+    font-weight: bold !important;
+    font-size: 1.1rem !important;
+    transition: transform 0.2s, background-color 0.2s !important;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.btn-read-more:hover {
+    transform: scale(1.05) !important;
+    background-color: #e5a100 !important; /* Si scurisce leggermente al passaggio del mouse */
+}
+
+/* ==========================================================================
+   STILI DETTAGLIATI PER LA RECRUITMENT BOX
+   ========================================================================== */
+
+/* Il primo elenco: i motivi per sposare la causa */
+.reasons-list {
+    margin-top: 15px;
+    margin-bottom: 25px;
+    padding-left: 20px;
+}
+
+.reasons-list li {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--text-dark); /* Testo principale per evidenziare i motivi */
+    margin-bottom: 12px;
+}
+
+.reasons-list strong {
+    color: var(--crew-blue); /* Evidenzia le parole chiave con il blu della ciurma */
+}
+
+/* Il secondo elenco: cosa includere nella mail (i requisiti) */
+.requirements-list {
+    margin-top: 15px;
+    margin-bottom: 0;
+    padding-left: 20px;
+    list-style-type: disc; /* Pallino classico per differenziarlo dalle bandiere sopra */
+}
+
+.requirements-list li {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    color: var(--text-muted); /* Colore più morbido per i dati tecnici richiesti */
+    margin-bottom: 8px;
+}
+
+.requirements-list li:last-child {
+    margin-bottom: 0; /* Toglie il margine all'ultimo elemento */
+}
