@@ -1,71 +1,45 @@
 /* ==========================================================================
-   STILI PAGINA SUPPORTO (SEEKER D. CODE)
+   STILI SPECIFICI ED ESCLUSIVI PER LA PAGINA SUPPORTO
+   (Istruzioni strutturali e globali ereditate da style.css)
    ========================================================================== */
 
 :root {
-    --bg-creme: #fdfbf7;      /* Sfondo morbido e rilassante */
-    --text-dark: #1d3557;     /* Il blu scuro del tuo brand */
-    --text-muted: #4a5568;
-    --gold: #ffb703;          /* Oro per la card dell'autofinanziamento */
-    --sky: #219ebc;           /* Azzurro per le taglie */
-    --crew-blue: #0047ff;     /* Blu per la collaborazione */
-}
-
-body {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    background-color: var(--bg-creme);
-    color: var(--text-dark);
-    margin: 0;
-    padding: 0;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
+    /* Manteniamo solo i colori esclusivi di questa pagina, gli altri sono globali */
+    --gold-support: #ffb703;          
+    --sky-support: #219ebc;           
+    --crew-blue: #0047ff;     
 }
 
 .support-page-container {
-    max-width: 1200px;
+    max-width:flex;
+    max-width: 1500px;
     margin: 0 auto;
     padding: 40px 20px;
     box-sizing: border-box;
 }
 
-/* HEADER STYLE */
-.support-header {
+/* HEADER STYLE SPECIFICO */
+.supporti-header {
     text-align: center;
     margin-bottom: 50px;
 }
 
-.back-link-container {
-    text-align: left;
-    margin-bottom: 20px;
-}
-
-.back-link {
-    color: var(--sky);
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.95rem;
-    transition: color 0.2s;
-}
-
-.back-link:hover {
-    color: var(--text-dark);
-}
-
-.support-header h1 {
-    font-size: 2.2rem;
+.supporti-header h1 {
+    font-size: 1.8rem;
     font-weight: 800;
+    margin-top: 20px;
     margin-bottom: 15px;
-    letter-spacing: -0.5px;
+    letter-spacing: 0px;
 }
 
-.support-header .subtitle {
-    max-width: 800px;
+.supporti-header .subtitle {
+    max-width: 1500px;
     margin: 0 auto;
-    font-size: 1.05rem;
+    font-size: 1rem;
     color: var(--text-muted);
 }
 
-/* GRID LAYOUT (1 colonna su mobile, cambia dinamicamente) */
+/* GRID LAYOUT DELLE CARD DI SUPPORTO */
 .support-grid {
     display: flex;
     flex-direction: column;
@@ -94,7 +68,7 @@ body {
 }
 
 .support-card h2 {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-weight: 700;
     margin-top: 0;
     margin-bottom: 15px;
@@ -110,18 +84,18 @@ body {
     margin-bottom: 0;
 }
 
-/* CARDS SPECIFICHE (Bordi personalizzati coerenti con la home) */
+/* CARDS SPECIFICHE CON BORDI PERSONALIZZATI */
 .gold-card {
-    border-left: 5px solid var(--gold);
+    border-left: 5px solid var(--gold-support);
     background: linear-gradient(to right, rgba(255, 183, 3, 0.01), #ffffff);
 }
 .gold-card h2 { color: #cc9200; }
 
 .sky-card {
-    border-left: 5px solid var(--sky);
+    border-left: 5px solid var(--sky-support);
     background: linear-gradient(to right, rgba(33, 158, 188, 0.01), #ffffff);
 }
-.sky-card h2 { color: var(--sky); }
+.sky-card h2 { color: var(--sky-support); }
 
 .crew-card {
     border-left: 5px solid var(--crew-blue);
@@ -129,13 +103,14 @@ body {
 }
 .crew-card h2 { color: var(--crew-blue); }
 
-/* BOX INTERNO RECRUITMENT */
+/* BOX INTERNO RECRUITMENT DELLA CIURMA */
 .recruitment-box {
     margin-top: 25px;
     padding: 20px;
     background: rgba(0, 71, 255, 0.02);
     border: 1px dashed rgba(0, 71, 255, 0.15);
     border-radius: 12px;
+    text-align: left;
 }
 
 .recruitment-box h3 {
@@ -155,7 +130,7 @@ body {
     margin-bottom: 8px;
 }
 
-/* FOOTER SEZIONE */
+/* FOOTER IN AREA SUPPORTO */
 .support-footer {
     text-align: center;
     margin-top: 60px;
@@ -163,87 +138,45 @@ body {
     border-top: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-.support-footer p {
-    font-size: 1.05rem;
-    font-weight: 500;
-    margin-bottom: 10px;
-}
-
-.email-link {
-    font-size: 1.3rem;
-    font-weight: 700;
-    color: var(--sky);
-    text-decoration: none;
-    transition: opacity 0.2s;
-}
-
-.email-link:hover {
-    opacity: 0.8;
-}
-
-/* ==========================================================================
-   ADATTAMENTO RESPONSIVE PER LA PAGINA DI SUPPORTO INTERNA
-   ========================================================================== */
-
-/* 📱 REGOLE PER MOBILE (Schermi fino a 768px) */
+/* RESPONSIVE DESIGN SPECIFICO PER LE CARD */
 @media (max-width: 768px) {
     .support-page-container {
-        padding: 20px 15px; /* Riduce il vuoto ai lati dello schermo dello smartphone */
+        padding: 20px 15px;
     }
-
-    .support-header {
+    .supporti-header {
         margin-bottom: 30px;
     }
-
-    .support-header h1 {
-        font-size: 1.7rem; /* Ridimensiona il titolo principale */
+    .supporti-header h1 {
+        font-size: 1.4rem;
     }
-
-    .support-header .subtitle {
-        font-size: 0.95rem;
+    .supporti-header .subtitle {
+        font-size: 0.85rem;
     }
-
     .support-card {
-        padding: 25px 20px; /* Compone le card interne in modo più stretto */
+        padding: 25px 20px;
     }
-
     .support-card h2 {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
     }
-
-    /* Ottimizzazione degli elenchi con le bandierine piratesche su mobile */
-    .reasons-list {
-        padding-left: 18px; /* Evita che le emoji escano fuori dal bordo sinistro */
+    .reasons-list, .requirements-list {
+        padding-left: 18px;
     }
-
-    .reasons-list li {
-        font-size: 0.9rem;
-        margin-bottom: 15px; /* Più spazio verticale tra i blocchi di testo su mobile */
+    .reasons-list li, .requirements-list li {
+        font-size: 0.85rem;
     }
-
-    .requirements-list li {
-        font-size: 0.9rem;
-    }
-
     .support-footer {
         margin-top: 40px;
         padding-top: 20px;
     }
-
-    .email-link {
-        font-size: 1.1rem; /* Riduce la dimensione della mail per non farla andare a capo bruscamente */
-    }
 }
 
-/* 💻 REGOLE PER PC E TABLET ORIZZONTALI (Schermi da 900px in su) */
 @media (min-width: 900px) {
     .support-grid {
         display: grid;
         grid-template-columns: 1fr 1fr; 
         gap: 30px;
     }
-    
     .crew-card {
-        grid-column: span 2; /* Rimane distesa su due colonne solo su schermi grandi */
+        grid-column: span 2;
     }
 }

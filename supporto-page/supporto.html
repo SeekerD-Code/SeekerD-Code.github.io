@@ -1,77 +1,145 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
+    <link rel="icon" type="image/png" href="Favicon SDC.ico">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sostieni il Progetto - Seeker D. Code</title>
     
-    <!-- Importiamo i font globali del tuo sito (Modifica il percorso se necessario) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Collegamento al CSS specifico di questa pagina -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="supporto-page.css">
+
+    <script>
+    // Controllo modalità sviluppatore per AdSense
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('developer') === 'true') {
+        sessionStorage.setItem('devMode', 'true');
+    }
+    const isDeveloper = sessionStorage.getItem('devMode') === 'true';
+
+    if (window.location.protocol !== 'file:' && !isDeveloper) {
+        const adsenseScript = document.createElement('script');
+        adsenseScript.async = true;
+        adsenseScript.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9544811471414500";
+        adsenseScript.crossOrigin = "anonymous";
+        document.head.appendChild(adsenseScript);
+    }
+    </script>
 </head>
 <body>
 
-    <!-- CONTAINER PRINCIPALE -->
-    <main class="support-page-container">
-        
-        <!-- HEADER DELLA PAGINA -->
-        <header class="support-header">
-            <div class="back-link-container">
-                <!-- Torna alla home page uscendo dalla cartella -->
-                <a href="../index.html" class="back-link">← Torna alla Home</a>
-            </div>
-            <h1>❌ MANTENERE LA ROTTA</h1>
-            <p class="subtitle">
-                "Seeker D. Code" nasce come un simbolo di totale libertà. Il nostro obiettivo è creare uno spazio digitale sereno, leggero e privo di forzature, dove l'esperienza utente torna ad essere piacevole. Non ti chiederemo mai un solo centesimo: ecco come puoi aiutarci a far viaggiare i nostri progetti.
-            </p>
-        </header>
+    <header>
+        <div style="display: flex; justify-content: center; align-items: center;">
+                <img src="../SD.C - logo orizzontale.png" alt="Seeker D. Code" class="logo-img"
+                style="height: auto; object-fit: contain;
+                filter: drop-shadow(15px 15px 0px #fff) 
+                    drop-shadow(-15px -15px 0px #fff) 
+                    drop-shadow(15px -15px 0px #fff) 
+                    drop-shadow(-15px 15px 0px #fff) 
+                    drop-shadow(0px 0px 10px rgba(255,255,255,1));">
+        </div>
+    </header>
 
-        <!-- GRIGLIA DELLE 3 MODALITÀ DI SUPPORTO -->
+    <!-- NUOVO MENU DI NAVIGAZIONE MULTIPAGINA CON SOTTOMENU INTELIGENTE -->
+    <nav class="main-nav" style="position: relative; z-index: 10; display: flex; flex-wrap: wrap; justify-content: flex-start; align-items: center; gap: 15px; padding: 10px;">
+        <a href="../index.html">Home</a>
+        <a href="../about.html">About Us</a> 
+        
+        <!-- Sottomenu Dropdown nativo per la gestione delle App -->
+        <div class="nav-dropdown">
+            <button class="dropdown-trigger">App <span class="arrow">▾</span></button>
+            <div class="dropdown-menu">
+                <a href="apps.html">Le nostre App</a>
+                <a href="cos-e-pwa.html">Cos'è una PWA</a>
+            </div>
+        </div>
+
+        <a href="../faq.html">FAQ & Supporto</a>
+        <a href="supporto.html">Come Supportarci</a>
+    </nav>
+
+    <div class="main-layout">
+        
+        <aside class="ads-sidebar" id="ad-top">
+            <ins class="adsbygoogle ads-ibrida"
+                style="display:block;"
+                data-ad-client="ca-pub-9544811471414500"
+                data-ad-slot="7833202644"
+                data-ad-format="auto"
+                data-full-width-responsive="false">
+            </ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </aside>
+
+        <!-- IL CONTAINER DELLA PAGINA DI SUPPORTO DI DIVENTA PARTE DEL LAYOUT -->
+        <main class="support-page-container">
+                <h1 style="text-align: center;">❌ MANTENERE LA ROTTA</h1>
+                <p class="subtitle" style="text-align: center;">
+                    "Seeker D. Code" nasce come un simbolo di totale libertà.  <br /> <br /> 
+                    Il nostro obiettivo è creare uno spazio digitale sereno, leggero e privo di forzature, dove l'esperienza utente 
+                    torni ad essere l'unico obiettivo. <br /> <br /> 
+                    Non ti chiederemo mai soldi, e se dovesse mai contattarti qualcuno a nome nostro che te ne chiede: <strong> non siamo noi</strong> 
+                    non ti fidare.
+                    Abbimo comunque bisogno del vostro aiuto per mantenere vivo il progetto e permettere a sempre più persone di sperimentare 
+                    una usabilità più leggera e spensierata.
+                    Di seguito i modi per supportare il nostro progetto:
+                </p>
+            </header>
+
         <section class="support-grid">
-            
-            <!-- CARD 1: IL SUPPORTO ECONOMICO (ATTRAVERSO L'USO) -->
+
             <div class="support-card gold-card">
                 <div class="card-icon">⛵</div>
                 <h2>Naviga, Usa, Condividi</h2>
                 <p>
-                    Il modo più potente per sostenerci economicamente non ti costa nulla. All'interno delle nostre applicazioni troverai esclusivamente dei <strong>piccoli banner discreti</strong>, posizionati in modo da non disturbare mai la tua navigazione e rifiutando totalmente popup invasivi o video pubblicitari stressanti. 
+                    Il modo più potente per sostenerci non ti costa nulla. All'interno delle nostre applicazioni troverai esclusivamente dei 
+                    <strong>piccoli banner discreti</strong>, posizionati in modo da non disturbare mai la tua navigazione e 
+                    rifiutando totalmente popup invasivi o video pubblicitari stressanti. (quindi se noti un comportamento anomalo di un banner, segnalo subito)<br />
                 </p>
                 <p>
-                    <strong>Come funziona il meccanismo?</strong> Più utilizzi attivamente le nostre app durante la giornata, più quei piccoli banner generano visualizzazioni. E se ogni tanto trovi un annuncio pubblicitario che cattura la tua reale curiosità e decidi di cliccarlo, la piattaforma ci riconosce un piccolo contributo. Il segreto è tutto qui: l'utilizzo costante e il passaparola permettono al progetto di autofinanziarsi e coprire i costi di gestione in totale autonomia!
+                    <strong>Come funziona il meccanismo?</strong> <br />
+                    Più utilizzi attivamente le nostre app durante la giornata, più quei piccoli banner generano visualizzazioni. 
+                    E se ogni tanto trovi un annuncio pubblicitario che cattura la tua reale curiosità e decidi di cliccarlo, 
+                    la piattaforma ci riconosce un piccolo contributo. <br />
+                    Il segreto è tutto qui: l'utilizzo costante e il passaparola permettono al progetto di autofinanziarsi e coprire i costi di gestione 
+                    in totale autonomia!
                 </p>
             </div>
 
-            <!-- CARD 2: LA BACHECA DELLE TAGLIE (FEEDBACK & IDEE) -->
             <div class="support-card sky-card">
                 <div class="card-icon">💎</div>
                 <h2>Metti una "Taglia" o Proponi</h2>
                 <p>
-                    La rotta di questa flotta la decide la ciurma. Se c'è un'applicazione o un sito web che usi sempre, ma la cui esperienza è costantemente rovinata da interruzioni fastidiose, <strong>segnalacelo</strong>. Studieremo le sue funzioni per progettarne un'alternativa targata Seeker. 
+                    La rotta di questa flotta la decide la ciurma. <br />
+                    Se c'è un'applicazione o un sito web che usi sempre, ma la cui esperienza è costantemente rovinata da interruzioni fastidiose, 
+                    <strong>SEGNALACELO!</strong>. <br />
+                    Studieremo le sue funzioni per progettarne un'alternativa targata Seeker. 
                 </p>
                 <p>
-                    Allo stesso modo, se hai in mente un tool di produttività o un'utilità introvabile negli store digitali che ti faciliterebbe lo studio o il lavoro, raccontaci la tua idea! Valuteremo insieme la fattibilità per svilupparla e metterla a disposizione di tutti.
+                    Allo stesso modo, se hai in mente un tool di produttività o un'utilità introvabile negli store digitali che ti faciliterebbe 
+                    lo studio o il lavoro, raccontaci la tua idea! <br />
+                    Valuteremo insieme la fattibilità per svilupparla e metterla a disposizione di tutti (o solo sa tua).
                 </p>
             </div>
 
-            <!-- CARD 3: COLLABORAZIONE ATTIVA (SALTA A BORDO) -->
             <div class="support-card crew-card">
                 <div class="card-icon">🏴‍☠️</div>
                 <h2>Sali a Bordo della Ciurma</h2>
                 <p>
-                    Sei uno sviluppatore, un designer o un appassionato che vuole sporcarsi le mani e contribuire attivamente al codice o alla crescita dei progetti? La porta della stiva è sempre aperta a nuove idee e forze fresche.
+                    Sei uno sviluppatore, un designer o un appassionato che vuole sporcarsi le mani e contribuire attivamente al codice o alla 
+                    crescita dei progetti? <br />
+                    La porta della stiva è sempre aperta a nuove idee e forze fresche.
                 </p>
                 <div class="recruitment-box">
-                    <h3>Fai per noi se...</h3>
-                    <p>Fai per noi se anche tu:</p>
+                    <h3>Fai per noi se anche tu...</h3>
                     
-                    <ul class="reasons-list" 
-                        style="list-style-type: '🏴‍☠️'; 
-                            padding-left: 20px; 
-                            margin-bottom: 20px;">
+                    <ul class="reasons-list" style="list-style-type: '🏴‍☠️'; padding-left: 20px; margin-bottom: 20px;">
                         <li style="margin-bottom: 10px; padding-left: 5px;">
                             Vuoi liberare "il mondo" da chi appesantisce l'esperienza utente con video pubblicitari che escono fuori nei momenti più impensabili.
                         </li>
@@ -81,9 +149,16 @@
                         <li style="margin-bottom: 10px; padding-left: 5px;">
                             Desideri fortemente fare la differenza, portando avanti la <strong>nostra</strong> volontà della D.
                         </li>
+                        <li style="margin-bottom: 10px; padding-left: 5px;">
+                            Ti piace programmare e vorresti guadagnare con il tuo hobby in modo etico e pulito.
+                        </li>
+                        <li style="margin-bottom: 10px; padding-left: 5px;">
+                            Sei fan di "One Piece" e anche tu vuoi essere parte di un gruppo che ha la "D." nel nome😉.
+                        </li>
                     </ul>
 
-                    <p style="margin-top: 20px;">Se ti rispecchi in tutto questo, scrivici una mail includendo:</p>
+                    <p style="margin-top: 20px;">Se ti rispecchi in tutto questo, noi ti aspettiamo per realizzare insieme qualcosa che lascerà il segno. <br />
+                        Scrivici una mail includendo:</p>
                     
                     <ul class="requirements-list">
                         <li>Una tua <strong>breve presentazione</strong> (chi sei e cosa ti appassiona).</li>
@@ -95,13 +170,54 @@
 
         </section>
 
-        <!-- FOOTER DI CONTATTO -->
         <footer class="support-footer">
             <p>Per qualsiasi proposta, taglia o candidatura, la nostra bacheca è qui:</p>
-            <a href="mailto:joycrew@seekerdcode.it" class="email-link">joycrew@seekerdcode.it 📬</a>
+            <p style="margin-bottom: 30px;">
+                <a href="mailto:joycrew@seekerdcode.it" style="font-size: 1.3rem; font-weight: bold; color: var(--sky); text-decoration: underline;">joycrew@seekerdcode.it 📬</a>
+            </p>
+    
+            <p style="margin-bottom: 10px; font-size: 0.95rem; font-weight: normal;">
+                <a href="privacy.html" style="color: #000000; text-decoration: underline; font-weight: bold;">Privacy & Cookie Policy</a>  |   
+                <a href="note-legali.html" style="color: #000000; text-decoration: underline; font-weight: bold;">Note Legali</a>  |   
+                <a href="mailto:joycrew@seekerdcode.it" style="color: #000000; text-decoration: underline; font-weight: bold;">Contatti: joycrew@seekerdcode.it</a>
+            </p>
+            
+            <p style="margin-bottom: 15px; font-size: 0.95rem; font-weight: normal; color: var(--text-muted);">© 2026 Seeker d. Code. • Tutti i diritti riservati.</p>
+            
+            <div id="google_translate_element"></div>
+
+            <script type="text/javascript">
+                if (window.location.protocol !== 'file:') {
+                    function googleTranslateElementInit() {
+                        new google.translate.TranslateElement({
+                            pageLanguage: 'it',
+                            includedLanguages: 'en,es,fr,zh-CN,de,ja,ru',
+                            layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+                        }, 'google_translate_element');
+                    }
+                    const translateScript = document.createElement('script');
+                    translateScript.type = 'text/javascript';
+                    translateScript.src = "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+                    document.head.appendChild(translateScript);
+                }
+            </script>
         </footer>
 
-    </main>
+        <script src="banners.js"></script>
 
-</body>
+        <button id="backToTop" class="back-to-top" title="Torna su">▲</button>
+        <script>
+            const backToTopBtn = document.getElementById("backToTop");
+            window.addEventListener("scroll", () => {
+                if (window.scrollY > 400) { backToTopBtn.classList.add("show"); } 
+                else { backToTopBtn.classList.remove("show"); }
+            });
+            backToTopBtn.addEventListener("click", () => {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+            });
+        </script>
+
+            </main>
+        </div>
+    </body>
 </html>
