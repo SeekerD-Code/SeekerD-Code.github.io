@@ -51,12 +51,22 @@
         </div>
     </header>
 
-    <nav class="main-nav" style="position: relative; z-index: 10;">
-        <a href="https://seekerdcode.it">Home</a>
-        <a href="#about">About Us</a> 
-        <a href="#apps">Le nostre App</a>
-        <a href="#faq">FAQ & Supporto</a>
-        <a href="#support-preview">Come Supportarci</a>
+    <!-- NUOVO MENU DI NAVIGAZIONE MULTIPAGINA CON SOTTOMENU INTELIGENTE -->
+    <nav class="main-nav" style="position: relative; z-index: 10; display: flex; flex-wrap: wrap; justify-content: flex-start; align-items: center; gap: 15px; padding: 10px;">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a> 
+        
+        <!-- Sottomenu Dropdown nativo per la gestione delle App -->
+        <div class="nav-dropdown">
+            <button class="dropdown-trigger">App <span class="arrow">▾</span></button>
+            <div class="dropdown-menu">
+                <a href="apps.html">Le nostre App</a>
+                <a href="cos-e-pwa.html">Cos'è una PWA</a>
+            </div>
+        </div>
+
+        <a href="faq.html">FAQ & Supporto</a>
+        <a href="supporto-page/supporto.html">Come Supportarci</a>
     </nav>
 
     <div class="main-layout">
@@ -74,14 +84,14 @@
             </script>
         </aside>
 
-        <main class="container">
+        <main class="container" style="max-width: 1500px;">
 		<div class="mission">
             <p id="mission-text">
                 <strong>SEI STUFO/A  DI SCARICARE APP CON VIDEO PUBBLICITÀ IN OGNI DOVE?</strong><br />
                 Anche noi! Per questo nasce il progetto <strong>"Seeker D. Code".</strong>
             </p>
         </div> 
-			<div class="mission-story" style="margin-top: 60px;">
+			<div class="mission-story" style="margin-top: 60px; max-width: 1500px;">
                 <h2 id="mission-title" style="text-align: center; margin-bottom: 30px; font-weight: 700;">COS'È SEEKER D. CODE ☁️</h2>
                 
                 <p>Ho scelto questo nome perché credo che non solo il mondo reale, ma anche quello digitale, abbia bisogno di una deviazione radicale dalla sua rotta attuale, di una piccola ribellione verso le app con pubblicità invasive. La "D." rappresenta proprio una volontà di liberazione da tutto questo; la volontà di creare applicazioni rendendo l'esperienza d'uso pulita: i miei progetti sono studiati per integrare inserzioni discrete, <strong>rifiutando totalmente pubblicità invasive, pop-up o interruzioni fastidiose</strong>, per liberare l'utente dalla schiavitù di app e giochi che spezzano quella calma che un utilizzo continuo e senza interruzioni dovrebbe trasmettere.</p>
@@ -90,7 +100,7 @@
 
                 <p>Vuoi entrare a far parte della mia ciurma?<br />
                 Utilizza la mia app e dammi i tuoi feedback per portare avanti insieme la volontà della "D."<br />
-                Scrivimi a: <strong>joycrew@seekerdcode.it</strong></p>
+                Scrivimi a: <strong><a href="mailto:joycrew@seekerdcode.it" style="color: inherit; text-decoration: underline; font-weight: bold;">joycrew@seekerdcode.it</a></strong></p>
 
                 <h3 style="margin-top: 40px; margin-bottom: 15px; color: var(--text-dark);">Il significato dietro il nome del progetto:</h3>
 
@@ -99,64 +109,65 @@
                 La “D.” rappresenta proprio questo: la Volontà di far nascere un sorriso contagioso sul viso di chi usa le mie app.</p>
             </div>
 			
-    <!-- Inizio Sezione Le Nostre App & Progetti -->
-            <section id="apps">
-                
-        <!-- CATEGORIA 1: APPLICAZIONI ATTIVE -->
-            <h2 class="category-title" id="cat-utility">LE NOSTRE APP - NO INTRUSIVE ADS</h2>
-            <div class="grid">
-                <a href="https://seekerdcode.it/livespeechtext/" class="card-link">
-                <div class="card">
-                <img src="icon-512.png" alt="Live Speech Text Logo" class="app-icon-img" style="width: 100px; height: 100px; object-fit: contain;">
-                    <div class="card-content">
-                        <h3 class="font-speech-spec">Live Speech Text</h3>
-                        <p>Strumento immediato e leggero per la trascrizione vocale dal vivo. Parla e guarda il testo generarsi in tempo reale, pronto per essere copiato o condiviso.</p>
-                        <div class="badge-container">
-                        <span class="badge badge-free">Gratuito</span>
-                        <span class="badge badge-platform"> - Tipo: PWA e WEB</span>
-                        </div>
-                    </div>           
-                </div>
-                </a>
-            </div>
-
-
-            <h2 class="category-title" id="cat-upcoming">WORK IN PROGRESS</h2>
-            <div class="grid">
-                <div class="card card-disabled">
-                    <img src="logo FM.png" class="app-icon-placeholder" style="width: 100px; height: 100px; object-fit: contain;" alt="Icona FestMap">
-                    <div class="card-content">
-                    <h3>FestMap</h3>
-                    <p>La guida definitiva per consultare eventi, fiere del fumetto e gaming in tutta Italia. L'applicazione perfetta per non perdere nessuna data, scoprire i programmi completi e pianificare le tue tappe nel mondo dei comics e dell'intrattenimento.</p>
-                        <div class="badge-container">
-                        <span class="badge badge-upcoming" style="font-size: 0.85rem; color: var(--accent-sky); font-style: italic; font-weight: 600;" >Prossimamente</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <!-- Inizio Sezione Le Nostre App & Vantaggi PWA sulla Home -->
+    <section id="apps" class="content-card" style="background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); padding: 30px; margin: 40px auto; max-width: 1200px;">
         
+        <h2 style="text-align: center; margin-bottom: 25px; font-weight: 700; font-size: 1.6rem; color: var(--text-dark);">🚀 LE NOSTRE UTILITY E LA RIVOLUZIONE DELLE PWA</h2>
+        
+        <p style="line-height: 1.7; color: #333; margin-bottom: 20px;">
+            Le App targate <strong>Seeker D. Code</strong> sono pensate per essere strumenti avanzati che uniscono la massima utilità alla massima leggerezza. Attualmente, la nostra flotta si concentra sullo sviluppo di <strong>Progressive Web Apps (PWA)</strong>: una tecnologia innovativa che ci permette di offrire soluzioni immediate, accessibili a tutti e totalmente libere dalle restrizioni commerciali tradizionali, garantendo interfacce pulite e performance istantanee.
+        </p>
 
-            <!-- CATEGORIA 3: I GIOCHI (Nuovo ID unico e struttura pulita) -->
-            <h2 class="category-title" id="cat-games">I NOSTRE GIOCHI - NO INTRUSIVE ADS</h2>
-            <div class="grid">
-                <div class="card card-disabled">
-                    <img src="game.png" class="app-icon-placeholder" style="width: 100px; height: 100px; object-fit: contain;" alt="Icona Prossimi Giochi">
-                    <div class="card-content">
-                        <h3>Divertimento senza interruzioni</h3>
-                        <p>Anche il mondo del gaming mobile ha disperatamente bisogno di una sferzata di libertà e leggerezza. Ci stiamo preparando a lanciare i nostri primi titoli in formato PWA: leggeri, immediati e, come da tradizione della flotta, totalmente privi di video pubblicitari stressanti. Scalda i motori, la stiva dei giochi aprirà presto.</p>
-                        <div class="badge-container">
-                            <span class="badge badge-upcoming" style="font-size: 0.85rem; color: var(--accent-sky); font-style: italic; font-weight: 600;">In Arrivo</span>
-                        </div>
-                    </div>
-                </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 25px; margin-top: 30px;">
+            <!-- Focus su Live Speech Text -->
+            <div style="flex: 1; min-width: 280px; padding: 20px; background: rgba(0, 71, 255, 0.02); border-radius: 12px; border: 1px solid rgba(0, 71, 255, 0.05);">
+                <h3 style="color: var(--text-dark); margin-bottom: 10px; font-weight: 600;">🎙️ Live Speech Text: Come sfruttarla al meglio</h3>
+                <p style="font-size: 0.95rem; line-height: 1.6;">
+                    Il nostro strumento di trascrizione vocale dal vivo è progettato per abbattere i limiti delle interruzioni temporali. Sfruttando l'API nativa di riconoscimento del browser, permette di dettare testi lunghi senza blocchi. 
+                    <strong>Il vantaggio esclusivo:</strong> integra la tecnologia <em>Document Picture-in-Picture</em>, il che significa che puoi ridurre l'app in una piccola finestra fluttuante sullo schermo mentre utilizzi altri programmi (es. Word, Excel o durante una call). È lo strumento perfetto per studenti che seguono lezioni online, giornalisti e professionisti che necessitano di sbobinare velocemente interviste e appunti senza saltare da una scheda all'altra.
+                </p>
             </div>
 
-        </section>
-<!-- Fine Sezione Le Nostre App -->
+            <!-- Focus su FestMap -->
+            <div style="flex: 1; min-width: 280px; padding: 20px; background: rgba(0, 71, 255, 0.02); border-radius: 12px; border: 1px solid rgba(0, 71, 255, 0.05);">
+                <h3 style="color: var(--text-dark); margin-bottom: 10px; font-weight: 600;">🗺️ FestMap: Pianificazione intelligente degli eventi</h3>
+                <p style="font-size: 0.95rem; line-height: 1.6;">
+                    La nostra guida in arrivo dedicata alle fiere del fumetto e del gaming in Italia risolverà il problema della frammentazione delle informazioni. Invece di navigare su decine di pagine social per trovare date e programmi, FestMap centralizzerà tutto su una mappa interattiva. L'utente potrà pianificare le proprie tappe, salvare gli eventi nei preferiti sul proprio dispositivo e consultare i programmi anche in condizioni di scarsa connettività, un problema tipico dei padiglioni fieristici molto affollati.
+                </p>
+            </div>
+        </div>
 
+        <!-- SEZIONE CONTESTUALE: BREVE INTRODUZIONE AI VANTAGGI -->
+        <h3 style="color: var(--text-dark); margin-top: 40px; margin-bottom: 15px; font-size: 1.35rem; font-weight: 600; border-bottom: 2px solid rgba(0,0,0,0.05); padding-bottom: 5px;">👑 I Punti di Forza dell'Esperienza PWA</h3>
+        
+        <div style="line-height: 1.7; color: #333;">
+            <p>Scegliere una Progressive Web App offre vantaggi pratici immediati rispetto alle applicazioni tradizionali che siamo abituati a scaricare:</p>
+            
+            <ul style="margin-left: 20px; margin-top: 10px; list-style-type: square;">
+                <li style="margin-bottom: 12px;">
+                    <strong>Zero spazio occupato:</strong> Una PWA si installa istantaneamente sul display occupando meno di 1MB della memoria del tuo telefono, preservando il tuo spazio di archiviazione hardware.
+                </li>
+                <li style="margin-bottom: 12px;">
+                    <strong>Aggiornamenti invisibili e continui:</strong> Non dovrai mai più fare download manuali. Ogni volta che apri l'app, visualizzi automaticamente l'ultima versione protetta e ottimizzata rilasciata sul server.
+                </li>
+                <li style="margin-bottom: 12px;">
+                    <strong>Interfaccia fluida e pulita:</strong> Slegate dai vincoli commerciali rigidi degli store, le nostre PWA rifiutano totalmente pubblicità video invasive o tracciamenti aggressivi, garantendo la massima tranquillità d'uso.
+                </li>
+            </ul>
+        </div>
 
-        <!-- INIZIO - SOSTIENI IL PROGETTO-->
-        <section id="support-preview" class="support-box">
+        <div style="text-align: center; margin-top: 35px; padding-top: 20px; border-top: 1px solid rgba(0,0,0,0.05);">
+            <p style="font-weight: 600; font-size: 1.1rem; margin-bottom: 15px;">Vuoi approfondire dal punto di vista tecnico o provare le app?</p>
+            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px;">
+                <a href="cos-e-pwa.html" class="btn-read-more" style="display: inline-block; padding: 12px 25px; background: #333; color: white; text-decoration: none; border-radius: 8px; font-weight: bold;">Scopri cos'è una PWA →</a>
+                <a href="apps.html" class="btn-read-more" style="display: inline-block; padding: 12px 25px; background: var(--accent-sky); color: white; text-decoration: none; border-radius: 8px; font-weight: bold; box-shadow: 0 4px 10px rgba(0, 71, 255, 0.2);">Accedi alla Vetrina App →</a>
+            </div>
+        </div>
+
+    </section>
+    <!-- Fine Sezione Le Nostre App sulla Home -->
+
+<section id="support-preview" class="support-box">
             <h2>⚓ COME SOSTENERCI</h2>
             <p>
             "Seeker D. Code" nasce come simbolo di libertà e libera esperienza d'uso, per questo non occorre un solo centesimo per supportarci. 
@@ -166,10 +177,7 @@
                 <a href="supporto-page/supporto.html" class="btn-read-more">Scopri come fare →</a>
             </div>
         </section>
-        <!-- FINE - SOSTIENI IL PROGETTO-->
-			
-                        <!-- 🏴‍☠️ NUOVA SEZIONE: RICHIESTE & SEGNALAZIONI APPLICAZIONI -->
-            <div class="app-requests" 
+        <div class="app-requests" 
                     style="margin-top: 50px; 
                     margin-bottom: 50px; 
                     padding: 30px; 
@@ -198,7 +206,6 @@
                             gap: 25px; 
                             justify-content: center;">
                     
-                    <!-- Scatola 1: Segnala App con Pubblicità -->
                     <div style="flex: 1; 
                                 min-width: 280px; 
                                 max-width: 540px; 
@@ -217,14 +224,13 @@
                                    📢 Metti una "Taglia" su un'app
                                 </h3>
                         <p style="font-size: 0.9rem; 
-                                  line-height: 1.6; 
-                                  margin-bottom: 0;
-                                  color: #333333;">
-                            Usi quotidianamente un'applicazione o un sito web utilissimo, ma l'esperienza è costantemente rovinata da video pop-up, timer e interruzioni fastidiose? <strong>Segnalacelo.</strong> Studieremo le sue funzionalità principali per progettarne un'alternativa targata Seeker: leggera, immediata e totalmente rispettosa del tuo tempo.
+                                 line-height: 1.6; 
+                                 margin-bottom: 0;
+                                 color: #333333;">
+                             Usi quotidianamente un'applicazione o un sito web utilissimo, ma l'esperienza è costantemente rovinata da video pop-up, timer e interruzioni fastidiose? <strong><a href="mailto:joycrew@seekerdcode.it" style="color: inherit; text-decoration: underline;">Segnalacelo.</a></strong> Studieremo le sue funzionalità principali per progettarne un'alternativa targata Seeker: leggera, immediata e totalmente rispettosa del tuo tempo.
                         </p>
                     </div>
 
-                    <!-- Scatola 2: Proponi un'idea da zero -->
                     <div style="flex: 1; 
                                 min-width: 280px; 
                                 max-width: 540px; 
@@ -242,9 +248,9 @@
                                    💡 Proponi una nuova idea
                                 </h3>
                         <p style="font-size: 0.9rem; 
-                                  line-height: 1.6; 
-                                  margin-bottom: 0;
-                                  color: #333333;">
+                                 line-height: 1.6; 
+                                 margin-bottom: 0;
+                                 color: #333333;">
                             Hai in mente un'utilità, un piccolo tool di produttività o uno strumento che ti faciliterebbe la vita durante lo studio o il lavoro, ma che non riesci a trovare negli store digitali? Raccontaci la tua idea. Valuteremo insieme la fattibilità per svilupparla come nuova Web App o applicazione mobile della nostra flotta.
                         </p>
                     </div>
@@ -268,70 +274,39 @@
                 </div>
             </div>
 
-                                    <!-- Sezione About Richiudibile sulla Home -->
-            <section id="about" style="max-width: 800px; margin: 40px auto; padding: 0 15px;">
+            <section id="blog-updates" class="content-card" style="background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); padding: 30px; margin: 40px auto; max-width: 1200px;">
+                <h2 style="text-align: center; margin-bottom: 25px; font-weight: 700; font-size: 1.6rem; color: var(--text-dark);">📜 IL GIORNALE DI BORDO DELLA COMPILAZIONE</h2>
                 
+                <div style="line-height: 1.7; color: #333;">
+                    <h3 style="color: var(--text-dark); margin-top: 20px; font-size: 1.25rem;">L'Importanza dello Sviluppo di Software Libero da Inserzioni Invasive</h3>
+                    <p>Nel panorama odierno di internet, l'esperienza utente è costantemente frammentata. La maggior parte delle applicazioni presenti sugli store mobili o sul web costringe gli utilizzatori a visualizzare banner giganti, finestre pop-up a tutto schermo o, peggio ancora, video pubblicitari impossibili da saltare prima di poter accedere a una funzionalità basilare. Questo approccio non solo rallenta i dispositivi e consuma dati preziosi, ma mina alla base il rapporto di fiducia tra lo sviluppatore e la community.</p>
+                    <p>Il progetto <strong>Seeker D. Code</strong> propone una filosofia differente. Riteniamo che le utility debbano essere immediate, silenziose e al completo servizio di chi le adopera. Integrare annunci discreti ed ecologici tramite canali affidabili come Google AdSense è una scelta legittima per sostenere i costi dell'infrastruttura e del server, ma questo non deve mai tradursi in un'esperienza d'uso stressante. La pulizia visiva aumenta la concentrazione, rispetta l'attenzione dell'utente e ridona al software il suo scopo originale: risolvere un problema nel minor tempo possibile.</p>
+
+                    <h3 style="color: var(--text-dark); margin-top: 25px; font-size: 1.25rem;">Perché Scegliere l'Architettura delle Progressive Web App (PWA)</h3>
+                    <p>Tutti i nostri strumenti di punta, come <em>Live Speech Text</em>, sono ingegnerizzati adottando lo standard delle Progressive Web App (PWA). Le PWA rappresentano la perfetta evoluzione del web moderno, fungendo da ponte ideale tra un classico sito internet e un'app nativa per smartphone Android o iOS. A differenza delle applicazioni tradizionali che richiedono download mastodontici dagli store ufficiali, le PWA si installano all'istante cliccando semplicemente sulla voce dedicata del browser o sull'interfaccia di sistema.</p>
+                    <p>Questo garantisce vantaggi tecnici straordinari: le nostre applicazioni occupano una quantità di memoria irrisoria sul dispositivo (spesso meno dello spazio occupato da una singola fotografia scattata in alta risoluzione), si aggiornano autonomamente in background senza costringere l'utente a download manuali e garantiscono una fluidità d'uso impeccabile grazie al caching avanzato dei file core. La libertà digitale passa anche per la leggerezza del codice e per il rispetto dello spazio di archiviazione hardware dell'utente.</p>
+                </div>
+            </section>
+
+            <section id="about" style="max-width: 800px; margin: 40px auto; padding: 0 15px;">
                 <details class="content-card" style="background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); padding: 20px; cursor: pointer;">
-                    
-                    <!-- Il titolo visibile su cui cliccare per aprire -->
                     <summary class="section-title" style="font-size: 1.5rem; font-weight: bold; color: var(--text-dark); list-style: none; display: flex; justify-content: space-between; align-items: center; user-select: none;">
                         <span>ℹ️ ABOUT US — LA NOSTRA VISIONE</span>
                         <span class="freccia-about">▼</span>
                     </summary>
-
-                    <!-- Il contenuto nascosto che si apre verso il basso -->
                     <div class="about-content" style="margin-top: 20px; cursor: default;" onclick="event.stopPropagation();">
                         <h3>La nostra storia e la filosofia Seeker D. Code</h3>
-                        <p>
-                            Il progetto <strong>Seeker D. Code</strong> non nasce semplicemente per l'ennesima pubblicazione di software isolati, ma da una reale esigenza di libertà, accessibilità ed efficienza nel flusso digitale quotidiano. Troppo spesso gli strumenti web e le applicazioni moderne sono rigidi, appesantiti da interfacce complesse o vincolati da logiche invasive che interrompono la produttività e l'esperienza dell'utente.
-                        </p>
-                        <p>
-                            Da questa sfida è nata la nostra missione: dare vita a uno spazio di sviluppo indipendente, capace di progettare utility reattive, minimali e focalizzate sull'utilità reale. Che si tratti di rivoluzionare la dettatura vocale abbattendo i limiti tecnici tradizionali (come abbiamo fatto con l'introduzione del <em>Document Picture-in-Picture</em> in <strong>Live Speech Text</strong>) o di mappare e valorizzare gli eventi sul territorio, ogni riga di codice è mossa dal desiderio di semplificare la vita digitale delle persone.
-                        </p>
-
-                        <blockquote class="philosophy-quote">
-                            Se il codice è un oceano di infinite possibilità, noi abbiamo scelto di affrontarlo da ricercatori. Questo nome è il nostro piccolo manifesto silenzioso. Rappresenta la nostra volontà, la determinazione incrollabile di chi non si arrende davanti ai limiti tecnici e insegue una visione di totale libertà digitale. È il legame profondo tra la passione per la creatività e la forza di tracciare la propria rotta, portando un sorriso e un tocco di colore (e magari un cappello di paglia ben saldo in testa) anche tra le righe di programmazione più complesse.
-                        </blockquote>
-
-                        <h3>I Pilastri dei Nostri Progetti</h3>
-                        <ul class="features-list">
-                            <li><strong>Innovazione e Utilità Reale:</strong> Sviluppiamo soluzioni che rispondono a problemi concreti, integrando tecnologie moderne per offrire esperienze fluide sia su desktop che su dispositivi mobili.</li>
-                            <li><strong>Interfacce Pulite e Accessibili:</strong> Crediamo in un design minimale dove l'utente si trova subito a casa, libero da distrazioni e focalizzato solo su ciò che conta.</li>
-                            <li><strong>Trasparenza e Tutela della Privacy:</strong> La sicurezza dei dati è al centro di tutto. Sfruttiamo elaborazioni locali e architetture trasparenti affinché tutto ciò che l'utente gestisce rimanga sotto il suo esclusivo controllo.</li>
-                            <li><strong>Sviluppo Indipendente e Continuo:</strong> Siamo guidati dalla curiosità tecnica e dal desiderio di esplorare nuove frontiere dello sviluppo web, per dimostrare che la tecnologia può essere uno strumento flessibile al servizio di tutti.</li>
-                        </ul>
-
-                        <p class="about-footer" style="text-align: center; margin-top: 20px; font-style: italic;">
-                            Siamo qui per esplorare, innovare e tracciare nuove rotte nel mondo dello sviluppo. La ricerca del codice definitivo non finisce mai!
-                        </p>
+                        <p>Il progetto <strong>Seeker D. Code</strong> nasce da una reale esigenza di libertà, accessibilità ed efficienza nel flusso digitale quotidiano. Visita la nostra pagina <a href="about.html" style="font-weight: bold; color: var(--accent-sky);">Chi Siamo dedicata</a> per leggere l'intera evoluzione della nostra rotta e dei pilastri dei nostri progetti.</p>
                     </div>
                 </details>
             </section>
 
-
-			<!-- 🎯 SEZIONE COMPLEMENTARE FAQ AGGIUNTA PER ADSENSE (OTTIMIZZATA DESIGN) -->
-            <div id="faq" class="faq-section" style="margin-top: 60px; padding: 20px; border-top: 1px dashed rgba(0,0,0,0.1);">
+			<div id="faq" class="faq-section" style="margin-top: 60px; padding: 20px; border-top: 1px dashed rgba(0,0,0,0.1);">
                 <h2 style="text-align: center; margin-bottom: 25px; font-weight: 700; font-size: 1.6rem;">Domande Frequenti e Supporto</h2>
-                
-                <details style="margin-bottom: 12px; padding: 15px; background: rgba(255,255,255,0.6); border-radius: 8px; border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
-                    <summary style="font-weight: 600; cursor: pointer; color: var(--text-dark);">Che cos'è una PWA (Progressive Web App)?</summary>
-                    <p style="margin-top: 10px; font-size: 1.05rem; opacity: 0.9;">Una Progressive Web App(PWA) è un'applicazione web che offre un'esperienza simile a quella di un'app nativa. Puoi utilizzarla direttamente online oppure installarla sul display del tuo smartphone Android o iOS o PC selezionando la voce "Aggiungi a schermata Home" dal menu del tuo browser, oppure nel nostro caso, cliccando il pulsante "Aggiungi alla Home" per mobile, o "Installa l'App su PC" presente vicino ai menù. Una vera esperienza pulita rifiuta anche il "peso" delle app tradizionali. Le nostre PWA si aggiungono alla tua schermata home in un secondo e sono talmente ottimizzate che occupano meno memoria di una fotografia, salvaguardando lo spazio sul tuo dispositivo. Zero installazioni pesanti, massime prestazioni di utilizzo.</p>
-                </details>
-
-                <details style="margin-bottom: 12px; padding: 15px; background: rgba(255,255,255,0.6); border-radius: 8px; border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
-                    <summary style="font-weight: 600; cursor: pointer; color: var(--text-dark);">Come viene tutelata la mia privacy durante la trascrizione vocale?</summary>
-                    <p style="margin-top: 10px; font-size: 1.05rem; opacity: 0.9;">La sicurezza dei tuoi dati è totale. Gli strumenti di dettatura forniti da Seeker D. Code elaborano il flusso audio sfruttando in tempo reale i motori di riconoscimento integrati nativamente nel browser del tuo smartphone o PC. Nessun dato vocale o testo digitato viene salvato, archiviato o trasmesso a server esterni.</p>
-                </details>
-
-                <details style="margin-bottom: 12px; padding: 15px; background: rgba(255,255,255,0.6); border-radius: 8px; border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
-                    <summary style="font-weight: 600; cursor: pointer; color: var(--text-dark);">Quali browser sono consigliati per un utilizzo ottimale?</summary>
-                    <p style="margin-top: 10px; font-size: 1.05rem; opacity: 0.9;">Tutte le nostre utility web sono ottimizzate per i browser moderni conformi agli standard internazionali (Chrome, Safari, Edge, Firefox). Per funzionalità che dipendono da microfono continuo, l'esperienza ideale su dispositivi mobili si ottiene utilizzando Google Chrome su sistema operativo Android.</p>
-                </details>
-
-                <details style="margin-bottom: 12px; padding: 15px; background: rgba(255,255,255,0.6); border-radius: 8px; border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
-                    <summary style="font-weight: 600; cursor: pointer; color: var(--text-dark);">Come posso ricevere supporto o segnalare un problema?</summary>
-                    <p style="margin-top: 10px; font-size: 1.05rem; opacity: 0.9;">Se riscontri difficoltà nell'utilizzo delle applicazioni, anomalie grafiche o errori di trascrizione, puoi richiedere assistenza gratuita al nostro team di supporto. Invia un'e-mail descrivendo il problema all'indirizzo dedicato: <strong>joycrew@seekerdcode.it</strong>. Saremo felici di aiutarti a risolvere ogni inconveniente tecnico nel minor tempo possibile.</p>
-                </details>
+                <p style="text-align: center; margin-bottom: 20px;">
+                    Hai dubbi sulle nostre applicazioni o sul loro funzionamento? Abbiamo espanso tutte le risposte tecniche all'interno della nostra pagina nativa di supporto: 
+                    <a href="faq.html" style="font-weight: bold; color: var(--accent-sky); text-decoration: underline;">Consulta la pagina FAQ completa</a>.
+                </p>
             </div>
 			
         </main>
@@ -353,9 +328,9 @@
 
     <footer>
         <p style="margin-bottom: 10px;">
-            <a href="https://sites.google.com/view/seekerdcode-privacy/privacy-e-cookie-policy" target="_blank" style="color: #000000; text-decoration: underline; font-weight: bold;">Privacy & Cookie Policy</a>  |  
-            <a href="https://sites.google.com/view/seekerdcode-privacy/termini-di-servizio-e-note-legali" target="_blank" style="color: #000000; text-decoration: underline; font-weight: bold;">Note Legali</a>  |  
-            <span style="color: #000000; font-weight: bold;">Contatti: joycrew@seekerdcode.it</span>
+            <a href="privacy.html" style="color: #000000; text-decoration: underline; font-weight: bold;">Privacy & Cookie Policy</a>  |  
+            <a href="note-legali.html" style="color: #000000; text-decoration: underline; font-weight: bold;">Note Legali</a>  |  
+            <a href="mailto:joycrew@seekerdcode.it" style="color: #000000; text-decoration: underline; font-weight: bold;">Contatti: joycrew@seekerdcode.it</a>
         </p>
         
         <p style="margin-bottom: 15px;">© 2026 Seeker d. Code. • Tutti i diritti riservati.</p>
@@ -386,47 +361,37 @@
         <script>
             (function() {
                 const details = document.querySelector('#about details');
-                let isClosing = false;
-
-                details.addEventListener('click', function(e) {
-                    // Intercettiamo il clic sul summary per gestire la chiusura manualmente
-                    if (this.open && e.target.closest('summary')) {
-                        e.preventDefault(); // Blocca la chiusura istantanea nativa
-                        
-                        // Salviamo la posizione esatta dello scroll millesimi di secondo prima di chiudere
-                        const currentScroll = window.scrollY;
-                        
-                        // Chiudiamo il box via codice
-                        this.open = false;
-                        
-                        // Forziamo la pagina a rimanere inchiodata alle coordinate salvate
-                        window.scrollTo(0, currentScroll);
-                    }
-                });
+                if(details) {
+                    details.addEventListener('click', function(e) {
+                        if (this.open && e.target.closest('summary')) {
+                            e.preventDefault(); 
+                            const currentScroll = window.scrollY;
+                            this.open = false;
+                            window.scrollTo(0, currentScroll);
+                        }
+                    });
+                }
             })();
         </script>
 
         <button id="backToTop" class="back-to-top" title="Torna su">▲</button>
         <script>
-    const backToTopBtn = document.getElementById("backToTop");
+            const backToTopBtn = document.getElementById("backToTop");
 
-    // Ascolta lo scroll della finestra
-    window.addEventListener("scroll", () => {
-        // Se si scorre verso il basso per più di 400 pixel, mostra il tasto
-        if (window.scrollY > 400) {
-            backToTopBtn.classList.add("show");
-        } else {
-            backToTopBtn.classList.remove("show");
-        }
-    });
+            window.addEventListener("scroll", () => {
+                if (window.scrollY > 400) {
+                    backToTopBtn.classList.add("show");
+                } else {
+                    backToTopBtn.classList.remove("show");
+                }
+            });
 
-    // Torna su fluidamente quando viene cliccato
-    backToTopBtn.addEventListener("click", () => {
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth" // Rende la salita morbida ed elegante
-        });
-    });
-</script>
+            backToTopBtn.addEventListener("click", () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+            });
+        </script>
 </body>
 </html>

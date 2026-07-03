@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <link rel="icon" type="image/png" href="Favicon SDC.ico">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Nostre Applicazioni | Seeker D. Code</title>
+    <meta name="description" content="Esplora la flotta di applicazioni web e Progressive Web App sviluppate da Seeker D. Code. Soluzioni leggere, veloci e prive di pubblicità invasive.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+    // Controllo modalità sviluppatore per AdSense
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('developer') === 'true') {
+        sessionStorage.setItem('devMode', 'true');
+    }
+    const isDeveloper = sessionStorage.getItem('devMode') === 'true';
+
+    if (window.location.protocol !== 'file:' && !isDeveloper) {
+        const adsenseScript = document.createElement('script');
+        adsenseScript.async = true;
+        adsenseScript.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9544811471414500";
+        adsenseScript.crossOrigin = "anonymous";
+        document.head.appendChild(adsenseScript);
+    }
+    </script>
+
+</head>
+<body>
+
+    <header>
+        <div style="display: flex; justify-content: center; align-items: center;">
+            <img src="SD.C - logo orizzontale.png" alt="Seeker D. Code" class="logo-img"
+            style="height: auto; object-fit: contain;
+            filter: drop-shadow(15px 15px 0px #fff) 
+                    drop-shadow(-15px -15px 0px #fff) 
+                    drop-shadow(15px -15px 0px #fff) 
+                    drop-shadow(-15px 15px 0px #fff) 
+                    drop-shadow(0px 0px 10px rgba(255,255,255,1));">
+        </div>
+    </header>
+
+    <!-- NUOVO MENU DI NAVIGAZIONE MULTIPAGINA CON SOTTOMENU INTELIGENTE -->
+    <nav class="main-nav" style="position: relative; z-index: 10; display: flex; flex-wrap: wrap; justify-content: flex-start; align-items: center; gap: 15px; padding: 10px;">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a> 
+        
+        <!-- Sottomenu Dropdown nativo per la gestione delle App -->
+        <div class="nav-dropdown">
+            <button class="dropdown-trigger">App <span class="arrow">▾</span></button>
+            <div class="dropdown-menu">
+                <a href="apps.html">Le nostre App</a>
+                <a href="cos-e-pwa.html">Cos'è una PWA</a>
+            </div>
+        </div>
+
+        <a href="faq.html">FAQ & Supporto</a>
+        <a href="supporto-page/supporto.html">Come Supportarci</a>
+    </nav>
+
+    <div class="main-layout">
+        
+        <aside class="ads-sidebar" id="ad-top">
+            <ins class="adsbygoogle ads-ibrida"
+                style="display:block;"
+                data-ad-client="ca-pub-9544811471414500"
+                data-ad-slot="7833202644"
+                data-ad-format="auto"
+                data-full-width-responsive="false">
+            </ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </aside>
+
+        <main class="container">
+            
+            <div style="margin-top: 30px; margin-bottom: 40px; text-align: center;">
+                <h1 style="font-weight: 700; color: var(--text-dark);">⚓ LA VETRINA DELLE APPLICAZIONI</h1>
+                <p style="color: var(--text-muted); max-width: 700px; margin: 10px auto 0 auto; font-size: 1.05rem;">
+                    Tutti i nostri strumenti sono PWA (Progressive Web App). Puoi utilizzarli direttamente dal browser oppure installarli sulla schermata home del tuo dispositivo cliccando sul pulsante "Installa" o "Aggiungi" presente nel menu del tuo browser.
+                </p>
+            </div>
+
+            <h2 class="category-title" id="cat-utility">LE NOSTRE APP - NO INTRUSIVE ADS</h2>
+            <div class="grid">
+                
+                <div class="card">
+                    <img src="icon-512.png" alt="Live Speech Text Logo" class="app-icon-img" style="width: 100px; height: 100px; object-fit: contain;">
+                    <div class="card-content" style="width: 100%;">
+                        <h3 class="font-speech-spec">Live Speech Text</h3>
+                        <p style="margin-bottom: 15px;">Strumento immediato e leggero per la trascrizione vocale dal vivo. Parla e guarda il testo generarsi in tempo reale, pronto per essere copiato o condiviso direttamente sullo schermo.</p>
+                        
+                        <div class="badge-container" style="margin-bottom: 20px;">
+                            <span class="badge badge-free">Gratuito</span>
+                            <span class="badge badge-platform"> - Tipo: PWA e WEB</span>
+                        </div>
+
+                        <div class="card-action-buttons" style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: auto;">
+                            <a href="https://seekerdcode.it/livespeechtext/" target="_blank" class="btn-action btn-main-action" style="text-decoration: none; font-weight: bold; padding: 10px 20px; border-radius: 8px; font-size: 0.9rem; transition: all 0.2s; background: var(--accent-sky); color: white; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 4px 12px rgba(0, 71, 255, 0.15);">
+                                Avvia Applicazione 🚀
+                            </a>
+                            <a href="apps/live-speech-text.html" class="btn-action btn-sub-action" style="text-decoration: none; font-weight: bold; padding: 10px 20px; border-radius: 8px; font-size: 0.9rem; transition: all 0.2s; background: rgba(0, 0, 0, 0.05); color: var(--text-dark); display: inline-flex; align-items: center; gap: 6px; border: 1px solid rgba(0,0,0,0.05);">
+                                Guida e Dettagli 📖
+                            </a>
+                        </div>
+                    </div>            
+                </div>
+
+            </div>
+
+            <h2 class="category-title" id="cat-upcoming">WORK IN PROGRESS</h2>
+            <div class="grid">
+                <div class="card card-disabled">
+                    <img src="logo FM.png" class="app-icon-placeholder" style="width: 100px; height: 100px; object-fit: contain;" alt="Icona FestMap">
+                    <div class="card-content">
+                        <h3>FestMap</h3>
+                        <p>La guida definitiva per consultare eventi, fiere del fumetto e gaming in tutta Italia. L'applicazione perfetta per non perdere nessuna data, scoprire i programmi completi e pianificare le tue tappe nel mondo dei comics e dell'intrattenimento.</p>
+                        <div class="badge-container">
+                            <span class="badge badge-upcoming" style="font-size: 0.85rem; color: var(--accent-sky); font-style: italic; font-weight: 600;">Prossimamente</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <h2 class="category-title" id="cat-games">I NOSTRI GIOCHI - NO INTRUSIVE ADS</h2>
+            <div class="grid">
+                <div class="card card-disabled">
+                    <img src="game.png" class="app-icon-placeholder" style="width: 100px; height: 100px; object-fit: contain;" alt="Icona Prossimi Giochi">
+                    <div class="card-content">
+                        <h3>Divertimento senza interruzioni</h3>
+                        <p>Anche il mondo del gaming mobile ha disperatamente bisogno di una sferzata di libertà e leggerezza. Ci stiamo preparando a lanciare i nostri primi titoli in formato PWA: leggeri, immediati e, come da tradizione della flotta, totalmente privi di video pubblicitari stressanti. Scalda i motori, la stiva dei giochi aprirà presto.</p>
+                        <div class="badge-container">
+                            <span class="badge badge-upcoming" style="font-size: 0.85rem; color: var(--accent-sky); font-style: italic; font-weight: 600;">In Arrivo</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <div class="ads-banner" id="ad-bottom">
+        <ins class="adsbygoogle"
+            style="display:block;"
+            data-ad-client="ca-pub-9544811471414500"
+            data-ad-slot="1393962976"
+            data-ad-format="horizontal"
+            data-full-width-responsive="false">
+        </ins> 
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
+    <footer>
+        <p style="margin-bottom: 10px;">
+            <a href="privacy.html" style="color: #000000; text-decoration: underline; font-weight: bold;">Privacy & Cookie Policy</a>  |  
+            <a href="note-legali.html" style="color: #000000; text-decoration: underline; font-weight: bold;">Note Legali</a>  |  
+            <a href="mailto:joycrew@seekerdcode.it" style="color: #000000; text-decoration: underline; font-weight: bold;">Contatti: joycrew@seekerdcode.it</a>
+        </p>
+        
+        <p style="margin-bottom: 15px;">© 2026 Seeker d. Code. • Tutti i diritti riservati.</p>
+        
+        <div id="google_translate_element"></div>
+
+        <script type="text/javascript">
+            // Carica il Traduttore solo se siamo online
+            if (window.location.protocol !== 'file:') {
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({
+                        pageLanguage: 'it',
+                        includedLanguages: 'en,es,fr,zh-CN,de,ja,ru',
+                        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+                    }, 'google_translate_element');
+                }
+                
+                const translateScript = document.createElement('script');
+                translateScript.type = 'text/javascript';
+                translateScript.src = "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+                document.head.appendChild(translateScript);
+            }
+        </script>
+    </footer>
+
+    <script src="banners.js"></script>
+
+        <script>
+            (function() {
+                const details = document.querySelector('#about details');
+                if(details) {
+                    details.addEventListener('click', function(e) {
+                        if (this.open && e.target.closest('summary')) {
+                            e.preventDefault(); 
+                            const currentScroll = window.scrollY;
+                            this.open = false;
+                            window.scrollTo(0, currentScroll);
+                        }
+                    });
+                }
+            })();
+        </script>
+
+        <button id="backToTop" class="back-to-top" title="Torna su">▲</button>
+        <script>
+            const backToTopBtn = document.getElementById("backToTop");
+
+            window.addEventListener("scroll", () => {
+                if (window.scrollY > 400) {
+                    backToTopBtn.classList.add("show");
+                } else {
+                    backToTopBtn.classList.remove("show");
+                }
+            });
+
+            backToTopBtn.addEventListener("click", () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+            });
+        </script>
+</body>
+</html>

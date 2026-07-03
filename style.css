@@ -40,6 +40,90 @@ body {
 }
 
 
+/* Contenitore principale */
+.nav-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Il finto bottone che si comporta come i tuoi link attuali */
+.dropdown-trigger {
+    background: transparent;
+    border: none;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 5px 0;
+    display: flex;
+    align-items: center;
+    gap: 4px; /* Gestisce la distanza esatta della freccia dalla scritta! */
+}
+
+.dropdown-trigger .arrow {
+    font-size: 0.8em;
+    transition: transform 0.2s ease;
+}
+
+/* La tendina nascosta che appare al passaggio del mouse */
+ .dropdown-menu{
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #ffffff;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 6px 0;
+    z-index: 99;
+    margin-top: 5px; /* Ora puoi tenere anche un po' di spazio visivo! */
+
+    /* STATO NASCOSTO */
+    opacity: 0;
+    visibility: hidden;
+    
+    /* GESTIONE DEL TEMPO (TRANSIZIONE) */
+    /* opacity cambia in 0.2 secondi. visibility aspetta 0.2 secondi prima di nasconderlo del tutto */
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+    transition-delay: 0.1s; /* Dà un micro-ritardo quando esci con il mouse per evitare finti clic */
+}
+
+/* I link interni alla tendina */
+.dropdown-menu a {
+    color: #333333 !important; /* Forza il colore scuro leggibile sul bianco */
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: background 0.2s ease;
+}
+
+/* Effetto hover sulle opzioni della tendina */
+.dropdown-menu a:hover {
+    background-color: #f5f5f7; /* Grigio chiarissimo soft al passaggio del mouse */
+    color: #000000 !important;
+}
+
+/* Mostra la tendina al passaggio del mouse */
+.nav-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0s; /* Quando entri con il mouse, si apre istantaneamente */
+}
+.dropdown-menu:hover {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0s; /* Quando entri con il mouse, si apre istantaneamente */
+}
+
+
+/* Opzionale: Ruota la freccia quando il menu è aperto */
+.nav-dropdown:hover .dropdown-trigger .arrow {
+    transform: rotate(180deg);
+}
+
 footer {
     text-align: center;
     padding: 40px 20px;
@@ -77,7 +161,7 @@ header {
 }
 
 .main-layout {
-    max-width: flex;
+    min-width: flex;
     max-width: 1500px;
     flex-direction: row;       /* Affianca Sidebar e Main su PC */
     justify-content: center;   /* Centra l'intero blocco nella pagina */
@@ -95,29 +179,20 @@ header {
 
 /* Blocchi sponsor / pubblicità */
 .ads-sidebar {
-    width: 160px;
-    max-width: 200px;
-
+    max-width: 160px;
     min-height: 600px;
-    max-height: 1200px;
-
-    /* LA CHIAVE: dice al browser di calcolare l'altezza in base al banner reale caricato */
     height: auto;
     overflow: hidden; /* Impedisce a qualsiasi elemento interno di strabordare */
-
-    /*background: rgba(255, 183, 3, 0.03);
-    border: 1px dashed rgba(255, 183, 3, 0.4);
-    color: var(--text-muted);
-    text-align: center;
-    box-sizing: border-box;*/
-
     padding: 0;
     display: flex;
     flex-direction: column; /* Cambiato da row/center a column per assecondare la crescita verticale */
     align-items: center;
     justify-content: flex-start; /* Spinge il contenuto dall'alto verso il basso */
 }
-
+.ads-ibrida {
+    width: 100% !important;
+    height: 100% !important;
+}
 .ads-banner {
     max-width: 728px;
     width: 100%;
@@ -375,6 +450,21 @@ header {
     margin-bottom: 25px;   
     color: var(--text-dark);
     font-size: 1.05rem;    
+}
+/* ==========================================================================
+   STILI PULSANTI AZIONE DIRETTA (PAGINA APPS)
+   ========================================================================== */
+.btn-action:hover {
+    transform: translateY(-2px);
+}
+
+.btn-main-action:hover {
+    box-shadow: 0 6px 16px rgba(0, 71, 255, 0.25) !important;
+    opacity: 0.95;
+}
+
+.btn-sub-action:hover {
+    background-color: rgba(0, 0, 0, 0.1) !important;
 }
 
 
@@ -675,7 +765,16 @@ header {
         margin: 5px 0 !important;
         line-height: 1.4 !important;
     }
+     .card-action-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+    .btn-action {
+        width: 100%;
+        justify-content: center;
+    }
 }
+
 
 /* 📱 SMARTPHONE MOLTO STRETTI (Sotto i 400px) */
 @media (max-width: 400px) {
@@ -699,6 +798,14 @@ header {
 
     .card-content h3 {
         font-size: 1.05rem !important;       /* Rimpicciolisce leggermente il titolo */
+    }
+     .card-action-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+    .btn-action {
+        width: 100%;
+        justify-content: center;
     }
 }
 

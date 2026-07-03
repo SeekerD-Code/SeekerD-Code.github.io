@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <link rel="icon" type="image/png" href="Favicon SDC.ico">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cos'è una PWA? Guida alle Progressive Web App | Seeker D. Code</title>
+    <meta name="description" content="Scopri cosa sono le Progressive Web App (PWA), come funzionano, come installarle e quali sono i vantaggi tecnici rispetto alle normali app native iOS e Android.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div style="display: flex; justify-content: center; align-items: center;">
+            <img src="SD.C - logo orizzontale.png" alt="Seeker D. Code" class="logo-img"
+            style="height: auto; object-fit: contain;
+            filter: drop-shadow(15px 15px 0px #fff) 
+                    drop-shadow(-15px -15px 0px #fff) 
+                    drop-shadow(15px -15px 0px #fff) 
+                    drop-shadow(-15px 15px 0px #fff) 
+                    drop-shadow(0px 0px 10px rgba(255,255,255,1));">
+        </div>
+    </header>
+
+    <!-- NUOVO MENU DI NAVIGAZIONE MULTIPAGINA CON SOTTOMENU INTELIGENTE -->
+    <nav class="main-nav" style="position: relative; z-index: 10; display: flex; flex-wrap: wrap; justify-content: flex-start; align-items: center; gap: 15px; padding: 10px;">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a> 
+        
+        <!-- Sottomenu Dropdown nativo per la gestione delle App -->
+        <div class="nav-dropdown">
+            <button class="dropdown-trigger">App <span class="arrow">▾</span></button>
+            <div class="dropdown-menu">
+                <a href="apps.html">Le nostre App</a>
+                <a href="cos-e-pwa.html">Cos'è una PWA</a>
+            </div>
+        </div>
+
+        <a href="faq.html">FAQ & Supporto</a>
+        <a href="supporto-page/supporto.html">Come Supportarci</a>
+    </nav>
+
+    <div class="main-layout">
+        
+        <aside class="ads-sidebar" id="ad-top">
+            <ins class="adsbygoogle ads-ibrida"
+                style="display:block;"
+                data-ad-client="ca-pub-9544811471414500"
+                data-ad-slot="7833202644"
+                data-ad-format="auto"
+                data-full-width-responsive="false">
+            </ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </aside>
+
+        <main class="container">
+            
+            <div style="text-align: center; margin-bottom: 40px;">
+                <h1 style="font-weight: 700; color: var(--text-dark); font-size: 2rem;">☁️ COS'È UNA PWA (PROGRESSIVE WEB APP)?</h1>
+                <p style="color: var(--text-muted); font-size: 1.1rem; margin-top: 10px;">
+                    La guida semplice e dettagliata per capire la tecnologia che sta cambiando il modo di usare il software.
+                </p>
+            </div>
+
+            <section class="content-card" style="background: white; border-radius: 12px; padding: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); margin-bottom: 30px;">
+                <h2 style="color: var(--text-dark); font-size: 1.4rem; margin-bottom: 15px; font-weight: 600;">Definizione Specifica</h2>
+                <p>
+                    Una <strong>PWA (Progressive Web App)</strong> è un'applicazione software sviluppata utilizzando le normali tecnologie del web (HTML, CSS e JavaScript), ma ottimizzata per comportarsi in tutto e per tutto come un'applicazione nativa per smartphone o computer desktop. 
+                </p>
+                <p>
+                    In parole semplici, rappresenta l'unione perfetta tra un comune sito internet e un'app scaricata dallo store: offre la velocità, le animazioni e l'installazione tipiche delle app tradizionali, ma mantiene l'accessibilità universale di una pagina web.
+                </p>
+            </section>
+
+            <section class="content-card" style="background: white; border-radius: 12px; padding: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); margin-bottom: 30px;">
+                <h2 style="color: var(--text-dark); font-size: 1.4rem; margin-bottom: 15px; font-weight: 600;">👑 Quali sono i principali vantaggi tecnici?</h2>
+                <ul style="margin-left: 20px; list-style-type: decimal;">
+                    <li style="margin-bottom: 15px;">
+                        <strong>Installazione immediata:</strong> Non hai bisogno di accedere a mercati digitali saturi o inserire password. Ti basta fare clic su "Aggiungi a schermata Home" direttamente dal browser del tuo telefono o PC per veder comparire l'icona sul tuo dispositivo.
+                    </li>
+                    <li style="margin-bottom: 15px;">
+                        <strong>Leggerezza estrema:</strong> Mentre un'applicazione scaricata dagli store può richiedere dai 50 ai 200 megabyte di dati (esaurendo lo spazio di archiviazione), una PWA occupa solitamente <strong>meno di 1 Megabyte</strong>, perché sfrutta i componenti di sistema già presenti nel tuo browser.
+                    </li>
+                    <li style="margin-bottom: 15px;">
+                        <strong>Aggiornamenti istantanei (Zero Stress):</strong> Non vedrai mai notifiche di aggiornamento in sospeso. Ogni singola volta che apri l'applicazione, questa controlla in background la presenza di nuove funzioni sul server e si aggiorna da sola in un secondo.
+                    </li>
+                    <li style="margin-bottom: 15px;">
+                        <strong>Compatibilità universale:</strong> Funziona ovunque. Non importa se usi un iPhone, un tablet Android, un computer Windows, un Mac o un sistema Linux: il codice si adatta fluidamente a qualsiasi display.
+                    </li>
+                </ul>
+            </section>
+
+            <section class="content-card" style="background: white; border-radius: 12px; padding: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); margin-bottom: 30px;">
+                <h2 style="color: var(--text-dark); font-size: 1.4rem; margin-bottom: 15px; font-weight: 600;">📲 Come si installa una PWA sul tuo dispositivo?</h2>
+                <p>Il processo è immediato e varia leggermente in base al browser che utilizzi:</p>
+                
+                <div style="margin-top: 15px; padding: 15px; background: rgba(0,0,0,0.02); border-radius: 8px;">
+                    <p><strong>🤖 Su Android (Chrome / Edge):</strong> Apri il link dell'app. In basso apparirà automaticamente un banner con la scritta "Aggiungi a schermata Home". Se non appare, premi sui tre puntini in alto a destra nel browser e seleziona <em>"Installa applicazione"</em>.</p>
+                </div>
+
+                <div style="margin-top: 15px; padding: 15px; background: rgba(0,0,0,0.02); border-radius: 8px;">
+                    <p><strong>🍏 Su iOS - iPhone / iPad (Safari):</strong> Apri il link dell'app esclusivamente all'interno del browser nativo Safari. Tocca il pulsante di condivisione (il quadrato con la freccia rivolta verso l'alto in basso al centro) e seleziona la voce <em>"Aggiungi alla schermata Home"</em>.</p>
+                </div>
+
+                <div style="margin-top: 15px; padding: 15px; background: rgba(0,0,0,0.02); border-radius: 8px;">
+                    <p><strong>💻 Su Computer (Desktop Windows / Mac):</strong> Quando navighi sulla pagina dell'applicazione tramite Chrome o Edge, noterai una piccola icona a forma di monitor o una voce "+" all'estrema destra della barra degli indirizzi URL in alto. Cliccala per installarla come software desktop sul computer.</p>
+                </div>
+            </section>
+
+            <div style="text-align: center; margin-top: 40px; margin-bottom: 40px;">
+                <a href="apps.html" class="btn-read-more" style="display: inline-block; padding: 12px 30px; background: var(--accent-sky); color: white; text-decoration: none; border-radius: 8px; font-weight: bold; box-shadow: 0 4px 10px rgba(0, 71, 255, 0.2);">Guarda le nostre PWA in azione →</a>
+            </div>
+
+        </main>
+    </div>
+
+    <div class="ads-banner" id="ad-bottom">
+        <ins class="adsbygoogle"
+            style="display:block;"
+            data-ad-client="ca-pub-9544811471414500"
+            data-ad-slot="1393962976"
+            data-ad-format="horizontal"
+            data-full-width-responsive="false">
+        </ins> 
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
+    <footer>
+        <p style="margin-bottom: 10px;">
+            <a href="privacy.html" style="color: #000000; text-decoration: underline; font-weight: bold;">Privacy & Cookie Policy</a>  |  
+            <a href="note-legali.html" style="color: #000000; text-decoration: underline; font-weight: bold;">Note Legali</a>  |  
+            <a href="mailto:joycrew@seekerdcode.it" style="color: #000000; text-decoration: underline; font-weight: bold;">Contatti: joycrew@seekerdcode.it</a>
+        </p>
+        
+        <p style="margin-bottom: 15px;">© 2026 Seeker d. Code. • Tutti i diritti riservati.</p>
+        
+        <div id="google_translate_element"></div>
+
+        <script type="text/javascript">
+            // Carica il Traduttore solo se siamo online
+            if (window.location.protocol !== 'file:') {
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({
+                        pageLanguage: 'it',
+                        includedLanguages: 'en,es,fr,zh-CN,de,ja,ru',
+                        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+                    }, 'google_translate_element');
+                }
+                
+                const translateScript = document.createElement('script');
+                translateScript.type = 'text/javascript';
+                translateScript.src = "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+                document.head.appendChild(translateScript);
+            }
+        </script>
+    </footer>
+
+    <script src="banners.js"></script>
+
+        <script>
+            (function() {
+                const details = document.querySelector('#about details');
+                if(details) {
+                    details.addEventListener('click', function(e) {
+                        if (this.open && e.target.closest('summary')) {
+                            e.preventDefault(); 
+                            const currentScroll = window.scrollY;
+                            this.open = false;
+                            window.scrollTo(0, currentScroll);
+                        }
+                    });
+                }
+            })();
+        </script>
+
+        <button id="backToTop" class="back-to-top" title="Torna su">▲</button>
+        <script>
+            const backToTopBtn = document.getElementById("backToTop");
+
+            window.addEventListener("scroll", () => {
+                if (window.scrollY > 400) {
+                    backToTopBtn.classList.add("show");
+                } else {
+                    backToTopBtn.classList.remove("show");
+                }
+            });
+
+            backToTopBtn.addEventListener("click", () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+            });
+        </script>
+</body>
+</html>
