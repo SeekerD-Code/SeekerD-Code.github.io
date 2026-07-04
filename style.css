@@ -51,9 +51,9 @@ body {
     background: transparent;
     border: none;
     color: inherit;
+    font-weight: bold;
     font-family: inherit;
-    font-size: inherit;
-    font-weight: 600;
+    font-size: 1.1rem;
     cursor: pointer;
     padding: 5px 0;
     display: flex;

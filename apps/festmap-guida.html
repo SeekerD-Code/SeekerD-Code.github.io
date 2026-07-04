@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <link rel="icon" type="image/png" href="../Favicon SDC.ico">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FestMap Guida e Dettagli - Seeker D. Code</title>
+    <meta name="description" content="Scopri le potenzialità di FestMap, lo strumento che mette a disposizione una mappa con tutti gli eventi in programma per tutto l'anno. Leggero, gratuito e senza interruzioni pubblicitarie fastidiose.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+
+    <script>
+    // Controllo modalità sviluppatore per AdSense
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('developer') === 'true') {
+        sessionStorage.setItem('devMode', 'true');
+    }
+    const isDeveloper = sessionStorage.getItem('devMode') === 'true';
+
+    if (window.location.protocol !== 'file:' && !isDeveloper) {
+        const adsenseScript = document.createElement('script');
+        adsenseScript.async = true;
+        adsenseScript.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9544811471414500";
+        adsenseScript.crossOrigin = "anonymous";
+        document.head.appendChild(adsenseScript);
+    }
+    </script>
+    
+</head>
+<body>
+
+    <header>
+        <div style="display: flex; justify-content: center; align-items: center;">
+                <img src="../SD.C - logo orizzontale.png" alt="Seeker D. Code" class="logo-img"
+                style="height: auto; object-fit: contain;
+            filter: drop-shadow(15px 15px 0px #fff) 
+                    drop-shadow(-15px -15px 0px #fff) 
+                    drop-shadow(15px -15px 0px #fff) 
+                    drop-shadow(-15px 15px 0px #fff) 
+                    drop-shadow(0px 0px 10px rgba(255,255,255,1));">
+        </div>
+    </header>
+
+    <nav class="main-nav" style="position: relative; z-index: 10; display: flex; flex-wrap: wrap; justify-content: flex-start; align-items: center; gap: 15px; padding: 10px;">
+        <a href="../index.html">Home</a>
+        <a href="../about.html">About Us</a> 
+        
+        <div class="nav-dropdown">
+            <button class="dropdown-trigger">Web Apps & Strumenti <span class="arrow">▾</span></button>
+            <div class="dropdown-menu">
+                <a href="../apps.html">Catalogo App</a>
+                <a href="../apps/festmap-guida.html">FestMap (Mappa Eventi)</a>
+                <a href="../apps/live-speech-text- guida.html">Live Speech Text (trascrizione online)</a>
+                <a href="../cos-e-pwa.html">Cos'è una PWA</a>
+            </div>
+        </div>
+
+        <a href="../blog.html">Blog & Guide</a>
+        <a href="../faq.html">FAQ & Supporto</a>
+        <a href="../supporto-page/supporto.html">Come Supportarci</a>
+        <a href="../contatti.html">Contatti</a>
+    </nav>
+
+
+    <div class="main-layout">
+        <!-- Contenitore Principale Centrato -->
+        <main class="container" style="max-width: 800px; margin: 40px auto; padding: 0 20px; text-align: left;">
+            
+            <!-- TITOLO PRINCIPALE H1 -->
+            <h1 style="font-size: 2.5rem; color: var(--text-dark); margin-bottom: 10px;">
+                FestMap: La Mappa Definitiva di Sagre, Fiere ed Eventi in Italia
+            </h1>
+            <p style="font-size: 1.2rem; color: var(--text-muted); margin-bottom: 30px;">
+                Scopri tradizioni, folklore, cultura nerd e divertimento a portata di click, anche offline.
+            </p>
+
+            <!-- SEZIONE INTRODUTTIVA (Ottima per i bot AdSense) -->
+            <section class="intro-section" style="margin-bottom: 40px;">
+                <p>
+                    Benvenuto su <strong>FestMap</strong>, l'applicazione web innovativa progettata per chi ama esplorare l'Italia attraverso le sue manifestazioni più autentiche e coinvolgenti. Che tu stia cercando una sagra culinaria tradizionale, una fiera del fumetto, una rievocazione storica o un evento fuori dagli schemi, FestMap aggrega tutto in un'unica mappa interattiva, semplice da consultare e costantemente aggiornata.
+                </p>
+                <p>
+                    Sviluppata interamente come <strong>Progressive Web App (PWA)</strong>, FestMap non richiede installazioni pesanti dagli store digitali: si avvia istantaneamente sul tuo browser, consuma pochissimi dati ed è ottimizzata per funzionare al meglio anche su smartphone, permettendoti di trovare la tua prossima meta in pochi secondi.
+                </p>
+            </section>
+
+            <!-- PULSANTE DI AZIONE PRIMARIO (Apre l'app separatamente) -->
+            <div style="text-align: center; margin: 40px 0;">
+                <a href="https://seekerdcode.it/FestMap/" target="_blank" class="btn" style="font-size: 1.2rem; padding: 15px 35px; text-transform: uppercase; letter-spacing: 1px;">
+                    🚀 Lavori i corso
+                </a>
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 10px;">
+                    *L'applicazione si aprirà in una nuova scheda per non interrompere la lettura della guida.
+                </p>
+            </div>
+
+            <hr style="border: 0; border-top: 1px solid rgba(0,0,0,0.1); margin: 40px 0;">
+
+            <!-- LE QUATTRO COLONNE / CATEGORIE (H2 + Testo corposo) -->
+            <section class="categories-section" style="margin-bottom: 40px;">
+                <h2 style="color: var(--text-dark); margin-bottom: 20px;">Le Categorie di FestMap: Esplora le tue Passioni</h2>
+                <p>Per aiutarti a navigare nel mare degli eventi italiani, FestMap organizza ogni appuntamento in quattro macro-categorie specifiche, pensate per soddisfare ogni tipo di viaggiatore o appassionato:</p>
+                
+                <div style="margin-top: 25px; display: flex; flex-direction: column; gap: 20px;">
+                    <div>
+                        <h3 style="color: #d48800; margin-bottom: 5px;">🍲 FOOD (Sagre e Tradizioni Culinarie)</h3>
+                        <p>Dedicata agli amanti della buona cucina e del turismo enogastronomico. Questa categoria traccia le sagre storiche e i mercati locali dove riscoprire i sapori autentici del territorio italiano, dai piatti tipici regionali ai prodotti a chilometro zero.</p>
+                    </div>
+
+                    <div>
+                        <h3 style="color: var(--accent-sky); margin-bottom: 5px;">🎭 COMICS (Fiere del Fumetto e Cosplay)</h3>
+                        <p>Il punto di riferimento per la cultura pop e "nerd". Trova raduni cosplay, fiere del fumetto, festival del gioco da tavolo ed eventi legati al mondo dell'animazione e del fantasy diffusi in tutta la penisola.</p>
+                    </div>
+
+                    <div>
+                        <h3 style="color: #2b2d42; margin-bottom: 5px;">🏰 FOLK (Folklore e Rievocazioni Storiche)</h3>
+                        <p>Per chi vuole fare un tuffo nel passato. Questa sezione raccoglie palii storici, sfilate in costume medievale, festival celtici, concerti di musica tradizionale e celebrazioni folkloristiche che affondano le radici nella storia delle nostre comunità.</p>
+                    </div>
+
+                    <div>
+                        <h3 style="color: #219ebc; margin-bottom: 5px;">🌲 WILD (Eventi Alternativi e Fuori dagli Schemi)</h3>
+                        <p>La rotta per chi cerca l'inaspettato. Sotto la categoria WILD rientrano i festival musicali immersi nella natura, i raduni d'auto d'epoca, le manifestazioni goliardiche e tutti quegli eventi non convenzionali che non rientrano nelle definizioni classiche, ma che garantiscono un'esperienza indimenticabile.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- GUIDA D'USO COMPLETA (H2) -->
+            <section class="guide-section" style="margin-bottom: 40px;">
+                <h2 style="color: var(--text-dark); margin-bottom: 20px;">Come Usare FestMap: Istruzioni Pratiche</h2>
+                <p>L'interfaccia di FestMap è stata studiata per essere estremamente intuitiva. Ecco come trarre il massimo dalla piattaforma:</p>
+                <ul class="features-list">
+                    <li><strong>Geolocalizzazione in Tempo Reale:</strong> Attivando i permessi di posizione, la mappa si centrerà automaticamente su di te, mostrandoti istantaneamente gli eventi più vicini nei paraggi.</li>
+                    <li><strong>Filtri Intelligenti:</strong> Utilizza il menu laterale per attivare o disattivare le categorie (Food, Comics, Folk, WILD) in base a ciò che hai voglia di fare oggi.</li>
+                    <li><strong>Schede Dettaglio:</strong> Cliccando sul segnaposto di un evento, potrai leggere date, orari, descrizione e ottenere le indicazioni stradali dirette per raggiungere il luogo.</li>
+                </ul>
+            </section>
+
+            <!-- VANTAGGI PWA E TECNOLOGIA (H2) -->
+            <section class="tech-section" style="margin-bottom: 40px;">
+                <h2 style="color: var(--text-dark); margin-bottom: 20px;">Perché FestMap è una PWA? I Vantaggi per l'Utente</h2>
+                <p>
+                    A differenza delle vecchie applicazioni mobile che saturano la memoria del telefono, FestMap sfrutta le moderne tecnologie web (sviluppate con framework flessibili e performanti). Questo si traduce in tre grandi vantaggi:
+                </p>
+                <ol style="padding-left: 20px; line-height: 1.7; color: var(--text-dark);">
+                    <li style="margin-bottom: 10px;"><strong>Nessun Download dagli Store:</strong> Ti basta aggiungere FestMap alla schermata home dello smartphone tramite il browser per avere un'icona dedicata, senza passare da Google Play o App Store.</li>
+                    <li><strong>Leggerezza Assoluta:</strong> L'app pesa meno di un megabyte. Non rallenta il telefono e si carica istantaneamente anche quando la copertura di rete è minima.</li>
+                    <li><strong>Funzionamento Offline parziale:</strong> Grazie ai Service Worker integrati, una volta aperta la prima volta, la struttura fondamentale dell'app rimane accessibile anche se ti trovi in una zona di montagna senza segnale internet.</li>
+                </ol>
+            </section>
+
+        </main>
+    </div>
+
+     <div class="ads-banner" id="ad-bottom">
+        <ins class="adsbygoogle"
+            style="display:block;"
+            data-ad-client="ca-pub-9544811471414500"
+            data-ad-slot="1393962976"
+            data-ad-format="horizontal"
+            data-full-width-responsive="false">
+        </ins> 
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
+    <footer>
+        <p style="margin-bottom: 10px;">
+            <a href="../Privacy & Cookie Policy.html" style="color: #000000; text-decoration: underline; font-weight: bold;">Privacy & Cookie Policy</a>  |  
+            <a href="../note-legali.html" style="color: #000000; text-decoration: underline; font-weight: bold;">Note Legali</a>  |  
+            <a href="../contatti.html" style="color: #000000; text-decoration: underline; font-weight: bold;">CONTATTI</a>
+        </p>
+        
+        <p style="margin-bottom: 15px;">© 2026 Seeker d. Code. • Tutti i diritti riservati.</p>
+        
+        <div id="google_translate_element"></div>
+
+        <script type="text/javascript">
+            // Carica il Traduttore solo se siamo online
+            if (window.location.protocol !== 'file:') {
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({
+                        pageLanguage: 'it',
+                        includedLanguages: 'en,es,fr,zh-CN,de,ja,ru',
+                        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+                    }, 'google_translate_element');
+                }
+                
+                const translateScript = document.createElement('script');
+                translateScript.type = 'text/javascript';
+                translateScript.src = "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+                document.head.appendChild(translateScript);
+            }
+        </script>
+    </footer>
+
+    <script src="banners.js"></script>
+
+        <script>
+            (function() {
+                const details = document.querySelector('#about details');
+                if(details) {
+                    details.addEventListener('click', function(e) {
+                        if (this.open && e.target.closest('summary')) {
+                            e.preventDefault(); 
+                            const currentScroll = window.scrollY;
+                            this.open = false;
+                            window.scrollTo(0, currentScroll);
+                        }
+                    });
+                }
+            })();
+        </script>
+
+        <button id="backToTop" class="back-to-top" title="Torna su">▲</button>
+        <script>
+            const backToTopBtn = document.getElementById("backToTop");
+
+            window.addEventListener("scroll", () => {
+                if (window.scrollY > 400) {
+                    backToTopBtn.classList.add("show");
+                } else {
+                    backToTopBtn.classList.remove("show");
+                }
+            });
+
+            backToTopBtn.addEventListener("click", () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+            });
+        </script>
+</body>
+</html>
