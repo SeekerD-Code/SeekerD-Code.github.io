@@ -90,12 +90,43 @@
             <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 40px;">
                 Esploriamo lo sviluppo web moderno: focus su PWA, performance software e guide all'uso dei nostri strumenti.
             </p>
+            
+            <!-- CONTROLLI DI FILTRO E RICERCA -->
+            <div class="blog-filters" style="display: flex; flex-wrap: wrap; gap: 15px; margin-bottom: 40px; padding: 20px; background: rgba(0,0,0,0.02); border-radius: 8px; border: 1px solid rgba(0,0,0,0.05);">
+                <!-- Ricerca Testuale -->
+                <div style="flex: 2; min-width: 250px;">
+                    <label for="searchBar" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 5px; color: var(--text-dark);">Cerca Articolo</label>
+                    <input type="text" id="searchBar" placeholder="Inserisci parole chiave..." style="width:80%; padding: 10px; border-radius: 6px; border: 1px solid rgba(0,0,0,0.15); font-family: inherit; font-size: 0.95rem;">
+                </div>
+
+                <!-- Filtro Tematiche -->
+                <div style="flex: 1; min-width: 180px;">
+                    <label for="categoryFilter" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 5px; color: var(--text-dark);">Tematica</label>
+                    <select id="categoryFilter" style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid rgba(0,0,0,0.15); font-family: inherit; font-size: 0.95rem; background: white;">
+                        <option value="all">Tutte le tematiche</option>
+                        <option value="GUIDA TECNICA">Guida Tecnica</option>
+                        <option value="DEVELOPMENT">Development</option>
+                        <option value="GUIDA UTENTE">Guida Utente</option>
+                        <option value="MANIFESTO ETICO">Manifesto Etico</option>
+                    </select>
+                </div>
+
+                <!-- Ordinamento per Data -->
+                <div style="flex: 1; min-width: 180px;">
+                    <label for="dateSort" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 5px; color: var(--text-dark);">Ordina per</label>
+                    <select id="dateSort" style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid rgba(0,0,0,0.15); font-family: inherit; font-size: 0.95rem; background: white;">
+                        <option value="desc">Più recenti prima</option>
+                        <option value="asc">Più vecchi prima</option>
+                    </select>
+                </div>
+            </div>
 
             <!-- SEZIONE GRIGLIA ARTICOLI (Utilizza la tua classe .grid esistente) -->
-            <div class="grid">
+            <!-- SEZIONE GRIGLIA ARTICOLI -->
+            <div class="grid" id="blogGrid">
 
                 <!-- ARTICOLO 1: FOCUS PWA -->
-                <article class="card" style="flex-direction: column; align-items: stretch; gap: 15px;">
+                <article class="card" data-date="2026-05-10" data-category="GUIDA TECNICA" style="flex-direction: column; align-items: stretch; gap: 15px;">
                     <div class="card-content">
                         <div class="badge-container">
                             <span class="badge badge-platform">GUIDA TECNICA</span>
@@ -110,8 +141,8 @@
                     </div>
                 </article>
 
-                <!-- ARTICOLO 2: OTTIMIZZAZIONE FLUTTER/DART (Ottimo aggancio per FestMap) -->
-                <article class="card" style="flex-direction: column; align-items: stretch; gap: 15px;">
+                <!-- ARTICOLO 2: OTTIMIZZAZIONE FLUTTER/DART -->
+                <article class="card" data-date="2026-05-28" data-category="DEVELOPMENT" style="flex-direction: column; align-items: stretch; gap: 15px;">
                     <div class="card-content">
                         <div class="badge-container">
                             <span class="badge badge-upcoming">DEVELOPMENT</span>
@@ -127,7 +158,7 @@
                 </article>
 
                 <!-- ARTICOLO 3: Liberati dagli Store con Seeker D. Code -->
-                <article class="card" style="flex-direction: column; align-items: stretch; gap: 15px;">
+                <article class="card" data-date="2026-06-15" data-category="GUIDA UTENTE" style="flex-direction: column; align-items: stretch; gap: 15px;">
                     <div class="card-content">
                         <div class="badge-container">
                             <span class="badge badge-platform" style="color: #fff; background-color: var(--accent-sky)">GUIDA UTENTE</span>
@@ -142,6 +173,27 @@
                     </div>
                 </article>
 
+                <!-- ARTICOLO 4: Il Manifesto della Monetizzazione Pulita -->
+                <article class="card" data-date="2026-06-30" data-category="MANIFESTO ETICO" style="flex-direction: column; align-items: stretch; gap: 15px;">
+                    <div class="card-content">
+                        <div class="badge-container">
+                            <span class="badge badge-platform" style="color: #fff; background-color: #ff5722;">MANIFESTO ETICO</span>
+                        </div>
+                        <h3 style="font-size: 1.4rem; margin-top: 5px;">Basta layout che ballano: la monetizzazione rispettosa di Seeker D. Code</h3>
+                        <p style="font-size: 0.95rem; line-height: 1.5; margin-bottom: 15px;">
+                            Scopri la nostra filosofia di sviluppo contro i banner invasivi e i continui sbalzi di layout. Ti spieghiamo come sosteniamo i progetti e garantiamo l'indipendenza economica diretta dei nostri studenti e collaboratori.
+                        </p>
+                        <a href="blog/basta_layout_che_ballano.html" class="btn" style="margin-top: auto; align-self: flex-start; padding: 8px 20px; font-size: 0.85rem;">
+                            Leggi il Manifesto
+                        </a>
+                    </div>
+                </article>
+
+            </div>
+
+            <!-- Messaggio se la ricerca non produce risultati -->
+            <div id="noResultsMessage" style="display: none; text-align: center; padding: 30px; color: var(--text-muted); font-size: 1.1rem;">
+                Nessun articolo trovato con i criteri selezionati.
             </div>
 
         </main>
@@ -208,6 +260,71 @@
                 }
             })();
         </script>
+
+        <!-- SCRIPT LOGICA DI FILTRO, RICERCA ED ORDINAMENTO DINAMICO -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const searchBar = document.getElementById("searchBar");
+            const categoryFilter = document.getElementById("categoryFilter");
+            const dateSort = document.getElementById("dateSort");
+            const blogGrid = document.getElementById("blogGrid");
+            const noResultsMessage = document.getElementById("noResultsMessage");
+            
+            // Creiamo un array nativo memorizzando le card iniziali per poterle ordinare velocemente
+            let articles = Array.from(blogGrid.querySelectorAll("article.card"));
+
+            function filterAndSortArticles() {
+                const searchText = searchBar.value.toLowerCase().trim();
+                const selectedCategory = categoryFilter.value;
+                const selectedSort = dateSort.value;
+                let visibleCount = 0;
+
+                // 1. Filtro (Ricerca e Categoria)
+                articles.forEach(article => {
+                    const title = article.querySelector("h3").textContent.toLowerCase();
+                    const description = article.querySelector("p").textContent.toLowerCase();
+                    const category = article.getAttribute("data-category");
+
+                    const matchesSearch = title.includes(searchText) || description.includes(searchText);
+                    const matchesCategory = selectedCategory === "all" || category === selectedCategory;
+
+                    if (matchesSearch && matchesCategory) {
+                        article.style.display = "flex"; // manteniamo il flex inline originario
+                        visibleCount++;
+                    } else {
+                        article.style.display = "none";
+                    }
+                });
+
+                // Mostra/Nascondi messaggio nessun risultato
+                if (visibleCount === 0) {
+                    noResultsMessage.style.display = "block";
+                } else {
+                    noResultsMessage.style.display = "none";
+                }
+
+                // 2. Ordinamento per Data
+                articles.sort((a, b) => {
+                    const dateA = new Date(a.getAttribute("data-date"));
+                    const dateB = new Date(b.getAttribute("data-date"));
+                    
+                    return selectedSort === "desc" ? dateB - dateA : dateA - dateB;
+                });
+
+                // Svuota e riappende gli elementi nell'ordine corretto senza rompere il layout
+                articles.forEach(article => blogGrid.appendChild(article));
+            }
+
+            // Ascoltatori di eventi di input
+            searchBar.addEventListener("input", filterAndSortArticles);
+            categoryFilter.addEventListener("change", filterAndSortArticles);
+            dateSort.addEventListener("change", filterAndSortArticles);
+
+            // Eseguiamo il primo ordinamento iniziale (di default decrescente)
+            filterAndSortArticles();
+        });
+    </script>
+
 
         <button id="backToTop" class="back-to-top" title="Torna su">▲</button>
         <script>
