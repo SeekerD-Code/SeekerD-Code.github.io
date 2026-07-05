@@ -1,3 +1,6 @@
+/* RESPONSIVENESS VIA EXTERNAL IMPORT
+Collegamento magico al file mobile: non carica nulla su PC, estrae il file solo su schermi piccoli */
+@import url('style-mobile.css');
 @import url('supporto.css');
 
 /* ==========================================================================
@@ -545,9 +548,3 @@ header {
     opacity: 1;
     visibility: visible;
 }
-
-/* ==========================================================================
-   6. RESPONSIVENESS VIA EXTERNAL IMPORT
-   ========================================================================== */
-/* Collegamento magico al file mobile: non carica nulla su PC, estrae il file solo su schermi piccoli */
-@import url('style-mobile.css');
