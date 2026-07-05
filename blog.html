@@ -104,10 +104,6 @@
                     <label for="categoryFilter" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 5px; color: var(--text-dark);">Tematica</label>
                     <select id="categoryFilter" style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid rgba(0,0,0,0.15); font-family: inherit; font-size: 0.95rem; background: white;">
                         <option value="all">Tutte le tematiche</option>
-                        <option value="GUIDA TECNICA">Guida Tecnica</option>
-                        <option value="DEVELOPMENT">Development</option>
-                        <option value="GUIDA UTENTE">Guida Utente</option>
-                        <option value="MANIFESTO ETICO">Manifesto Etico</option>
                     </select>
                 </div>
 
@@ -264,65 +260,89 @@
         <!-- SCRIPT LOGICA DI FILTRO, RICERCA ED ORDINAMENTO DINAMICO -->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            const searchBar = document.getElementById("searchBar");
-            const categoryFilter = document.getElementById("categoryFilter");
-            const dateSort = document.getElementById("dateSort");
-            const blogGrid = document.getElementById("blogGrid");
-            const noResultsMessage = document.getElementById("noResultsMessage");
-            
-            // Creiamo un array nativo memorizzando le card iniziali per poterle ordinare velocemente
-            let articles = Array.from(blogGrid.querySelectorAll("article.card"));
+    const searchBar = document.getElementById("searchBar");
+    const categoryFilter = document.getElementById("categoryFilter");
+    const dateSort = document.getElementById("dateSort");
+    const blogGrid = document.getElementById("blogGrid");
+    const noResultsMessage = document.getElementById("noResultsMessage");
+    
+    // 1. Memorizziamo le card in un array nativo
+    let articles = Array.from(blogGrid.querySelectorAll("article.card"));
 
-            function filterAndSortArticles() {
-                const searchText = searchBar.value.toLowerCase().trim();
-                const selectedCategory = categoryFilter.value;
-                const selectedSort = dateSort.value;
-                let visibleCount = 0;
-
-                // 1. Filtro (Ricerca e Categoria)
-                articles.forEach(article => {
-                    const title = article.querySelector("h3").textContent.toLowerCase();
-                    const description = article.querySelector("p").textContent.toLowerCase();
-                    const category = article.getAttribute("data-category");
-
-                    const matchesSearch = title.includes(searchText) || description.includes(searchText);
-                    const matchesCategory = selectedCategory === "all" || category === selectedCategory;
-
-                    if (matchesSearch && matchesCategory) {
-                        article.style.display = "flex"; // manteniamo il flex inline originario
-                        visibleCount++;
-                    } else {
-                        article.style.display = "none";
-                    }
-                });
-
-                // Mostra/Nascondi messaggio nessun risultato
-                if (visibleCount === 0) {
-                    noResultsMessage.style.display = "block";
-                } else {
-                    noResultsMessage.style.display = "none";
-                }
-
-                // 2. Ordinamento per Data
-                articles.sort((a, b) => {
-                    const dateA = new Date(a.getAttribute("data-date"));
-                    const dateB = new Date(b.getAttribute("data-date"));
-                    
-                    return selectedSort === "desc" ? dateB - dateA : dateA - dateB;
-                });
-
-                // Svuota e riappende gli elementi nell'ordine corretto senza rompere il layout
-                articles.forEach(article => blogGrid.appendChild(article));
+    // 2. POPOLAMENTO AUTOMATICO DEL FILTRO CATEGORIE
+    function setupDynamicCategories() {
+        const categories = new Set(); // Il Set evita i duplicati automaticamente
+        
+        // Estraiamo la categoria da ogni articolo presente nella pagina
+        articles.forEach(article => {
+            const cat = article.getAttribute("data-category");
+            if (cat) {
+                categories.add(cat.trim());
             }
-
-            // Ascoltatori di eventi di input
-            searchBar.addEventListener("input", filterAndSortArticles);
-            categoryFilter.addEventListener("change", filterAndSortArticles);
-            dateSort.addEventListener("change", filterAndSortArticles);
-
-            // Eseguiamo il primo ordinamento iniziale (di default decrescente)
-            filterAndSortArticles();
         });
+
+        // Svuotiamo il select mantenendo solo la prima opzione standard ("Tutte")
+        categoryFilter.innerHTML = '<option value="all">Tutte le tematiche</option>';
+
+        // Ordiniamo le categorie alfabeticamente e le aggiungiamo al select
+        Array.from(categories).sort().forEach(category => {
+            const option = document.createElement("option");
+            option.value = category;
+            // Rendiamo il testo leggibile (es: tutto minuscolo tranne la prima lettera)
+            option.textContent = category.charAt(0).toUpperCase() + category.slice(1).toLowerCase();
+            categoryFilter.appendChild(option);
+        });
+    }
+
+    // 3. LOGICA DI FILTRO ED ORDINAMENTO
+    function filterAndSortArticles() {
+        const searchText = searchBar.value.toLowerCase().trim();
+        const selectedCategory = categoryFilter.value;
+        const selectedSort = dateSort.value;
+        let visibleCount = 0;
+
+        // Filtro (Ricerca e Categoria)
+        articles.forEach(article => {
+            const title = article.querySelector("h3").textContent.toLowerCase();
+            const description = article.querySelector("p").textContent.toLowerCase();
+            const category = article.getAttribute("data-category");
+
+            const matchesSearch = title.includes(searchText) || description.includes(searchText);
+            const matchesCategory = selectedCategory === "all" || category === selectedCategory;
+
+            if (matchesSearch && matchesCategory) {
+                article.style.display = "flex";
+                visibleCount++;
+            } else {
+                article.style.display = "none";
+            }
+        });
+
+        // Messaggio nessun risultato
+        noResultsMessage.style.display = visibleCount === 0 ? "block" : "none";
+
+        // Ordinamento per Data
+        articles.sort((a, b) => {
+            const dateA = new Date(a.getAttribute("data-date"));
+            const dateB = new Date(b.getAttribute("data-date"));
+            return selectedSort === "desc" ? dateB - dateA : dateA - dateB;
+        });
+
+        // Riappende gli elementi ordinati
+        articles.forEach(article => blogGrid.appendChild(article));
+    }
+
+    // Inizializziamo il filtro dinamico prima del primo rendering
+    setupDynamicCategories();
+
+    // Ascoltatori di eventi
+    searchBar.addEventListener("input", filterAndSortArticles);
+    categoryFilter.addEventListener("change", filterAndSortArticles);
+    dateSort.addEventListener("change", filterAndSortArticles);
+
+    // Eseguiamo il primo ordinamento iniziale
+    filterAndSortArticles();
+});
     </script>
 
 
