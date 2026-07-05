@@ -241,6 +241,7 @@
         text-align: center !important;      
         margin: 20px 0 !important;       
         padding: 12px 10px !important;
+        gap: 8px !important; /* Riduce lo spazio tra un link e l'altro su schermi piccoli */
         line-height: 2 !important;   
         justify-content: center !important; 
         width: 100% !important; /* Forza l'utilizzo di tutta la larghezza dello schermo */
@@ -251,12 +252,12 @@
     }
 
     .main-nav a, .nav-dropdown {
-        margin: 4px 8px !important; /* Aumenta leggermente il raggio di tocco touch */
-        font-size: 0.88rem !important;       
+        margin: 4px 6px !important; /* Aumenta leggermente il raggio di tocco touch */
+        font-size: 0.75rem !important;       
     }
 
     .nav-dropdown .dropdown-trigger {
-        font-size: 0.88rem !important;
+        font-size: 0.75rem !important;
         margin: 0 !important;
     }
 
@@ -275,4 +276,121 @@
         padding: 12px 16px !important; /* Rende i link interni più facili da cliccare */
     }
 
-    /* 🌟 ADATTAMENTI GUIDE PWA / BLOG COMPONENTI NUO
+    /* 🌟 ADATTAMENTI GUIDE PWA / BLOG COMPONENTI NUOVI */
+    .container {
+        padding: 0 5px !important; 
+    }
+
+    .content-card {
+        padding: 15px !important;
+        margin-bottom: 20px !important;
+        border-radius: 10px !important;
+    }
+
+    .content-card p {
+        font-size: 0.9rem !important;
+        line-height: 1.5 !important;
+    }
+
+    .content-card div[style*="grid-template-columns"] {
+        grid-template-columns: 1fr !important;
+        gap: 15px !important;
+    }
+
+    .content-card div[style*="display: flex"] {
+        flex-direction: column !important;
+        gap: 15px !important;
+    }
+
+    .content-card div[style*="min-width: 280px"], 
+    .content-card div[style*="width: 100%"] {
+        width: 100% !important;
+        min-width: 100% !important;
+        padding: 15px !important;
+        box-sizing: border-box !important;
+    }
+
+    .category-title {
+        margin-top: 25px !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 10px !important;
+    }
+    .font-speech-spec {
+        font-family: var(--font-speech-app) !important;
+        font-size: 1.2rem !important; 
+        font-weight: 400 !important;  
+        letter-spacing: 0.5px;
+    }
+
+    .card-content p {
+        font-size: 0.72rem !important;  
+        line-height: 1.35 !important;
+        color: #555555 !important;      
+        margin: 0 0 2px 0 !important;   
+    }
+
+    footer, .footer {
+        margin-top: 15px !important;  
+        padding-top: 10px !important;
+        padding-bottom: 10px !important;
+    }
+
+    footer p, .footer p {
+        margin: 5px 0 !important;
+        line-height: 1.4 !important;
+    }
+
+    /* 🌟 ADATTAMENTO PULSANTI DOPPI */
+    .card-action-buttons {
+        flex-direction: column !important;
+        width: 100% !important;
+        gap: 8px !important;
+    }
+    .btn-action {
+        width: 100% !important;
+        justify-content: center !important;
+        box-sizing: border-box !important;
+        font-size: 0.85rem !important;
+        padding: 10px 15px !important;
+    }
+}
+
+/* 📱 SMARTPHONE MOLTO STRETTI (Sotto i 400px) */
+@media (max-width: 400px) {
+    .card {
+        flex-direction: row !important;      
+        align-items: flex-start !important;
+        text-align: left !important;
+        padding: 8px !important;             
+        gap: 10px !important;                
+    }
+    
+    .card-content {
+        text-align: left !important;
+        align-items: flex-start !important;
+    }
+
+    .main-nav {
+        padding: 8px 4px !important;
+    }
+
+    .main-nav a, .nav-dropdown .dropdown-trigger {
+        font-size: 0.78rem !important; 
+        margin: 2px 4px !important;
+    }
+
+    .app-icon-img, .app-icon-placeholder {
+        width: 55px !important;              
+        height: 55px !important;
+    }
+    
+    .card-action-buttons {
+        flex-direction: column !important;
+        width: 100% !important;
+    }
+    .btn-action {
+        width: 100% !important;
+        justify-content: center !important;
+    }
+}
