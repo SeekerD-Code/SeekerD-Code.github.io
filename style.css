@@ -137,8 +137,10 @@ footer {
 /* --- STILE NAVIGAZIONE DESKTOP --- */
 .main-nav {
     text-align: left;
-    margin: 20px 0 20px 20%; /* Il tuo allineamento originale per PC */
+    margin: 20px 0 20px 20%; 
     font-size: 1.1rem;
+    display: flex; /* Forza l'allineamento flessibile orizzontale */
+    align-items: center; /* Allinea perfettamente i testi al centro verticale */
 }
 
 .main-nav a {
@@ -146,23 +148,26 @@ footer {
     text-decoration: none;
     color: var(--text-dark);
     font-weight: bold;
-    display: inline-block;
+    display: inline-block; /* Importante: permette la corretta visualizzazione del padding inferiore */
+    padding-bottom: 6px; /* Crea lo spazio di sicurezza per il bordo */
+    border-bottom: 2px solid transparent; /* Evita scatti grafici quando compare la linea */
+    transition: border-color 0.2s ease, color 0.2s ease;
 }
 
 /* --- EFFETTO HOVER GENERALE (Passaggio del mouse) --- */
 .main-nav a:hover, 
 .nav-dropdown:hover .dropdown-trigger {
-    color: var(--accent-sky) !important; /* Cambia colore al passaggio (opzionale) */
-    border-bottom: 2px solid var(--accent-sky);
-    padding-bottom: 2px; /* Distanzia leggermente la linea dal testo */
+    color: var(--accent-sky) !important; 
+    border-bottom: 2px solid var(--accent-sky) !important;
 }
 
 /* --- STATO ATTIVO (Quando ti trovi nella pagina attuale) --- */
 .main-nav a.current-page,
-.nav-dropdown.current-page .dropdown-trigger {
-    font-weight: 600 !important;
-    border-bottom: 2px solid var(--accent-sky) !important;
-    padding-bottom: 2px;
+.nav-dropdown.current-page .dropdown-trigger,
+.dropdown-trigger.current-page {
+    border-bottom: 2px solid #00d2ff !important; 
+    color: var(--text-dark) !important;
+    display: inline-block !important;
 }
 
 /* ==========================================================================
@@ -185,6 +190,7 @@ header {
     margin: 0 auto 40px auto;
     display: flex;
     flex-direction: row;
+    align-items: stretch; /* 🌟 Forza le colonne interne ad avere la stessa altezza */
     gap: 30px;
     padding: 0 20px;
 }
@@ -192,13 +198,15 @@ header {
 .container {
     flex-grow: 1;
     padding: 0;
+    width: 100%;
+    
 }
 
 /* Blocchi sponsor / pubblicità */
 .ads-sidebar {
     max-width: 160px;
     min-height: 600px;
-    height: auto;
+    height: 100%;
     overflow: hidden; /* Impedisce a qualsiasi elemento interno di strabordare */
     padding: 0;
     display: flex;
@@ -446,7 +454,7 @@ header {
    5. SEZIONE BASSA: IL RACCONTO / STORIA (Manifesto "COS'È SEEKER D. CODE")
    ========================================================================== */
 .mission-story {
-    max-width: 1000px;      
+    max-width: 1500px;      
     margin: 0 auto 50px auto; 
     text-align: left;      
     padding: 0 20px;       

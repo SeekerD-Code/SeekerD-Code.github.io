@@ -1,20 +1,57 @@
-// Aspetta che l'HTML sia completamente caricato prima di eseguire la traduzione
+// Aspetta che l'HTML sia completamente caricato prima di eseguire qualsiasi logica
 document.addEventListener("DOMContentLoaded", () => {
 
-    const baseTexts = {
-            title: "Seeker D. Code | Vetrina App",
-            missionTitle: "La filosofia di Seeker D. Code☁️",
-            missionText: "Sviluppo applicazioni web e mobile mettendo al centro l'esperienza dell'utente. Credo in un web pulito ed efficiente: i miei progetti sono ottimizzati per consumare pochissimi dati e sono studiati per integrare inserzioni discrete, <strong>rifiutando totalmente pubblicità invasive, pop-up o interruzioni fastidiose</strong> che rovinano l'esperienza d'uso.",
-            catUtility: "Utility & Produttività",
-            app1Text: "Strumento immediato e leggero per la trascrizione vocale dal vivo. Parla e guarda il testo generarsi in tempo reale, pronto per essere copiato o condiviso.",
-            app1Btn: "Apri l'App",
-            catUpcoming: "Disponibile a breve",
-            app2Text: "La guida definitiva per consultare eventi, fiere del fumetto e gaming in tutta Italia. L'applicazione perfetta per non perdere nessuna data, scoprire i programmi completi e pianificare le tue tappe nel mondo dei comics e dell'intrattenimento.",
-            app2Status: "Prossimamente",
-            footerRights: "Tutti i diritti riservati.",
-        };
+    // =========================================================================
+    // GESTIONE AUTOMATICA SOTTOLINEATURA MENU
+    // =========================================================================
+    
+    // Recupera l'ultimo segmento del percorso attuale (es. "about.html")
+    let currentPage = window.location.pathname.split("/").pop();
+    if (currentPage === "" || currentPage === "/") {
+        currentPage = "index.html";
+    }
+    currentPage = currentPage.toLowerCase();
+
+    // Funzione per ripulire l'href e prendere solo il nome del file
+    const getFileName = (href) => {
+        if (!href) return "";
+        return href.split("#")[0].split("?")[0].split("/").pop().toLowerCase();
+    };
+
+    // 1. Link standard della nav
+    const navLinks = document.querySelectorAll(".main-nav a");
+    navLinks.forEach(link => {
+        const linkFile = getFileName(link.getAttribute("href"));
         
-		document.title = baseTexts.title;
+        if (linkFile === currentPage) {
+            link.classList.add("current-page");
+        }
+    });
+
+    // 2. Menu a tendina (dropdown)
+    const dropdowns = document.querySelectorAll(".nav-dropdown");
+    dropdowns.forEach(dropdown => {
+        const subLinks = dropdown.querySelectorAll(".dropdown-menu a");
+        let isDropdownActive = false;
+
+        subLinks.forEach(subLink => {
+            const subLinkFile = getFileName(subLink.getAttribute("href"));
+            
+            if (subLinkFile === currentPage) {
+                isDropdownActive = true;
+                subLink.classList.add("current-page");
+            }
+        });
+
+        if (isDropdownActive) {
+            dropdown.classList.add("current-page");
+            // Applica la classe anche al trigger interno per sicurezza visiva
+            const trigger = dropdown.querySelector(".dropdown-trigger");
+            if (trigger) trigger.classList.add("current-page");
+        }
+    });
+        
+    document.title = baseTexts.title;
     
     if (document.getElementById('mission-title')) document.getElementById('mission-title').innerHTML = baseTexts.missionTitle;
     if (document.getElementById('mission-text')) document.getElementById('mission-text').innerHTML = baseTexts.missionText;
@@ -25,4 +62,4 @@ document.addEventListener("DOMContentLoaded", () => {
     if (document.getElementById('app2-text')) document.getElementById('app2-text').innerText = baseTexts.app2Text;
     if (document.getElementById('app2-status')) document.getElementById('app2-status').innerText = baseTexts.app2Status;
     if (document.getElementById('footer-rights')) document.getElementById('footer-rights').innerText = baseTexts.footerRights;
-});
+    });

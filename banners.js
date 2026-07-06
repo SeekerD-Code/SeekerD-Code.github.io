@@ -43,15 +43,20 @@ document.addEventListener("DOMContentLoaded", () => {
         `;
     document.head.appendChild(style);
 
-// Iniezione delle sole etichette "SPONSOR" PRIMA del codice AdSense, senza sovrascriverlo
+// Iniezione delle sole etichette "SPONSOR" PRIMA del codice AdSense, evitando duplicati
     const topAdContainer = document.getElementById('ad-top');
     const bottomAdContainer = document.getElementById('ad-bottom');
 
-    // Usiamo `insertAdjacentHTML` invece di `innerHTML` per NON cancellare il codice <ins> di Google!
-    if (topAdContainer) {
-        topAdContainer.insertAdjacentHTML('afterbegin', skyscraperLabel);
+    // Usiamo insertAdjacentHTML controllando prima che la scritta non sia già stata inserita!
+    if (topAdContainer && !topAdContainer.querySelector('.ad-label-checked')) {
+        // Aggiungiamo una classe di controllo 'ad-label-checked' alla stringa HTML
+        const safeSkyscraperLabel = skyscraperLabel.replace('<p ', '<p class="ad-label-checked" ');
+        topAdContainer.insertAdjacentHTML('afterbegin', safeSkyscraperLabel);
     }
-    if (bottomAdContainer) {
-        bottomAdContainer.insertAdjacentHTML('afterbegin', bottomBannerLabel);
+    
+    if (bottomAdContainer && !bottomAdContainer.querySelector('.ad-label-checked')) {
+        // Aggiungiamo la stessa classe di controllo per il banner in basso
+        const safeBottomLabel = bottomBannerLabel.replace('<p ', '<p class="ad-label-checked" ');
+        bottomAdContainer.insertAdjacentHTML('afterbegin', safeBottomLabel);
     }
 });

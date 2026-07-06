@@ -1,100 +1,13 @@
-<!DOCTYPE html>
-<html lang="it">
-<head>
-    <link rel="icon" type="image/png" href="Favicon SDC.ico">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seeker D. Code | Vetrina App</title>
-
-    <meta name="description" content="Seeker D. Code è un progetto indipendente dedicato allo sviluppo di applicazioni web e PWA utili, veloci e totalmente libere da pubblicità invasive.">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="style.css">
-	
-<script>
-    // 1. Controlla se il parametro è presente nell'URL attuale
-    const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.get('developer') === 'true') {
-        // Se c'è, memorizzalo nella sessione della scheda attuale
-        sessionStorage.setItem('devMode', 'true');
-    }
-
-    // 2. Controlla se la modalità sviluppatore è attiva (o dall'URL o dalla memoria della sessione)
-    const isDeveloper = sessionStorage.getItem('devMode') === 'true';
-
-    // 3. Carica AdSense solo se non sei in modalità sviluppatore e non sei su file locale
-    if (window.location.protocol !== 'file:' && !isDeveloper) {
-        const adsenseScript = document.createElement('script');
-        adsenseScript.async = true;
-        adsenseScript.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9544811471414500";
-        adsenseScript.crossOrigin = "anonymous";
-        document.head.appendChild(adsenseScript);
-    } else {
-        console.log("🛠️ Modalità Sviluppatore attiva: AdSense bloccato in questa scheda.");
-    }
-</script>
-</head>
-<body>
-
-    <header>
-        <div style="display: flex; justify-content: center; align-items: center;">
-            <img src="SD.C - logo orizzontale.png" alt="Seeker D. Code" class="logo-img"
-            style="height: auto; object-fit: contain;
-            filter: drop-shadow(15px 15px 0px #fff) 
-                    drop-shadow(-15px -15px 0px #fff) 
-                    drop-shadow(15px -15px 0px #fff) 
-                    drop-shadow(-15px 15px 0px #fff) 
-                    drop-shadow(0px 0px 10px rgba(255,255,255,1));">
-        </div>
-    </header>
-
-    <!-- NUOVO MENU DI NAVIGAZIONE MULTIPAGINA CON SOTTOMENU INTELIGENTE -->
-    <nav class="main-nav" style="position: relative; z-index: 10; display: flex; flex-wrap: wrap; justify-content: flex-start; align-items:baseline; width: 81%; gap: 0px; padding: 0px;">
-        <a href="index.html">Home</a>
-        <a href="about.html">Chi Siamo</a> 
-        
-        <div class="nav-dropdown">
-            <button class="dropdown-trigger">Le nostre App<span class="arrow">▾</span></button>
-            <div class="dropdown-menu">
-                <a href="apps.html">Catalogo App</a>
-                <a href="apps/festmap-guida.html">FestMap (Mappa Eventi)</a>
-                <a href="apps/live-speech-text- guida.html">Live Speech Text (trascrizione online)</a>
-                <a href="blog/cos-e-pwa.html"">Cos'è una PWA</a>
-            </div>
-        </div>
-
-        <a href="faq.html">FAQ & Supporto</a>
-        <a href="supporto-page/supporto.html">Come Supportarci</a>
-        <a href="contatti.html">Contatti</a>
-        <a href="blog.html"style="
-                                background: radial-gradient(circle, rgba(255,255,255,1) 30%, rgba(255,255,255,0) 100%); 
-                                padding: 10px 20px; 
-                                border-radius: 8px;
-                                width: 23%;
-                                box-sizing: border-box; text-align: center;">Seeker D. BLOG</a>
-    </nav>
-
-    <div class="main-layout">
-        
-        <aside class="ads-sidebar" id="ad-top">
-            <ins class="adsbygoogle ads-ibrida"
-                style="display:block;"
-                data-ad-client="ca-pub-9544811471414500"
-                data-ad-slot="7833202644"
-                data-ad-format="auto"
-                data-full-width-responsive="false">
-            </ins>
-            <script>
-                (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-        </aside>
+---
+layout: default
+title: Seeker D. Code | Vetrina App
+description: Seeker D. Code è un progetto indipendente dedicato allo sviluppo di applicazioni web e PWA utili, veloci e totalmente libere da pubblicità invasive.
+---
 
         <main class="container" style="max-width: 1500px;">
-		<div class="mission">
-            <p id="mission-text">
+                
+		<div class="mission style="max-width: 1500px;">
+            <p id="mission-text style="max-width: 1500px;">
                 <strong>SEI STUFO/A  DI SCARICARE APP CON VIDEO PUBBLICITÀ IN OGNI DOVE?</strong><br />
                 Anche noi! Per questo nasce il progetto <strong>"Seeker D. Code".</strong>
             </p>
@@ -102,12 +15,12 @@
 			<div class="mission-story" style="margin-top: 60px; max-width: 1500px;">
                 <h2 id="mission-title" style="text-align: center; margin-bottom: 30px; font-weight: 700;">COS'È SEEKER D. CODE ☁️</h2>
                 
-                <p>Ho scelto questo nome perché credo che non solo il mondo reale, ma anche quello digitale, abbia bisogno di una deviazione radicale dalla sua rotta attuale, di una piccola ribellione verso le app con pubblicità invasive. La "D." rappresenta proprio una volontà di liberazione da tutto questo; la volontà di creare applicazioni rendendo l'esperienza d'uso pulita: i miei progetti sono studiati per integrare inserzioni discrete, <strong>rifiutando totalmente pubblicità invasive, pop-up o interruzioni fastidiose</strong>, per liberare l'utente dalla schiavitù di app e giochi che spezzano quella calma che un utilizzo continuo e senza interruzioni dovrebbe trasmettere.</p>
+                <p>Abbiamo scelto questo nome perché crediamo che non solo il mondo reale, ma anche quello digitale, abbia bisogno di una deviazione radicale dalla sua rotta attuale, di una piccola ribellione verso le app con pubblicità invasive. La "D." rappresenta proprio una volontà di liberazione da tutto questo; la volontà di creare applicazioni rendendo l'esperienza d'uso pulita: i miei progetti sono studiati per integrare inserzioni discrete, <strong>rifiutando totalmente pubblicità invasive, pop-up o interruzioni fastidiose</strong>, per liberare l'utente dalla schiavitù di app e giochi che spezzano quella calma che un utilizzo continuo e senza interruzioni dovrebbe trasmettere.</p>
 
-                <p>Ma non posso fare tutto da sola: per trovare il "One Piece" ho bisogno di una ciurma. Per questo sono alla ricerca di <strong>Tester (i miei veri Seeker!)</strong> che possano aiutarmi a esplorare e migliorare le mie app.</p>
+                <p>Ma non possiamo fare tutto da soli: per trovare il "One Piece" abbiamo bisogno di una ciurma. Per questo siamo alla ricerca di <strong>Tester (i Seeker!)</strong> che possano aiutarci ad esplorare e migliorare le nostre app.</p>
 
-                <p>Vuoi entrare a far parte della mia ciurma?<br />
-                Utilizza la mia app e dammi i tuoi feedback per portare avanti insieme la volontà della "D."<br />
+                <p>Vuoi entrare a far parte della nostra ciurma?<br />
+                Utilizza le nostre app ed inviaci i tuoi feedback per portare avanti insieme la volontà della "D."<br />
                 Scrivimi a: <strong><a href="mailto:joycrew@seekerdcode.it" style="color: inherit; text-decoration: underline; font-weight: bold;">joycrew@seekerdcode.it</a></strong></p>
 
                 <h3 style="margin-top: 40px; margin-bottom: 15px; color: var(--text-dark);">Il significato dietro il nome del progetto:</h3>
@@ -118,7 +31,7 @@
             </div>
 			
     <!-- Inizio Sezione Le Nostre App & Vantaggi PWA sulla Home -->
-    <section id="apps" class="content-card" style="background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); padding: 30px; margin: 40px auto; max-width: 1200px;">
+    <section id="apps" class="content-card" style="background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); padding: 30px; margin: 40px auto; max-width: 1500px;">
         
         <h2 style="text-align: center; margin-bottom: 25px; font-weight: 700; font-size: 1.6rem; color: var(--text-dark);">🚀 LE NOSTRE UTILITY E LA RIVOLUZIONE DELLE PWA</h2>
         
@@ -202,7 +115,7 @@
                             </h2>
 
                 <p style="text-align: center; 
-                          max-width: 1200px; 
+                          max-width: 1500px; 
                           margin: 0 auto 30px auto; 
                           color: var(--text-muted); 
                           font-size: 1.05rem;">
@@ -282,7 +195,7 @@
                 </div>
             </div>
 
-            <section id="blog-updates" class="content-card" style="background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); padding: 30px; margin: 40px auto; max-width: 1200px;">
+            <section id="blog-updates" class="content-card" style="background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); padding: 30px; margin: 40px auto; max-width: 1500px;">
                 <h2 style="text-align: center; margin-bottom: 25px; font-weight: 700; font-size: 1.6rem; color: var(--text-dark);">📜 IL GIORNALE DI BORDO DELLA COMPILAZIONE</h2>
                 
                 <div style="line-height: 1.7; color: #333;">
@@ -296,7 +209,7 @@
                 </div>
             </section>
 
-            <section id="about" style="max-width: 800px; margin: 40px auto; padding: 0 15px;">
+            <section id="about" style="max-width: 1400px; margin: 40px auto; padding: 0 15px;">
                 <details class="content-card" style="background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); padding: 20px; cursor: pointer;">
                     <summary class="section-title" style="font-size: 1.5rem; font-weight: bold; color: var(--text-dark); list-style: none; display: flex; justify-content: space-between; align-items: center; user-select: none;">
                         <span>ℹ️ ABOUT US — LA NOSTRA VISIONE</span>
@@ -336,9 +249,9 @@
 
     <footer>
         <p style="margin-bottom: 10px;">
-            <a href="Privacy & Cookie Policy.html" style="color: #000000; text-decoration: underline; font-weight: bold;">Privacy & Cookie Policy</a>  |  
-            <a href="note-legali.html" style="color: #000000; text-decoration: underline; font-weight: bold;">Note Legali</a>  |  
-            <a href="contatti.html" style="color: #000000; text-decoration: underline; font-weight: bold;">CONTATTI</a>
+            <a href="/Privacy & Cookie Policy.html" style="color: #000000; text-decoration: underline; font-weight: bold;">Privacy & Cookie Policy</a>  |  
+            <a href="/note-legali.html" style="color: #000000; text-decoration: underline; font-weight: bold;">Note Legali</a>  |  
+            <a href="/contatti.html" style="color: #000000; text-decoration: underline; font-weight: bold;">CONTATTI</a>
         </p>
         
         <p style="margin-bottom: 15px;">© 2026 Seeker d. Code. • Tutti i diritti riservati.</p>
