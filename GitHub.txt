@@ -1,0 +1,23 @@
+🔄 Come funzionerà il tuo flusso di lavoro da domani?
+Quando riaccenderai il PC e farai delle nuove modifiche ai file su VS Code, ti basterà aprire il terminale e lanciare direttamente la tripletta classica, senza configurazioni iniziali:
+
+
+git add .
+git commit -m "Messaggio con le nuove modifiche"
+git push origin main
+
+/*-------------------------------------------------------*/
+
+🚀 Come vedere il sito in tempo reale ora
+Ogni volta che riapri il progetto per fare modifiche, non cliccare su "Go Live", ma apri il terminale di VS Code e digita questo comando:
+
+
+bundle exec jekyll serve
+(Basta anche solo jekyll serve).
+
+/*-------------------------------------------------------*/
+
+Ctrl + C nel terminale per spegnere il server locale.
+
+/*-------------------------------------------------------*/
+
