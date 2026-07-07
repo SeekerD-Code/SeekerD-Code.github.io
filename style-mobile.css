@@ -11,6 +11,26 @@
         gap: 15px !important;
     }
 
+    /* Allineamento e ottimizzazione Header su Mobile */
+.header-container {
+    gap: 10px !important; /* Riduce lo spazio tra le immagini su schermi stretti */
+    padding: 5px 10px !important;
+    align-items: flex-end !important; /* Allinea tutti gli elementi verso il basso della riga */
+}
+
+.divietoSX-img, .divietoDX-img {
+    height: 45px !important;    /* Altezza bilanciata e identica per entrambe su mobile */
+    width: auto !important;     /* Mantiene la proporzione corretta dell'immagine */
+    object-fit: contain !important;
+    flex-shrink: 0 !important;  /* Impedisce al browser di schiacciare le icone */
+
+    align-self: flex-end !important;
+    margin-top: 0 !important;
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+    margin-bottom: -55px !important; /* Questo valore sposta le icone verso il basso. Puoi aumentarlo a -8px o -10px se le vuoi ancora più giù */
+}
+   
     /* 🌟 RIDUZIONE GLOBALE DEI TITOLI PER MOBILE */
     h1, .container h1, .content-card h1 {
         font-size: 1.4rem !important; /* Rimpicciolisce sensibilmente i titoli principali */
@@ -48,7 +68,9 @@
 
     /* 🌟 RIDUZIONE LOGO MOBILE */
     .logo-img {
-        width: 300px !important; 
+        max-height: 70px !important; /* Rimpicciolisce il logo centrale per fare spazio alle icone */
+        width: auto !important;
+        /*width: 300px !important; */
         margin: -25px 0 -70px 0 !important;
     }
     
