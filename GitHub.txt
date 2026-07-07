@@ -21,3 +21,22 @@ Ctrl + C nel terminale per spegnere il server locale.
 
 /*-------------------------------------------------------*/
 
+
+
+Sì, Jekyll deve rimanere sempre avviato!
+
+Pensa a ngrok come a un "ponte telefonico": se lanci ngrok ma spegni Jekyll, il ponte rimane in piedi ma dall'altra parte non risponderà nessuno (avresti un errore 502 Bad Gateway).
+
+D'ora in poi, quando vorrai testare il sito su PC e smartphone, la tua routine sarà questa:
+
+Apri il terminale su VS Code e avvia Jekyll:
+
+Bash
+jekyll serve
+(Ora che usi ngrok, puoi anche evitare --host 0.0.0.0 e lanciarlo normalmente, perché ngrok punta direttamente a localhost:4000).
+
+Apri un secondo pannello del terminale (cliccando sul tasto + in alto a destra nella sezione del terminale di VS Code) e avvia il tunnel:
+
+Bash
+ngrok http 4000
+Prendi lo smartphone, vai sul link che ti dà ngrok e sviluppi le tue PWA senza pubblicità con le anteprime in tempo reale!
