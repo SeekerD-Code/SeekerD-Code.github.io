@@ -1,0 +1,27 @@
+@media screen and (max-width: 900px) {
+    /* Trasforma il layout flex orizzontale in una colonna verticale su mobile */
+    main.container {
+        flex-direction: column !important;
+        gap: 20px !important;
+        margin-top: 20px !important;
+        padding: 0 10px !important;
+    }
+
+    /* La sidebar delle categorie occupa tutta la larghezza disponibile */
+    aside#sidebar-blog {
+        position: relative !important;
+        top: 0 !important;
+        flex: none !important;
+        width: 100% !important;
+        max-height: none !important;
+        margin-bottom: 10px;
+    }
+
+    /* Il contenitore dell'articolo si adatta a schermo intero */
+    section#content-container {
+        flex: none !important;
+        width: 100% !important;
+        padding: 20px !important;
+        box-sizing: border-box;
+    }
+}
