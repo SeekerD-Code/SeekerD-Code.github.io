@@ -1,27 +1,30 @@
+/* Regole Responsive per Blog e Layout Generale su Mobile */
 @media screen and (max-width: 900px) {
-    /* Trasforma il layout flex orizzontale in una colonna verticale su mobile */
+    /* Trasforma il layout flex orizzontale in una colonna verticale */
     main.container {
         flex-direction: column !important;
         gap: 20px !important;
         margin-top: 20px !important;
-        padding: 0 10px !important;
+        padding: 0 15px !important;
+        max-width: 100% !important;
     }
 
-    /* La sidebar delle categorie occupa tutta la larghezza disponibile */
+    /* La sidebar delle categorie si adatta a tutta la larghezza */
     aside#sidebar-blog {
         position: relative !important;
         top: 0 !important;
         flex: none !important;
         width: 100% !important;
         max-height: none !important;
-        margin-bottom: 10px;
+        box-sizing: border-box;
     }
 
-    /* Il contenitore dell'articolo si adatta a schermo intero */
+    /* Il contenitore dell'articolo occupa tutto lo spazio disponibile */
     section#content-container {
         flex: none !important;
         width: 100% !important;
         padding: 20px !important;
         box-sizing: border-box;
+        min-height: auto !important;
     }
 }
