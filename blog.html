@@ -4,562 +4,124 @@ title: Seeker D. BLOG | Novità e Guide PWA
 description: Approfondimenti sul mondo dello sviluppo web, guide dettagliate sulle PWA e tutte le ultime novità del progetto Seeker D. Code.
 ---
 
-        <!-- CONTENUTO PRINCIPALE DEL BLOG -->
-        <main class="container"style="margin-top: 40px; max-width: 1500px;">
-            
-            <h1 style="font-weight: 700; color: var(--text-dark);">
-                Blog & Guide Tecniche
-            </h1>
-            <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 40px;">
-                Esploriamo lo sviluppo web moderno: focus su PWA, performance software e guide all'uso dei nostri strumenti.
+        <main class="container" style="margin-top: 40px; max-width: 1500px; display: flex; gap: 40px; align-items: flex-start;">
+
+    <!-- COLONNA SINISTRA: Albero delle Categorie (verrà popolato da blog.js) -->
+<aside id="sidebar-blog" style="flex: 0 0 340px; background: #f8f9fa; border-radius: 8px; border: 1px solid rgba(0,0,0,0.08); padding: 20px; position: sticky; top: 20px; max-height: 85vh; overflow-y: auto;">
+    <h3 style="font-size: 1rem; text-transform: uppercase; margin-bottom: 15px; color: var(--text-dark); border-bottom: 2px solid #eee; padding-bottom: 8px;">📂 Indice Categorie</h3>
+    <!-- Qui blog.js inserirà le categorie dinamicamente -->
+</aside>
+
+<!-- COLONNA DESTRA: Area di visualizzazione -->
+<section id="content-container" style="flex: 1; background: white; border-radius: 8px; padding: 40px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); min-height: 600px;">
+    <div style="text-align: center; padding: 60px 20px;">
+        <h1 style="font-size: 2rem; color: var(--text-dark); margin-bottom: 15px;">Benvenuto nel Blog di Seeker D. Code</h1>
+        <p>Caricamento articoli in corso...</p>
+    </div>
+</section>
+</main>
+
+<!-- SCRIPT DI GESTIONE DEI CLICK -->
+<script>
+    function mostraArticolo(idArticolo) {
+        // Nasconde tutti i box articolo
+        const boxs = document.querySelectorAll('.articolo-box');
+        boxs.forEach(b => b.style.display = 'none');
+
+        // Mostra solo quello selezionato
+        const target = document.getElementById(idArticolo);
+        if(target) {
+            target.style.display = 'block';
+        }
+    }
+</script>
+    </div>
+
+        <!-- FOOTER OTTIMIZZATO CON RIGHE INVERTITE -->
+    <div class="ads-banner" id="ad-bottom">
+            <ins class="adsbygoogle"
+                style="display:block;"
+                data-ad-client="ca-pub-9544811471414500"
+                data-ad-slot="1393962976"
+                data-ad-format="horizontal"
+                data-full-width-responsive="false">
+            </ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
+        <footer>
+            <p style="margin-bottom: 10px;">
+                <a href="/Privacy & Cookie Policy.html" style="color: #000000; text-decoration: underline; font-weight: bold;">Privacy & Cookie Policy</a>  |
+                <a href="/note-legali.html" style="color: #000000; text-decoration: underline; font-weight: bold;">Note Legali</a>  |
+                <a href="/contatti.html" style="color: #000000; text-decoration: underline; font-weight: bold;">CONTATTI</a>
             </p>
-            
-            <!-- CONTROLLI DI FILTRO E RICERCA -->
-            <div class="blog-filters" style="display: flex; flex-wrap: wrap; gap: 15px; margin-bottom: 40px; padding: 20px; background: rgba(0,0,0,0.02); border-radius: 8px; border: 1px solid rgba(0,0,0,0.05);">
-                <!-- Ricerca Testuale -->
-                <div style="flex: 2; min-width: 250px;">
-                    <label for="searchBar" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 5px; color: var(--text-dark);">Cerca Articolo</label>
-                    <input type="text" id="searchBar" placeholder="Inserisci parole chiave..." style="width:80%; padding: 10px; border-radius: 6px; border: 1px solid rgba(0,0,0,0.15); font-family: inherit; font-size: 0.95rem;">
-                </div>
 
-                <!-- Filtro Tematiche -->
-                <div style="flex: 1; min-width: 180px;">
-                    <label for="categoryFilter" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 5px; color: var(--text-dark);">Tematica</label>
-                    <select id="categoryFilter" style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid rgba(0,0,0,0.15); font-family: inherit; font-size: 0.95rem; background: white;">
-                        <option value="all">Tutte le tematiche</option>
-                    </select>
-                </div>
+            <p style="margin-bottom: 15px;">© 2026 Seeker d. Code. • Tutti i diritti riservati.</p>
 
-                <!-- Ordinamento per Data -->
-                <div style="flex: 1; min-width: 180px;">
-                    <label for="dateSort" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 5px; color: var(--text-dark);">Ordina per</label>
-                    <select id="dateSort" style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid rgba(0,0,0,0.15); font-family: inherit; font-size: 0.95rem; background: white;">
-                        <option value="desc">Più recenti prima</option>
-                        <option value="asc">Più vecchi prima</option>
-                    </select>
-                </div>
-            </div>
+            <div id="google_translate_element"></div>
 
-            <!-- SEZIONE GRIGLIA ARTICOLI (Utilizza la tua classe .grid esistente) -->
-      
-            <div class="grid" id="blogGrid">
+            <script type="text/javascript">
+                // Carica il Traduttore solo se siamo online
+                if (window.location.protocol !== 'file:') {
+                    function googleTranslateElementInit() {
+                        new google.translate.TranslateElement({
+                            pageLanguage: 'it',
+                            includedLanguages: 'en,es,fr,zh-CN,de,ja,ru',
+                            layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+                        }, 'google_translate_element');
+                    }
 
-                <!-- ARTICOLO 21: L'importanza dell'alfabetizzazione elettronica -->
-                <article class="card" data-date="2026-07-23" data-category="FORMAZIONE" style="flex-direction: column; align-items: stretch; gap: 15px;">
-                    <div class="card-content">
-                        <div class="badge-container">
-                            <span class="badge badge-platform" style="color: #fff; background-color: #ff9800;">FORMAZIONE</span>
-                        </div>
-                        <h3 style="font-size: 1.4rem; margin-top: 5px;">L'importanza dell'alfabetizzazione elettronica: Oltre l'uso passivo della tecnologia</h3>
-                        <p style="font-size: 0.95rem; line-height: 1.5; margin-bottom: 15px;">
-                            Saper scorrere passivamente un feed non equivale a possedere reali competenze digitali. Sfatiamo il mito dei nativi digitali esplorando l'importanza dell'alfabetizzazione elettronica come strumento indispensabile di emancipazione, difesa della privacy e cittadinanza attiva.
-                        </p>
-                        <a href="blog/23-07-2026-alfabetizzazione-elettronica.html" class="btn" style="margin-top: auto; align-self: flex-start; padding: 8px 20px; font-size: 0.85rem;">
-                            Leggi l'Articolo
-                        </a>
-                    </div>
-                </article>
-
-                <!-- ARTICOLO 20: Roadmap e Futuro -->
-                <article class="card" data-date="2026-07-22" data-category="ECOSISTEMA" style="flex-direction: column; align-items: stretch; gap: 15px;">
-                    <div class="card-content">
-                        <div class="badge-container">
-                            <span class="badge badge-platform" style="color: #fff; background-color: #9c27b0;">ECOSISTEMA</span>
-                        </div>
-                        <h3 style="font-size: 1.4rem; margin-top: 5px;">Il futuro di Seeker D. Code: La nostra Roadmap per un web più pulito</h3>
-                        <p style="font-size: 0.95rem; line-height: 1.5; margin-bottom: 15px;">
-                            Un post programmatico e conclusivo che delinea i prossimi passi della nostra piattaforma indipendente. Uno sguardo in anteprima sui futuri moduli sperimentali di OCR locale e micro-mappe cartografiche, i piani di attivazione dei subdomini per i progetti degli ex-studenti e la visione a lungo termine della nostra ditta individuale.
-                        </p>
-                        <a href="/blog/22-07-2026-futuro-seeker-d-code-roadmap.html" class="btn" style="margin-top: auto; align-self: flex-start; padding: 8px 20px; font-size: 0.85rem;">
-                            Leggi l'Articolo
-                        </a>
-                    </div>
-                </article>
-
-                <!-- ARTICOLO 19: Ottimizzazione Desktop -->
-                <article class="card" data-date="2026-07-21" data-category="SVILUPPO WEB" style="flex-direction: column; align-items: stretch; gap: 15px;">
-                    <div class="card-content">
-                        <div class="badge-container">
-                            <span class="badge badge-platform" style="color: #fff; background-color: #2196f3;">SVILUPPO WEB</span>
-                        </div>
-                        <h3 style="font-size: 1.4rem; margin-top: 5px;">Perché ottimizzare i siti web per l'uso su PC desktop è ancora fondamentale</h3>
-                        <p style="font-size: 0.95rem; line-height: 1.5; margin-bottom: 15px;">
-                            In controtendenza rispetto al rigido dogma del mobile-first, analizziamo perché lo schermo del computer rimane insostituibile per lo studio, il lavoro e gli strumenti di utilità complessi. Una guida all'ergonomia visiva, ai layout multi-colonna e all'ottimizzazione per mouse e tastiera.
-                        </p>
-                        <a href="/blog/21-07-2026-ottimizzare-siti-web-uso-desktop.html" class="btn" style="margin-top: auto; align-self: flex-start; padding: 8px 20px; font-size: 0.85rem;">
-                            Leggi l'Articolo
-                        </a>
-                    </div>
-                </article>
-
-                <!-- ARTICOLO 18: Tecnologia OCR -->
-                <article class="card" data-date="2026-07-20" data-category="TECNOLOGIA" style="flex-direction: column; align-items: stretch; gap: 15px;">
-                    <div class="card-content">
-                        <div class="badge-container">
-                            <span class="badge badge-platform" style="color: #fff; background-color: #00bcd4;">TECNOLOGIA</span>
-                        </div>
-                        <h3 style="font-size: 1.4rem; margin-top: 5px;">Dall'immagine al testo: Come la tecnologia OCR sta rivoluzionando la lettura digitale</h3>
-                        <p style="font-size: 0.95rem; line-height: 1.5; margin-bottom: 15px;">
-                            Un focus tecnico e accessibile sui meccanismi che permettono ai computer di leggere i pixel. Scopri le fasi di binarizzazione, segmentazione geometrica delle aree e riconoscimento dei glifi, essenziali per lo sviluppo di futuri strumenti di traduzione integrata.
-                        </p>
-                        <a href="/blog/20-07-2026-ocr-tecnologia-lettura-digitale.html" class="btn" style="margin-top: auto; align-self: flex-start; padding: 8px 20px; font-size: 0.85rem;">
-                            Leggi l'Articolo
-                        </a>
-                    </div>
-                </article>
-
-                <!-- ARTICOLO 17: Traduzione Cloud automatica -->
-                <article class="card" data-date="2026-07-19" data-category="TECNOLOGIA" style="flex-direction: column; align-items: stretch; gap: 15px;">
-                    <div class="card-content">
-                        <div class="badge-container">
-                            <span class="badge badge-platform" style="color: #fff; background-color: #0b616c;">TECNOLOGIA</span>
-                        </div>
-                        <h3 style="font-size: 1.4rem; margin-top: 5px;">Traduzione Cloud automatica: Lo stato dell'arte nel 2026</h3>
-                        <p style="font-size: 0.95rem; line-height: 1.5; margin-bottom: 15px;">
-                            Un'analisi architetturale approfondita sulle moderne API cloud di localizzazione linguistica. Scopri come l'integrazione di reti neurali profonde e nodi di elaborazione edge-computing consenta di interpretare e tradurre idiomi orientali complessi in frazioni di secondo.
-                        </p>
-                        <a href="/blog/19-07-2026-traduzione-cloud-automatica-2026.html" class="btn" style="margin-top: auto; align-self: flex-start; padding: 8px 20px; font-size: 0.85rem;">
-                            Leggi l'Articolo
-                        </a>
-                    </div>
-                </article>
-
-                <!-- ARTICOLO 16: Turismo locale e digitale -->
-                <article class="card" data-date="2026-07-18" data-category="SVILUPPO WEB" style="flex-direction: column; align-items: stretch; gap: 15px;">
-                    <div class="card-content">
-                        <div class="badge-container">
-                            <span class="badge badge-platform" style="color: #fff; background-color: #2196f3;">SVILUPPO WEB</span>
-                        </div>
-                        <h3 style="font-size: 1.4rem; margin-top: 5px;">Turismo locale e digitale: Creare mappe personalizzate per micro-eventi</h3>
-                        <p style="font-size: 0.95rem; line-height: 1.5; margin-bottom: 15px;">
-                            Basta costose applicazioni native che nessuno vuole scaricare negli store. Scopri come gli organizzatori di sagre, fiere e percorsi escursionistici possono valorizzare il territorio attraverso micro-utility cartografiche web immediate, economiche ed etiche.
-                        </p>
-                        <a href="/blog/18-07-2026-turismo-locale-mappe-personalizzate.html" class="btn" style="margin-top: auto; align-self: flex-start; padding: 8px 20px; font-size: 0.85rem;">
-                            Leggi l'Articolo
-                        </a>
-                    </div>
-                </article>
-
-                <!-- ARTICOLO 15: Geo-utility -->
-                <article class="card" data-date="2026-07-17" data-category="SVILUPPO WEB" style="flex-direction: column; align-items: stretch; gap: 15px;">
-                    <div class="card-content">
-                        <div class="badge-container">
-                            <span class="badge badge-platform" style="color: #fff; background-color: #2196f3;">SVILUPPO WEB</span>
-                        </div>
-                        <h3 style="font-size: 1.4rem; margin-top: 5px;">Geo-utility: Perché le applicazioni basate sulla posizione devono essere immediate</h3>
-                        <p style="font-size: 0.95rem; line-height: 1.5; margin-bottom: 15px;">
-                            Chi usa un applicativo per strada, sotto la pioggia o in viaggio non ha tempo da perdere dietro a caricamenti infiniti. Un'analisi approfondita sull'ottimizzazione del Geofencing, la gestione asincrona dei dati cartografici e i vantaggi delle PWA per le utility territoriali.
-                        </p>
-                        <a href="/blog/17-07-2026-geo-utility-applicazioni-posizione.html" class="btn" style="margin-top: auto; align-self: flex-start; padding: 8px 20px; font-size: 0.85rem;">
-                            Leggi l'Articolo
-                        </a>
-                    </div>
-                </article>
-
-                <!-- ARTICOLO 14: Guida pratica: Come ottimizzare una mappa web -->
-                <article class="card" data-date="2026-07-16" data-category="SVILUPPO WEB" style="flex-direction: column; align-items: stretch; gap: 15px;">
-                    <div class="card-content">
-                        <div class="badge-container">
-                            <span class="badge badge-platform" style="color: #fff; background-color: #2196f3;">SVILUPPO WEB</span>
-                        </div>
-                        <h3 style="font-size: 1.4rem; margin-top: 5px;">Guida pratica: Come ottimizzare una mappa web per i dispositivi mobili</h3>
-                        <p style="font-size: 0.95rem; line-height: 1.5; margin-bottom: 15px;">
-                            I dispositivi mobile richiedono accorgimenti specifici per evitare lag di scorrimento e rallentamenti hardware. Scopri le strategie di sfoltimento dei GeoJSON, l'uso corretto del Marker Clustering e la rimozione dei conflitti touch per interfacce geografiche fulminee.
-                        </p>
-                        <a href="/blog/16-07-2026-ottimizzare-mappa-web-mobile.html" class="btn" style="margin-top: auto; align-self: flex-start; padding: 8px 20px; font-size: 0.85rem;">
-                            Leggi l'Articolo
-                        </a>
-                    </div>
-                </article>
-
-                <!-- ARTICOLO 13: Mappe Interattive -->
-                <article class="card" data-date="2026-07-15" data-category="SVILUPPO WEB" style="flex-direction: column; align-items: stretch; gap: 15px;">
-                    <div class="card-content">
-                        <div class="badge-container">
-                            <span class="badge badge-platform" style="color: #fff; background-color: #2196f3;">SVILUPPO WEB</span>
-                        </div>
-                        <h3 style="font-size: 1.4rem; margin-top: 5px;">Come le mappe interattive stanno cambiando il modo di esplorare il territorio</h3>
-                        <p style="font-size: 0.95rem; line-height: 1.5; margin-bottom: 15px;">
-                            Un'analisi tecnica sull'importanza delle interfacce geospaziali dinamiche nel web moderno. Scopri come la progettazione mobile-first e l'integrazione di layer di informazione intuitivi consentono di valorizzare percorsi, itinerari e guide locali senza sacrificare performance e privacy.
-                        </p>
-                        <a href="/blog/15-07-2026-mappe-interattive-esplorare-territorio.html" class="btn" style="margin-top: auto; align-self: flex-start; padding: 8px 20px; font-size: 0.85rem;">
-                            Leggi l'Articolo
-                        </a>
-                    </div>
-                </article>
-
-                <!-- ARTICOLO 12: Strumenti web per studenti -->
-                <article class="card" data-date="2026-07-14" data-category="GUIDA UTENTE" style="flex-direction: column; align-items: stretch; gap: 15px;">
-                    <div class="card-content">
-                        <div class="badge-container">
-                            <span class="badge badge-platform" style="color: #fff; background-color: var(--accent-sky)">GUIDA UTENTE</span>
-                        </div>
-                        <h3 style="font-size: 1.4rem; margin-top: 5px;">I migliori strumenti web gratuiti per studenti universitari nel 2026</h3>
-                        <p style="font-size: 0.95rem; line-height: 1.5; margin-bottom: 15px;">
-                            Una selezione mirata delle migliori utility leggere, etiche e decentralizzate per svoltare lo studio individuale. Scopri come organizzare fonti e scadenze, ottimizzando le lezioni grazie all'integrazione di Live Speech Text.
-                        </p>
-                        <a href="/blog/14-07-2026-migliori-strumenti-web-studenti.html" class="btn" style="margin-top: auto; align-self: flex-start; padding: 8px 20px; font-size: 0.85rem;">
-                            Leggi l'Articolo
-                        </a>
-                    </div>
-                </article>
-
-                <!-- ARTICOLO 11: Privacy e riconoscimento vocale -->
-                <article class="card" data-date="2026-07-13" data-category="MANIFESTO ETICO" style="flex-direction: column; align-items: stretch; gap: 15px;">
-                    <div class="card-content">
-                        <div class="badge-container">
-                            <span class="badge badge-platform" style="color: #fff; background-color: #ff5722;">MANIFESTO ETICO</span>
-                        </div>
-                        <h3 style="font-size: 1.4rem; margin-top: 5px;">Perché la privacy è fondamentale quando usi un software di riconoscimento vocale</h3>
-                        <p style="font-size: 0.95rem; line-height: 1.5; margin-bottom: 15px;">
-                            Un duro attacco alle multinazionali che memorizzano i campioni audio degli utenti per finalità di profilazione commerciale e addestramento AI. Scopri l'architettura etica a chilometro zero di Live Speech Text per blindare i tuoi dati locali sul browser.
-                        </p>
-                        <a href="/blog/13-07-2026-privacy-sintesi-vocale-web.html" class="btn" style="margin-top: auto; align-self: flex-start; padding: 8px 20px; font-size: 0.85rem;">
-                            Leggi l'Articolo
-                        </a>
-                    </div>
-                </article>
-
-                <!-- ARTICOLO 10: Guida pratica a Live Speech Text -->
-                <article class="card" data-date="2026-07-12" data-category="GUIDA UTENTE" style="flex-direction: column; align-items: stretch; gap: 15px;">
-                    <div class="card-content">
-                        <div class="badge-container">
-                            <span class="badge badge-platform" style="color: #fff; background-color: var(--accent-sky)">GUIDA UTENTE</span>
-                        </div>
-                        <h3 style="font-size: 1.4rem; margin-top: 5px;">Prendere appunti non è mai stato così veloce: Guida a Live Speech Text</h3>
-                        <p style="font-size: 0.95rem; line-height: 1.5; margin-bottom: 15px;">
-                            Una guida interamente incentrata sull'uso pratico della nostra PWA di trascrizione automatica. Scopri come installarla in un secondo, configurare i permessi e registrare conversazioni o lezioni senza muovere un dito sulla tastiera.
-                        </p>
-                        <a href="/blog/12-07-2026-prendere-appunti.html" class="btn" style="margin-top: auto; align-self: flex-start; padding: 8px 20px; font-size: 0.85rem;">
-                            Leggi l'Articolo
-                        </a>
-                    </div>
-                </article>
-
-                <!-- ARTICOLO 9: Dietro le quinte di Seeker D. Code -->
-                <article class="card" data-date="2026-07-11" data-category="GUIDA UTENTE" style="flex-direction: column; align-items: stretch; gap: 15px;">
-                    <div class="card-content">
-                        <div class="badge-container">
-                            <span class="badge badge-platform" style="color: #fff; background-color: var(--accent-sky)">GUIDA UTENTE</span>
-                        </div>
-                        <h3 style="font-size: 1.4rem; margin-top: 5px;">Trascrizione in tempo reale: Come la tecnologia sta abbattendo le barriere linguistiche</h3>
-                        <p style="font-size: 0.95rem; line-height: 1.5; margin-bottom: 15px;">
-                            Dall'inclusione fondamentale delle persone non udenti all'ottimizzazione immediata dello studio e della verbalizzazione aziendale. Scopri le potenzialità dei sistemi automatici da voce a testo e l'approccio immediato di Live Speech Text.
-                        </p>
-                        <a href="/blog/11-07-2026-trascrizione-tempo-reale.html" class="btn" style="margin-top: auto; align-self: flex-start; padding: 8px 20px; font-size: 0.85rem;">
-                            Leggi l'Articolo
-                        </a>
-                    </div>
-                </article>
-
-                <!-- ARTICOLO 8: Dietro le quinte di Seeker D. Code -->
-                <article class="card" data-date="2026-07-10" data-category="MANIFESTO ETICO" style="flex-direction: column; align-items: stretch; gap: 15px;">
-                    <div class="card-content">
-                        <div class="badge-container">
-                            <span class="badge badge-platform" style="color: #fff; background-color: #ff5722;">MANIFESTO ETICO</span>
-                        </div>
-                        <h3 style="font-size: 1.4rem; margin-top: 5px;">Dietro le quinte di Seeker D. Code: Come uniamo programmazione e libertà</h3>
-                        <p style="font-size: 0.95rem; line-height: 1.5; margin-bottom: 15px;">
-                            Un articolo di brand identity che unisce la passione per lo sviluppo web indipendente alla ricerca della libertà digitale. Scopri la nostra filosofia, i nostri valori strutturali e un parallelo ideale con l'era romantica delle utility libere da vincoli commerciali.
-                        </p>
-                        <a href="/blog/10-07-2026-dietro-le-quinte-seeker-d-code.html" class="btn" style="margin-top: auto; align-self: flex-start; padding: 8px 20px; font-size: 0.85rem;">
-                            Leggi l'Articolo
-                        </a>
-                    </div>
-                </article>
-
-                <!-- ARTICOLO 7: Minimalismo Digitale -->
-                <article class="card" data-date="2026-07-09" data-category="MANIFESTO ETICO" style="flex-direction: column; align-items: stretch; gap: 15px;">
-                    <div class="card-content">
-                        <div class="badge-container">
-                            <span class="badge badge-platform" style="color: #fff; background-color: #ff5722;">MANIFESTO ETICO</span>
-                        </div>
-                        <h3 style="font-size: 1.4rem; margin-top: 5px;">Minimalismo Digitale: Creare strumenti che fanno solo una cosa, ma la fanno bene</h3>
-                        <p style="font-size: 0.95rem; line-height: 1.5; margin-bottom: 15px;">
-                            Basta con applicazioni pesanti piene di funzionalità superflue e tracciamenti nascosti. Analizziamo i vantaggi delle utility focalizzate su un unico obiettivo: massime performance, interfaccia pulita e zero sprechi di risorse.
-                        </p>
-                        <a href="/blog/09-07-2026-minimalismo-digitale.html" class="btn" style="margin-top: auto; align-self: flex-start; padding: 8px 20px; font-size: 0.85rem;">
-                            Leggi l'Articolo
-                        </a>
-                    </div>
-                </article>
-
-                <!-- ARTICOLO 6: Cosa sono le PWA e perché sostituiranno lo Store -->
-                <article class="card" data-date="2026-07-08" data-category="GUIDA TECNICA" style="flex-direction: column; align-items: stretch; gap: 15px;">
-                    <div class="card-content">
-                        <div class="badge-container">
-                            <span class="badge badge-platform">GUIDA TECNICA</span>
-                        </div>
-                        <h3 style="font-size: 1.4rem; margin-top: 5px;">Cosa sono le PWA e perché sostituiranno le app del Play Store</h3>
-                        <p style="font-size: 0.95rem; line-height: 1.5; margin-bottom: 15px;">
-                            Scopri le Progressive Web Apps: interfacce leggerissime che si installano con un semplice tocco senza passare dagli store centralizzati, capaci di funzionare offline e occupando zero memoria sul telefono.
-                        </p>
-                        <a href="/blog/08-07-2026-pwa-futuro-del-web.html" class="btn" style="margin-top: auto; align-self: flex-start; padding: 8px 20px; font-size: 0.85rem;">
-                            Leggi l'Articolo
-                        </a>
-                    </div>
-                </article>
-
-                <!-- ARTICOLO 5: Perché il web di oggi è diventato frustrante -->
-                <article class="card" data-date="2026-07-07" data-category="WEB DESIGN" style="flex-direction: column; align-items: stretch; gap: 15px;">
-                    <div class="card-content">
-                        <div class="badge-container">
-                            <span class="badge badge-platform" style="color: #fff; background-color: #007aff;">WEB DESIGN</span>
-                        </div>
-                        <h3 style="font-size: 1.4rem; margin-top: 5px;">Perché il web di oggi è diventato frustrante (e come lo stiamo curando)</h3>
-                        <p style="font-size: 0.95rem; line-height: 1.5; margin-bottom: 15px;">
-                            Tra pop-up invasivi, video in autoplay e continui sbalzi di layout, la navigazione moderna è diventata una corsa a ostacoli. Analizziamo la crisi d'identità del web e le soluzioni tecniche per rimettere l'esperienza utente al primo posto.
-                        </p>
-                        <a href="/blog/07-07-2026-web-frustrante.html" class="btn" style="margin-top: auto; align-self: flex-start; padding: 8px 20px; font-size: 0.85rem;">
-                            Leggi l'Articolo
-                        </a>
-                    </div>
-                </article>
-
-                <!-- ARTICOLO 4: Il Manifesto della Monetizzazione Pulita -->
-                <article class="card" data-date="2026-06-30" data-category="MANIFESTO ETICO" style="flex-direction: column; align-items: stretch; gap: 15px;">
-                    <div class="card-content">
-                        <div class="badge-container">
-                            <span class="badge badge-platform" style="color: #fff; background-color: #ff5722;">MANIFESTO ETICO</span>
-                        </div>
-                        <h3 style="font-size: 1.4rem; margin-top: 5px;">Basta layout che ballano: la monetizzazione rispettosa di Seeker D. Code</h3>
-                        <p style="font-size: 0.95rem; line-height: 1.5; margin-bottom: 15px;">
-                            Scopri la nostra filosofia di sviluppo contro i banner invasivi e i continui sbalzi di layout. Ti spieghiamo come sosteniamo i progetti e garantiamo l'indipendenza economica diretta dei nostri studenti e collaboratori.
-                        </p>
-                        <a href="/blog/basta_layout_che_ballano.html" class="btn" style="margin-top: auto; align-self: flex-start; padding: 8px 20px; font-size: 0.85rem;">
-                            Leggi il Manifesto
-                        </a>
-                    </div>
-                </article>
-
-                <!-- ARTICOLO 3: Liberati dagli Store con Seeker D. Code -->
-                <article class="card" data-date="2026-06-15" data-category="GUIDA UTENTE" style="flex-direction: column; align-items: stretch; gap: 15px;">
-                    <div class="card-content">
-                        <div class="badge-container">
-                            <span class="badge badge-platform" style="color: #fff; background-color: var(--accent-sky)">GUIDA UTENTE</span>
-                        </div>
-                        <h3 style="font-size: 1.4rem; margin-top: 5px;">Liberati dagli Store: Come installare la flotta di Seeker D. Code</h3>
-                        <p style="font-size: 0.95rem; line-height: 1.5; margin-bottom: 15px;">
-                            Una guida visiva e immediata per aggiungere le nostre applicazioni direttamente sulla schermata Home del tuo smartphone o PC. Scopri come saltare i monopoli degli store in meno di 10 secondi.
-                        </p>
-                        <a href="/blog/cos-e-pwa.html" class="btn" style="margin-top: auto; align-self: flex-start; padding: 8px 20px; font-size: 0.85rem;">
-                            Leggi la Guida
-                        </a>
-                    </div>
-                </article>
-
-                <!-- ARTICOLO 2: OTTIMIZZAZIONE FLUTTER/DART -->
-                <article class="card" data-date="2026-05-28" data-category="DEVELOPMENT" style="flex-direction: column; align-items: stretch; gap: 15px;">
-                    <div class="card-content">
-                        <div class="badge-container">
-                            <span class="badge badge-upcoming">DEVELOPMENT</span>
-                        </div>
-                        <h3 style="font-size: 1.4rem; margin-top: 5px;">Sviluppare Mappe Interattive in Flutter: Sfide e Soluzioni</h3>
-                        <p style="font-size: 0.95rem; line-height: 1.5; margin-bottom: 15px;">
-                            Un dietro le quinte tecnico sulla gestione delle coordinate geografiche, il caricamento fluido dei marker e l'ottimizzazione del rendering su browser mobile per applicazioni cartografiche.
-                        </p>
-                        <a href="/blog/mappe-interattive-flutter.html" class="btn" style="margin-top: auto; align-self: flex-start; padding: 8px 20px; font-size: 0.85rem;">
-                            Leggi l'Articolo
-                        </a>
-                    </div>
-                </article>
-
-                <!-- ARTICOLO 1: FOCUS PWA -->
-                <article class="card" data-date="2026-05-10" data-category="GUIDA TECNICA" style="flex-direction: column; align-items: stretch; gap: 15px;">
-                    <div class="card-content">
-                        <div class="badge-container">
-                            <span class="badge badge-platform">GUIDA TECNICA</span>
-                        </div>
-                        <h3 style="font-size: 1.4rem; margin-top: 5px;">Perché le Progressive Web Apps (PWA) sono il futuro del Web</h3>
-                        <p style="font-size: 0.95rem; line-height: 1.5; margin-bottom: 15px;">
-                            Scopri come le PWA stanno cambiando l'esperienza utente su mobile. Analizziamo i vantaggi dei Service Worker, la riduzione dei consumi di dati e l'indipendenza dai classici store di applicazioni.
-                        </p>
-                        <a href="/blog/perche-scegliere-pwa.html" class="btn" style="margin-top: auto; align-self: flex-start; padding: 8px 20px; font-size: 0.85rem;">
-                            Leggi l'Articolo
-                        </a>
-                    </div>
-                </article>
-
-            </div>
-
-            <!-- Messaggio se la ricerca non produce risultati -->
-            <div id="noResultsMessage" style="display: none; text-align: center; padding: 30px; color: var(--text-muted); font-size: 1.1rem;">
-                Nessun articolo trovato con i criteri selezionati.
-            </div>
-
-        </main>
-    </div>
-
-    <!-- FOOTER OTTIMIZZATO CON RIGHE INVERTITE -->
-   <div class="ads-banner" id="ad-bottom">
-        <ins class="adsbygoogle"
-            style="display:block;"
-            data-ad-client="ca-pub-9544811471414500"
-            data-ad-slot="1393962976"
-            data-ad-format="horizontal"
-            data-full-width-responsive="false">
-        </ins> 
-        <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-    </div>
-
-    <footer>
-        <p style="margin-bottom: 10px;">
-            <a href="/Privacy & Cookie Policy.html" style="color: #000000; text-decoration: underline; font-weight: bold;">Privacy & Cookie Policy</a>  |  
-            <a href="/note-legali.html" style="color: #000000; text-decoration: underline; font-weight: bold;">Note Legali</a>  |  
-            <a href="/contatti.html" style="color: #000000; text-decoration: underline; font-weight: bold;">CONTATTI</a>
-        </p>
-        
-        <p style="margin-bottom: 15px;">© 2026 Seeker d. Code. • Tutti i diritti riservati.</p>
-        
-        <div id="google_translate_element"></div>
-
-        <script type="text/javascript">
-            // Carica il Traduttore solo se siamo online
-            if (window.location.protocol !== 'file:') {
-                function googleTranslateElementInit() {
-                    new google.translate.TranslateElement({
-                        pageLanguage: 'it',
-                        includedLanguages: 'en,es,fr,zh-CN,de,ja,ru',
-                        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-                    }, 'google_translate_element');
+                    const translateScript = document.createElement('script');
+                    translateScript.type = 'text/javascript';
+                    translateScript.src = "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+                    document.head.appendChild(translateScript);
                 }
-                
-                const translateScript = document.createElement('script');
-                translateScript.type = 'text/javascript';
-                translateScript.src = "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
-                document.head.appendChild(translateScript);
-            }
-        </script>
-    </footer>
+            </script>
+        </footer>
 
-    <script src="banners.js"></script>
-    <script src="script.js"></script>
+        <script src="banners.js"></script>
+        <script src="script.js"></script>
+        <script src="/blog/blog.js"></script>
 
-        <script>
-            (function() {
-                const details = document.querySelector('#about details');
-                if(details) {
-                    details.addEventListener('click', function(e) {
-                        if (this.open && e.target.closest('summary')) {
-                            e.preventDefault(); 
-                            const currentScroll = window.scrollY;
-                            this.open = false;
-                            window.scrollTo(0, currentScroll);
-                        }
-                    });
-                }
-            })();
+            <script>
+                (function() {
+                    const details = document.querySelector('#about details');
+                    if(details) {
+                        details.addEventListener('click', function(e) {
+                            if (this.open && e.target.closest('summary')) {
+                                e.preventDefault();
+                                const currentScroll = window.scrollY;
+                                this.open = false;
+                                window.scrollTo(0, currentScroll);
+                            }
+                        });
+                    }
+                })();
+            </script>
+
         </script>
 
-        <!-- SCRIPT LOGICA DI FILTRO, RICERCA ED ORDINAMENTO DINAMICO -->
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-    const searchBar = document.getElementById("searchBar");
-    const categoryFilter = document.getElementById("categoryFilter");
-    const dateSort = document.getElementById("dateSort");
-    const blogGrid = document.getElementById("blogGrid");
-    const noResultsMessage = document.getElementById("noResultsMessage");
-    
-    // 1. Memorizziamo le card in un array nativo
-    let articles = Array.from(blogGrid.querySelectorAll("article.card"));
 
-    // 2. POPOLAMENTO AUTOMATICO DEL FILTRO CATEGORIE
-    function setupDynamicCategories() {
-        const categories = new Set(); // Il Set evita i duplicati automaticamente
-        
-        // Estraiamo la categoria da ogni articolo presente nella pagina
-        articles.forEach(article => {
-            const cat = article.getAttribute("data-category");
-            if (cat) {
-                categories.add(cat.trim());
-            }
-        });
+            <button id="backToTop" class="back-to-top" title="Torna su">▲</button>
+            <script>
+                const backToTopBtn = document.getElementById("backToTop");
 
-        // Svuotiamo il select mantenendo solo la prima opzione standard ("Tutte")
-        categoryFilter.innerHTML = '<option value="all">Tutte le tematiche</option>';
-
-        // Ordiniamo le categorie alfabeticamente e le aggiungiamo al select
-        Array.from(categories).sort().forEach(category => {
-            const option = document.createElement("option");
-            option.value = category;
-            // Rendiamo il testo leggibile (es: tutto minuscolo tranne la prima lettera)
-            option.textContent = category.charAt(0).toUpperCase() + category.slice(1).toLowerCase();
-            categoryFilter.appendChild(option);
-        });
-    }
-
-    // 3. LOGICA DI FILTRO ED ORDINAMENTO
-    function filterAndSortArticles() {
-        const searchText = searchBar.value.toLowerCase().trim();
-        const selectedCategory = categoryFilter.value;
-        const selectedSort = dateSort.value;
-        let visibleCount = 0;
-
-        // Filtro (Ricerca e Categoria)
-        articles.forEach(article => {
-            const title = article.querySelector("h3").textContent.toLowerCase();
-            const description = article.querySelector("p").textContent.toLowerCase();
-            const category = article.getAttribute("data-category");
-
-            const matchesSearch = title.includes(searchText) || description.includes(searchText);
-            const matchesCategory = selectedCategory === "all" || category === selectedCategory;
-
-            if (matchesSearch && matchesCategory) {
-                article.style.display = "flex";
-                visibleCount++;
-            } else {
-                article.style.display = "none";
-            }
-        });
-
-        // Messaggio nessun risultato
-        noResultsMessage.style.display = visibleCount === 0 ? "block" : "none";
-
-        // Ordinamento per Data
-        articles.sort((a, b) => {
-            const dateA = new Date(a.getAttribute("data-date"));
-            const dateB = new Date(b.getAttribute("data-date"));
-            return selectedSort === "desc" ? dateB - dateA : dateA - dateB;
-        });
-
-        // Riappende gli elementi ordinati
-        articles.forEach(article => blogGrid.appendChild(article));
-    }
-
-    // Inizializziamo il filtro dinamico prima del primo rendering
-    setupDynamicCategories();
-
-    // Ascoltatori di eventi
-    searchBar.addEventListener("input", filterAndSortArticles);
-    categoryFilter.addEventListener("change", filterAndSortArticles);
-    dateSort.addEventListener("change", filterAndSortArticles);
-
-    // Eseguiamo il primo ordinamento iniziale
-    filterAndSortArticles();
-});
-    </script>
-
-
-        <button id="backToTop" class="back-to-top" title="Torna su">▲</button>
-        <script>
-            const backToTopBtn = document.getElementById("backToTop");
-
-            window.addEventListener("scroll", () => {
-                if (window.scrollY > 400) {
-                    backToTopBtn.classList.add("show");
-                } else {
-                    backToTopBtn.classList.remove("show");
-                }
-            });
-
-            backToTopBtn.addEventListener("click", () => {
-                window.scrollTo({
-                    top: 0,
-                    behavior: "smooth"
+                window.addEventListener("scroll", () => {
+                    if (window.scrollY > 400) {
+                        backToTopBtn.classList.add("show");
+                    } else {
+                        backToTopBtn.classList.remove("show");
+                    }
                 });
-            });
-        </script>
-</body>
-</html>
+
+                backToTopBtn.addEventListener("click", () => {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: "smooth"
+                    });
+                });
+            </script>
+    </body>
+    </html>
